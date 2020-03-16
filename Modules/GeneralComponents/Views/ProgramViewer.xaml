@@ -1,0 +1,52 @@
+﻿<UserControl
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:prism="http://prismlibrary.com/"
+        xmlns:lb="clr-namespace:CNCCenteredListBox"
+        x:Class="GeneralComponents.Views.ProgramViewer"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        xmlns:ig="http://schemas.infragistics.com/xaml"
+    xmlns:models="clr-namespace:GeneralComponents.Models"
+    xmlns:converters="http://www.infrastructure.cnc.com/converters"
+    mc:Ignorable="d" 
+        d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <converters:VisibilityMultiValueConverter x:Key="VisibilityMultiValueConverter"/>
+    </UserControl.Resources>
+    <ig:XamBusyIndicator IsBusy="{Binding IsBusy}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <models:GCodeViewer ProgramText="{Binding ProgramText}" SelectedLine="{Binding StringNumber}" HighlightLine="{Binding HighlightLine}"
+                                VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Auto" FontSize="35"/>
+
+            <Grid Grid.Column="1" Grid.Row="0" Background="#FFF1F1F1" Opacity="1" x:Name="grid">
+                <Grid.Visibility>
+                    <MultiBinding Converter="{StaticResource VisibilityMultiValueConverter}">
+                        <Binding ElementName="grid" Path="DataContext.IsProgramNotRunning"/>
+                        <Binding ElementName="grid" Path="DataContext.CanEditProgram"/>
+                    </MultiBinding>
+                </Grid.Visibility>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button Command="{Binding LoadCommand}" CommandParameter="T" Content="LOAD" MaxHeight="75" MaxWidth="75" Style="{DynamicResource ButtonStyle1}" Template="{DynamicResource ButtonBaseControlTemplate1}"/>
+                <Button Grid.Row="1" Command="{Binding EditCommand}" Content="EDIT" MaxHeight="75" MaxWidth="75" Style="{DynamicResource ButtonStyle1}" Template="{DynamicResource ButtonBaseControlTemplate1}"/>
+            </Grid>
+
+            <Border Grid.Row="1" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="0.5">
+                <TextBlock Background="{DynamicResource MainBackgroundColor}" Visibility="{Binding FileNameVisibility}" FontSize="17" VerticalAlignment="Bottom" Style="{DynamicResource lbTextBlockStyle2}" Text="{Binding FileName}"/>
+            </Border>
+        </Grid>
+    </ig:XamBusyIndicator>
+</UserControl>

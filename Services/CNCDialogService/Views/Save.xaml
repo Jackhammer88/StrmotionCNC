@@ -1,0 +1,117 @@
+﻿<UserControl x:Class="CNCDialogService.Views.Save"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CNCDialogService.Views"
+             xmlns:Interactions="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:converters="http://www.infrastructure.cnc.com/converters"
+             xmlns:extensions="clr-namespace:CNCDialogService.Extensions"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Infrastructure;component/Resources/OpenDialogSkin.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <converters:TypeToImgConverter x:Key="TypeToImgConverter" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <prism:Dialog.WindowStyle>
+        <Style TargetType="Window">
+            <Setter Property="prism:Dialog.WindowStartupLocation" Value="CenterScreen" />
+            <Setter Property="WindowStyle" Value="None"/>
+            <Setter Property="ResizeMode" Value="NoResize"/>
+            <Setter Property="ShowInTaskbar" Value="False"/>
+            <Setter Property="Width" Value="1024"/>
+            <Setter Property="Height" Value="768"/>
+        </Style>
+    </prism:Dialog.WindowStyle>
+    <Border BorderBrush="#FF3152A0" BorderThickness="1" CornerRadius="10" Background="{DynamicResource MainBackgroundColor}">
+        <DockPanel x:Name="mainPanel" Margin="5">
+            <Grid DockPanel.Dock="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition MinWidth="150" Width="Auto"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Grid.ColumnSpan="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <ItemsControl Grid.Column="0" ItemsSource="{Binding Drives}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Button
+                            MaxWidth="100"
+                            MaxHeight="100"
+                            Margin="5"
+                            Command="{Binding ElementName=mainPanel, Path=DataContext.OpenDriveCommand}"
+                            CommandParameter="{Binding}"
+                            Content="{Binding}"
+                            Padding="5"
+                            Style="{StaticResource ButtonStyle1}"
+                            Template="{StaticResource ButtonBaseControlTemplate1}" />
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                    <Button Command="{Binding CloseDialogCommand}" Grid.Column="1" Template="{StaticResource ButtonBaseControlTemplate1}" Style="{StaticResource ButtonStyle1}" MaxHeight="100" MaxWidth="100" Content="Exit" Margin="5" Padding="2"/>
+                </Grid>
+                <Button Grid.Row="1" Grid.Column="2" MaxWidth="100" MaxHeight="100" Margin="4" Command="{Binding UpCommand}" Content="&#129093;" DockPanel.Dock="Right" Padding="10" Style="{DynamicResource ButtonStyle1}" Template="{StaticResource ButtonBaseControlTemplate1}"/>
+                <ComboBox Grid.Row="2" Grid.Column="0" Background="{DynamicResource MainBackgroundColor}" Margin="3" MaxHeight="100" VerticalContentAlignment="Center" FontSize="30" FontWeight="DemiBold" ItemsSource="{Binding Extensions}" SelectedIndex="0" SelectedItem="{Binding SelectedExtension, Mode=TwoWay}" Style="{DynamicResource ExtensionComboBoxStyle1}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Description}" Foreground="{DynamicResource MainTextColor}" Padding="5"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <Viewbox Grid.Row="1" Grid.ColumnSpan="2" MaxHeight="110">
+                    <TextBlock
+                        Margin="3"
+                        VerticalAlignment="Center"
+                        FontSize="40"
+                        Text="{Binding CurrentDirectory}"
+                        TextWrapping="Wrap" Foreground="#FF3152A0" />
+                </Viewbox>
+                <TextBox Text="{Binding FileName, UpdateSourceTrigger=PropertyChanged}" Height="70" Grid.Row="2" Grid.Column="1" FontSize="25" VerticalAlignment="Center" Margin="5" Padding="3 14 0 0"/>
+                <Button Command="{Binding SaveCommand}" Grid.Row="2" Grid.Column="2" Content="Save" Width="100" Height="80" Margin="5" Padding="2" Style="{DynamicResource ButtonStyle1}" Template="{StaticResource ButtonBaseControlTemplate1}"/>
+            </Grid>
+            <ListBox
+            Grid.Row="2"
+            Grid.ColumnSpan="3"
+            ItemsSource="{Binding Objects}">
+                <Interactions:Interaction.Triggers>
+                    <extensions:DelayedEventTrigger EventName="SelectionChanged" Delay="250">
+                        <Interactions:InvokeCommandAction Command="{Binding SelectCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListBox}, Path=SelectedItem}" />
+                    </extensions:DelayedEventTrigger>
+                </Interactions:Interaction.Triggers>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <DockPanel MinHeight="50">
+                            <Image Source="{Binding Converter={StaticResource TypeToImgConverter}}" />
+                            <TextBlock FontSize="40" Text="{Binding Name}" />
+                        </DockPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+        </DockPanel>
+    </Border>
+</UserControl>

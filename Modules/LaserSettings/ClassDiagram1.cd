@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="LaserSettings.Model.ApproachNormal" Collapsed="true">
+    <Position X="14" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\ApproachNormal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LaserSettings.Model.ApproachPrecut" Collapsed="true">
+    <Position X="3" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\ApproachPrecut.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LaserSettings.Model.ApproachRedAcc" Collapsed="true">
+    <Position X="7.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\ApproachRedAcc.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LaserSettings.Model.ApproachRedSpeed" Collapsed="true">
+    <Position X="0.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\ApproachRedSpeed.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LaserSettings.Model.ApproachRedSpeedAcc" Collapsed="true">
+    <Position X="5.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\ApproachRedSpeedAcc.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LaserSettings.Model.BurningBase">
+    <Position X="18.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QBAAAAAAQAAAEAAAAAhAAEAAABCAAAAYAAAIAQAAAAA=</HashCode>
+      <FileName>Model\BurningBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="LaserSettings.Model.BurningCycle" Collapsed="true">
+    <Position X="20.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\BurningCycle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LaserSettings.Model.BurnNormal" Collapsed="true">
+    <Position X="18.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\BurnNormal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LaserSettings.Model.BurnSoft" Collapsed="true">
+    <Position X="20.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\BurnSoft.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LaserSettings.Model.Cooling" Collapsed="true">
+    <Position X="7.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Cooling.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LaserSettings.Model.CuttingBase">
+    <Position X="7.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BBAAAAAAQAAAEAAAAAhAAAAAABCAAAAYAAAMAQAAAAA=</HashCode>
+      <FileName>Model\CuttingBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="LaserSettings.Model.Engraving" Collapsed="true">
+    <Position X="5.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Engraving.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LaserSettings.Model.Evaporation" Collapsed="true">
+    <Position X="9.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Evaporation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LaserSettings.Model.LargeContour" Collapsed="true">
+    <Position X="9.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\LargeContour.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LaserSettings.Model.LaserConfiguration" Collapsed="true">
+    <Position X="22.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Model\LaserConfiguration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LaserSettings.Model.MicroweldHard" Collapsed="true">
+    <Position X="12" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\MicroweldHard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LaserSettings.Model.MicroweldSoft" Collapsed="true">
+    <Position X="3" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\MicroweldSoft.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LaserSettings.Model.MiddleContour" Collapsed="true">
+    <Position X="12" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\MiddleContour.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LaserSettings.Model.PreBurn" Collapsed="true">
+    <Position X="0.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\PreBurn.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LaserSettings.Model.Punching" Collapsed="true">
+    <Position X="16.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Punching.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LaserSettings.Model.SmallContour" Collapsed="true">
+    <Position X="14" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\SmallContour.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LaserSettings.LaserParameterTableBase">
+    <Position X="12.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\LaserParameterTableBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="LaserSettings.Model.ILaserTableBase" Collapsed="true">
+    <Position X="20.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAQAAAEAAAAABAAAAAABCAAAAYAAAIAQAAAAA=</HashCode>
+      <FileName>Model\ILaserTableBase.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="LaserSettings.Model.Material" Collapsed="true">
+    <Position X="20.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BACAAAAAAAAAAAAAAAAAAAAAAQACCAAAEAAAAAAAARE=</HashCode>
+      <FileName>Model\Materials.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="10" />
+</ClassDiagram>

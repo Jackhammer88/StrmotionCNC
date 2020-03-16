@@ -1,0 +1,471 @@
+﻿<UserControl x:Class="GeneralComponents.Views.Statuses"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GeneralComponents.Views"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:converters="http://www.infrastructure.cnc.com/converters"
+             xmlns:controller="Infrastructure.Interfaces.CNCControllerService"
+             xmlns:res="http://www.infrastructure.cnc.com/resources"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <converters:MotorStatusesCountConverter x:Key="MotorStatusesCountConverter"/>
+        <Style x:Key="TextBlockErrorStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Foreground" Value="LightGreen"/>
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="True">
+                    <Setter Property="Foreground" Value="Red"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="DefaultTextBlockWarningStyle" TargetType="TextBlock">
+            <Setter Property="Margin" Value="5 2 2 2"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Foreground" Value="{DynamicResource MainTextColor}"/>
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="True">
+                    <Setter Property="Foreground" Value="Orange"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="TextBlock" BasedOn="{StaticResource DefaultTextBlockWarningStyle}">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="Border">
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+        </Style>
+
+        <DataTemplate x:Key="MotorTemplate">
+            <Grid Background="{DynamicResource MainBackgroundColor}">
+                <Grid.Resources>
+                    <Style TargetType="TextBlock" BasedOn="{StaticResource DefaultTextBlockWarningStyle}">
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                    </Style>
+                    <Style TargetType="Border">
+                        <Setter Property="BorderThickness" Value="1"/>
+                        <Setter Property="BorderBrush" Value="Black"/>
+                    </Style>
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Border Grid.Column="0" Grid.Row="0">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.RapidMaxVelocitySelect}" IsEnabled="{Binding RapidMaxVelocitySelect}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="1">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.SignMagnitudeServoEn}" IsEnabled="{Binding SignMagnitudeServoEn}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="2">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.SoftwareCaptureEn}" IsEnabled="{Binding SoftwareCaptureEn}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="3">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.CaptureOnErrorEn}" IsEnabled="{Binding CaptureOnErrorEn}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="4">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.PosFollowEn}" IsEnabled="{Binding PosFollowEn}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="5">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.PosFollowOffsetMode}" IsEnabled="{Binding PosFollowOffsetMode}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="6">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.CommutationEnable}" IsEnabled="{Binding CommutationEnable}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="7">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.YaddrCommuteEnc}" IsEnabled="{Binding YaddrCommuteEnc}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="8">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.UserWrittenServoEn}" IsEnabled="{Binding UserWrittenServoEn}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="9">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.UserWrittenPhaseEn}" IsEnabled="{Binding UserWrittenPhaseEn}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="10">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.HomeSearchInProgress}" IsEnabled="{Binding HomeSearchInProgress}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="11">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.BlockRequest}" IsEnabled="{Binding BlockRequest, FallbackValue=False}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="12">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.AbortDecelerationInProgress}" IsEnabled="{Binding AbortDecelerationInProgress}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="13">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.DesiredVelocityNull}" IsEnabled="{Binding DesiredVelocityNull}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="14">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.DataBlockError}" IsEnabled="{Binding DataBlockError}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="15">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.DwellInProgress}" IsEnabled="{Binding DwellInProgress}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="16">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.IntegrationMode}" IsEnabled="{Binding IntegrationMode}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="17">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.MoveTimerActive}" IsEnabled="{Binding MoveTimerActive}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="18">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.OpenLoopMode}" IsEnabled="{Binding OpenLoopMode}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="19">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.AmplifierEn}" IsEnabled="{Binding AmplifierEn}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="20">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.ExtServoAlgoEn}" IsEnabled="{Binding ExtServoAlgoEn}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="21">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.PositiveEndLimitSet}" IsEnabled="{Binding PositiveEndLimitSet}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="22">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.NegativeEndLimitSet}" IsEnabled="{Binding NegativeEndLimitSet}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="23">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.MotorActivated}" IsEnabled="{Binding MotorActivated}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="0">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.InPositionTrue}" IsEnabled="{Binding InPositionTrue}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="1">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.WarningFollowingErrorEx}" IsEnabled="{Binding WarningFollowingErrorEx}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="2">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.FatalFollowingErrorEx}" IsEnabled="{Binding FatalFollowingErrorEx}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="3">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.AmplifierFaultError}" IsEnabled="{Binding AmplifierFaultError}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="4">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.BacklashDirectionFlag}" IsEnabled="{Binding BacklashDirectionFlag}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="5">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.I2TAmplifierFaultError}" IsEnabled="{Binding I2TAmplifierFaultError}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="6">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.IntegratedFatalFollowingError}" IsEnabled="{Binding IntegratedFatalFollowingError}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="7">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.TriggerMove}" IsEnabled="{Binding TriggerMove}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="8">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.PhasingSearchError}" IsEnabled="{Binding PhasingSearchError}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="9">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.MotorPhaseRequest}" IsEnabled="{Binding MotorPhaseRequest}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="10">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.HomeComplete}" IsEnabled="{Binding HomeComplete}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="11">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.StoppedOnPositionLimit}" IsEnabled="{Binding StoppedOnPositionLimit}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="12">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.DesiredPositionLimitStop}" IsEnabled="{Binding DesiredPositionLimitStop}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="13">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.ForegroundInPosition}" IsEnabled="{Binding ForegroundInPosition}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="14">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.AssignedToCS}" IsEnabled="{Binding AssignedToCS}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="15">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.CSAxisDefinitionBit0}" IsEnabled="{Binding CSAxisDefinitionBit0}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="16">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.CSAxisDefinitionBit1}" IsEnabled="{Binding CSAxisDefinitionBit1}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="17">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.CSAxisDefinitionBit2}" IsEnabled="{Binding CSAxisDefinitionBit2}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="18">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.CSAxisDefinitionBit3}" IsEnabled="{Binding CSAxisDefinitionBit3}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="19">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.CS1Bit0}" IsEnabled="{Binding CS1Bit0}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="20">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.CS1Bit1}" IsEnabled="{Binding CS1Bit1}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="21">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.CS1Bit2}" IsEnabled="{Binding CS1Bit2}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="22">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.CS1Bit3}" IsEnabled="{Binding CS1Bit3}"/>
+                </Border>
+            </Grid>
+        </DataTemplate>
+    </UserControl.Resources>
+    <TabControl>
+        <TabControl.Resources>
+            <Style TargetType="TabItem" BasedOn="{StaticResource TabItemStyle1}"/>
+        </TabControl.Resources>
+        <TabItem Header="{x:Static res:GeneralComponentsStrings.General}" Style="{DynamicResource TabItemStyle1}">
+            <Grid Background="{DynamicResource MainBackgroundColor}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Border Grid.Column="0" Grid.Row="0">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.ThisCardAddressedSerially}" IsEnabled="{Binding Global.ThisCardAddressedSerially, FallbackValue=False}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="1">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.AllCardsAddressedSerially}" IsEnabled="{Binding Global.AllCardsAddressedSerially}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="2">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.PhaseClockMissing}" IsEnabled="{Binding Global.PhaseClockMissing}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="3">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.MacroRingError}" IsEnabled="{Binding Global.MacroRingError}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="4">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.MacroCommunicationError}" IsEnabled="{Binding Global.MacroCommunicationError}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="5">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.TWSVariableParityError}" IsEnabled="{Binding Global.TWSVariableParityError}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="6">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.ServoMacroICConfigError}" IsEnabled="{Binding Global.ServoMacroICConfigError}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="7">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.IllegalLVariableDefinition}" IsEnabled="{Binding Global.IllegalLVariableDefinition}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="8">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.RealTimeInterruptWarning}" IsEnabled="{Binding Global.RealTimeInterruptWarning}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="9">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.EAROMError}" IsEnabled="{Binding Global.EAROMError}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="10">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.DPRamError}" IsEnabled="{Binding Global.DPRamError}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="11">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.FirmwareChecksumError}" IsEnabled="{Binding Global.FirmwareChecksumError}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="12">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.GeneralChecksumError}" IsEnabled="{Binding Global.GeneralChecksumError}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="13">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.CompensateTableOn}" IsEnabled="{Binding Global.CompensateTableOn}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="14">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.SmallMemoryTurboPMAC}" IsEnabled="{Binding Global.SmallMemoryTurboPMAC}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="15">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.GatherOnExternalTrig}" IsEnabled="{Binding Global.GatherOnExternalTrig}"/>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="16">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.DataGatheringEnabled}" IsEnabled="{Binding Global.DataGatheringEnabled}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="0">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.ServoError}" IsEnabled="{Binding Global.ServoError}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="1">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.RTIReEntryError}" IsEnabled="{Binding Global.RTIReEntryError}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="2">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.MainError}" IsEnabled="{Binding Global.MainError}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="3">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.BinaryRotaryBufferOpen}" IsEnabled="{Binding Global.BinaryRotaryBufferOpen}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="4">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.MotionBufferOpen}" IsEnabled="{Binding Global.MotionBufferOpen}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="5">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.ASCIIRotaryBufferOpen}" IsEnabled="{Binding Global.ASCIIRotaryBufferOpen}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="6">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.PLCBufferOpen}" IsEnabled="{Binding Global.PLCBufferOpen}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="7">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.MacroServoClockSync}" IsEnabled="{Binding Global.MacroServoClockSync}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="8">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.MacroAuxiliaryMode}" IsEnabled="{Binding Global.MacroAuxiliaryMode}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="9">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.FixedBufferFull}" IsEnabled="{Binding Global.FixedBufferFull}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="10">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.MacroRingTestEnable}" IsEnabled="{Binding Global.MacroRingTestEnable}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="11">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.RingActive}" IsEnabled="{Binding Global.RingActive}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="12">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.ModbusActive}" IsEnabled="{Binding Global.ModbusActive}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="13">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.MacroRingRcvdBreakMsg}" IsEnabled="{Binding Global.MacroRingRcvdBreakMsg}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="14">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.MacroRingBreak}" IsEnabled="{Binding Global.MacroRingBreak}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="15">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.MacroRingSynchPacketFault}" IsEnabled="{Binding Global.MacroRingSynchPacketFault}"/>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="16">
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.AbortInput}" IsEnabled="{Binding Global.AbortInput}"/>
+                </Border>
+            </Grid>
+        </TabItem>
+        <TabItem Header="{x:Static res:GeneralComponentsStrings.Motor1}" Visibility="{Binding MotorsCount, Converter={StaticResource MotorStatusesCountConverter}, ConverterParameter=1}" ContentTemplate="{StaticResource MotorTemplate}">
+            <TabItem.Style>
+                <Style TargetType="TabItem" BasedOn="{StaticResource TabItemStyle1}">
+                    <Setter Property="Content" Value="{x:Null}"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding MotorsStatuses.Count}" Value="4">
+                            <Setter Property="Content" Value="{Binding MotorsStatuses[0]}"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding MotorsStatuses.Count}" Value="8">
+                            <Setter Property="Content" Value="{Binding MotorsStatuses[0]}"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TabItem.Style>
+        </TabItem>
+        <TabItem Header="{x:Static res:GeneralComponentsStrings.Motor2}" Visibility="{Binding MotorsCount, Converter={StaticResource MotorStatusesCountConverter}, ConverterParameter=2}" ContentTemplate="{StaticResource MotorTemplate}">
+            <TabItem.Style>
+                <Style TargetType="TabItem" BasedOn="{StaticResource TabItemStyle1}">
+                    <Setter Property="Content" Value="{x:Null}"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding MotorsStatuses.Count}" Value="4">
+                            <Setter Property="Content" Value="{Binding MotorsStatuses[1]}"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding MotorsStatuses.Count}" Value="8">
+                            <Setter Property="Content" Value="{Binding MotorsStatuses[1]}"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TabItem.Style>
+        </TabItem>
+        <TabItem Header="{x:Static res:GeneralComponentsStrings.Motor3}" Visibility="{Binding MotorsCount, Converter={StaticResource MotorStatusesCountConverter}, ConverterParameter=3}" ContentTemplate="{StaticResource MotorTemplate}">
+            <TabItem.Style>
+                <Style TargetType="TabItem" BasedOn="{StaticResource TabItemStyle1}">
+                    <Setter Property="Content" Value="{x:Null}"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding MotorsStatuses.Count}" Value="4">
+                            <Setter Property="Content" Value="{Binding MotorsStatuses[2]}"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding MotorsStatuses.Count}" Value="8">
+                            <Setter Property="Content" Value="{Binding MotorsStatuses[2]}"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TabItem.Style>
+        </TabItem>
+        <TabItem Header="{x:Static res:GeneralComponentsStrings.Motor4}" Visibility="{Binding MotorsCount, Converter={StaticResource MotorStatusesCountConverter}, ConverterParameter=4}" ContentTemplate="{StaticResource MotorTemplate}">
+            <TabItem.Style>
+                <Style TargetType="TabItem" BasedOn="{StaticResource TabItemStyle1}">
+                    <Setter Property="Content" Value="{x:Null}"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding MotorsStatuses.Count}" Value="4">
+                            <Setter Property="Content" Value="{Binding MotorsStatuses[3]}"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding MotorsStatuses.Count}" Value="8">
+                            <Setter Property="Content" Value="{Binding MotorsStatuses[3]}"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TabItem.Style>
+        </TabItem>
+        <TabItem Header="{x:Static res:GeneralComponentsStrings.Motor5}" Visibility="{Binding MotorsCount, Converter={StaticResource MotorStatusesCountConverter}, ConverterParameter=5}" ContentTemplate="{StaticResource MotorTemplate}">
+            <TabItem.Style>
+                <Style TargetType="TabItem" BasedOn="{StaticResource TabItemStyle1}">
+                    <Setter Property="Content" Value="{x:Null}"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding MotorsStatuses.Count}" Value="8">
+                            <Setter Property="Content" Value="{Binding MotorsStatuses[4]}"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TabItem.Style>
+        </TabItem>
+        <TabItem Header="{x:Static res:GeneralComponentsStrings.Motor6}" Visibility="{Binding MotorsCount, Converter={StaticResource MotorStatusesCountConverter}, ConverterParameter=6}" ContentTemplate="{StaticResource MotorTemplate}">
+            <TabItem.Style>
+                <Style TargetType="TabItem" BasedOn="{StaticResource TabItemStyle1}">
+                    <Setter Property="Content" Value="{x:Null}"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding MotorsStatuses.Count}" Value="8">
+                            <Setter Property="Content" Value="{Binding MotorsStatuses[5]}"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TabItem.Style>
+        </TabItem>
+        <TabItem Header="{x:Static res:GeneralComponentsStrings.Motor7}" Visibility="{Binding MotorsCount, Converter={StaticResource MotorStatusesCountConverter}, ConverterParameter=7}" ContentTemplate="{StaticResource MotorTemplate}">
+            <TabItem.Style>
+                <Style TargetType="TabItem" BasedOn="{StaticResource TabItemStyle1}">
+                    <Setter Property="Content" Value="{x:Null}"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding MotorsStatuses.Count}" Value="8">
+                            <Setter Property="Content" Value="{Binding MotorsStatuses[6]}"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TabItem.Style>
+        </TabItem>
+
+        <TabItem Header="{x:Static res:GeneralComponentsStrings.Motor8}" Visibility="{Binding MotorsCount, Converter={StaticResource MotorStatusesCountConverter}, ConverterParameter=8}" ContentTemplate="{StaticResource MotorTemplate}">
+            <TabItem.Style>
+                <Style TargetType="TabItem" BasedOn="{StaticResource TabItemStyle1}">
+                    <Setter Property="Content" Value="{x:Null}"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding MotorsStatuses.Count}" Value="8">
+                            <Setter Property="Content" Value="{Binding MotorsStatuses[7]}"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TabItem.Style>
+        </TabItem>
+    </TabControl>
+</UserControl>

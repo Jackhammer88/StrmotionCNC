@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="ActualCodes.Views.Codes"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:res="http://www.infrastructure.cnc.com/resources"
+             xmlns:local="clr-namespace:ActualCodes.Views"
+             mc:Ignorable="d" 
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             xmlns:converters="http://www.infrastructure.cnc.com/converters"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <converters:BoolToMachineStateConverter x:Key="BoolToMachineStateConverter"/>
+        <Style x:Key="TextBlockStyle1" TargetType="{x:Type TextBlock}">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="TextTrimming" Value="None"/>
+            <Setter Property="Foreground" Value="#FF1E62B4"/>
+            <Setter Property="FontFamily" Value="Segoe UI Emoji"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="FontSize" Value="17"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="{Binding ConnectedToController, Converter={StaticResource BoolToMachineStateConverter}}" Style="{DynamicResource TextBlockStyle1}"/>
+        <WrapPanel Grid.Row="1">
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="{x:Static res:CodesStrings.TCodes}" Style="{DynamicResource TextBlockStyle1}"/>
+                <WrapPanel HorizontalAlignment="Center" Margin="3">
+                    <TextBlock x:Name="tb1" TextWrapping="Wrap" Text="{Binding TCode}" Style="{DynamicResource TextBlockStyle1}"/>
+                </WrapPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Text="{x:Static res:CodesStrings.MCodes}" Style="{DynamicResource TextBlockStyle1}"/>
+                <WrapPanel HorizontalAlignment="Center" Margin="3">
+                    <TextBlock TextWrapping="Wrap" Text="{Binding MCode}" Style="{DynamicResource TextBlockStyle1}"/>
+                </WrapPanel>
+            </StackPanel>
+            <WrapPanel Orientation="Horizontal" Margin="10">
+                <WrapPanel HorizontalAlignment="Stretch" Margin="3">
+                    <TextBlock Text="{x:Static res:CodesStrings.GCodes}" Style="{DynamicResource TextBlockStyle1}"/>
+                    <TextBlock TextWrapping="Wrap" Text="{Binding GCode1}" Style="{DynamicResource TextBlockStyle1}"/>
+                    <TextBlock TextWrapping="Wrap" Text="{Binding GCode2}" Style="{DynamicResource TextBlockStyle1}"/>
+                    <TextBlock TextWrapping="Wrap" Text="{Binding GCode3}" Style="{DynamicResource TextBlockStyle1}"/>
+                </WrapPanel>
+            </WrapPanel>
+        </WrapPanel>
+    </Grid>
+</UserControl>

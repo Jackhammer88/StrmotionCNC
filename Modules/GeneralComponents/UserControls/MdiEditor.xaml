@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="GeneralComponents.UserControls.MdiEditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GeneralComponents.UserControls"
+             xmlns:avalon2="clr-namespace:GeneralComponents.Models"
+             xmlns:avalon="http://icsharpcode.net/sharpdevelop/avalonedit"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Infrastructure;component/Resources/MainSkin.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <!-- Стиль редактора текста -->
+            <Style x:Key="TextEditorAdditionalStyle" TargetType="{x:Type avalon:TextEditor}">
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}"/>
+                <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+                <Setter Property="FlowDirection" Value="LeftToRight"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type avalon:TextEditor}">
+                            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="White">
+                                <ScrollViewer x:Name="PART_ScrollViewer" CanContentScroll="True" Content="{Binding TextArea, RelativeSource={RelativeSource TemplatedParent}}" Focusable="False" HorizontalContentAlignment="Left" HorizontalScrollBarVisibility="{TemplateBinding HorizontalScrollBarVisibility}" Padding="{TemplateBinding Padding}" VerticalScrollBarVisibility="{TemplateBinding VerticalScrollBarVisibility}" VerticalContentAlignment="Top"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="WordWrap" Value="True">
+                                    <Setter Property="HorizontalScrollBarVisibility" TargetName="PART_ScrollViewer" Value="Disabled"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <avalon2:MvvmTextEditor x:Name="Texteditor1" TextChanged="Texteditor1_TextChanged" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" FontSize="23" Style="{DynamicResource TextEditorAdditionalStyle}"/>
+    </Grid>
+</UserControl>

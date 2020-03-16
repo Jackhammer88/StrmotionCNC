@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- Main background-->
+    <SolidColorBrush x:Key="MainBackgroundColor" Color="#FFDCE7F4"/>
+    <SolidColorBrush x:Key="MainTextColor" Color="#1E62B4"/>
+    <LinearGradientBrush x:Key="RadioButton.ActivatedBackgroundGradient" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FFE8FFE8" Offset="0"/>
+        <GradientStop Color="White" Offset="1"/>
+        <GradientStop Color="Green" Offset="0.5"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="RadioButtonCoordinate.ActivatedBackgroundGradient" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#FFFDEED1" Offset="0"/>
+        <GradientStop Color="White" Offset="1"/>
+        <GradientStop Color="#FFF9BE52" Offset="0.5"/>
+    </LinearGradientBrush>
+</ResourceDictionary>

@@ -1,0 +1,99 @@
+﻿<UserControl x:Class="GeneralComponents.Views.Offset"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:commands="clr-namespace:GeneralComponents.Models"
+             xmlns:ext="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:res="http://www.infrastructure.cnc.com/resources"
+             mc:Ignorable="d" 
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:ig="http://schemas.infragistics.com/xaml"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type DataGridCell}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGridCell}">
+                        <Grid Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="{x:Type DataGridColumnHeader}">
+            <Setter Property="HorizontalContentAlignment"
+                 Value="Center" />
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid IsEnabled="{Binding IsAvailable}">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <ig:XamDialogWindow WindowState="{Binding ChildState}" StartupPosition="Center" CloseButtonVisibility="Collapsed" MaximizeButtonVisibility="Collapsed" MinimizeButtonVisibility="Collapsed" MinWidth="280" MinHeight="220">
+            <Grid>
+                <Grid.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="Margin" Value="3"/>
+                        <Setter Property="Padding" Value="4"/>
+                        <Setter Property="FontSize" Value="17"/>
+                        <Setter Property="FontWeight" Value="DemiBold"/>
+                    </Style>
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.33*"/>
+                    <ColumnDefinition Width="0.33*"/>
+                    <ColumnDefinition Width="0.33*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBox Text="{Binding ChildText, StringFormat=\{0:F3\}}" MinHeight="30" FontSize="25" FontWeight="Bold" Grid.ColumnSpan="3" Margin="5" IsEnabled="False"/>
+                <Button Grid.Row="1" Grid.ColumnSpan="3" Command="{Binding SetOffsetCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" Template="{DynamicResource ButtonBaseControlTemplate1}" Style="{DynamicResource ButtonStyle1}" Grid.Column="0" Content="Установить текущее смещение" Margin="10 0"/>
+                <Button Grid.Row="2" Command="{Binding AddNumberCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" Template="{DynamicResource ButtonBaseControlTemplate1}" Style="{DynamicResource ButtonStyle1}" Grid.Column="0" Content="7"/>
+                <Button Grid.Row="2" Command="{Binding AddNumberCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" Template="{DynamicResource ButtonBaseControlTemplate1}" Style="{DynamicResource ButtonStyle1}" Grid.Column="1" Content="8"/>
+                <Button Grid.Row="2" Command="{Binding AddNumberCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" Template="{DynamicResource ButtonBaseControlTemplate1}" Style="{DynamicResource ButtonStyle1}" Grid.Column="2" Content="9"/>
+                <Button Grid.Row="3" Command="{Binding AddNumberCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" Template="{DynamicResource ButtonBaseControlTemplate1}" Style="{DynamicResource ButtonStyle1}" Grid.Column="0" Content="4"/>
+                <Button Grid.Row="3" Command="{Binding AddNumberCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" Template="{DynamicResource ButtonBaseControlTemplate1}" Style="{DynamicResource ButtonStyle1}" Grid.Column="1" Content="5"/>
+                <Button Grid.Row="3" Command="{Binding AddNumberCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" Template="{DynamicResource ButtonBaseControlTemplate1}" Style="{DynamicResource ButtonStyle1}" Grid.Column="2" Content="6"/>
+                <Button Grid.Row="4" Command="{Binding AddNumberCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" Template="{DynamicResource ButtonBaseControlTemplate1}" Style="{DynamicResource ButtonStyle1}" Grid.Column="0" Content="1"/>
+                <Button Grid.Row="4" Command="{Binding AddNumberCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" Template="{DynamicResource ButtonBaseControlTemplate1}" Style="{DynamicResource ButtonStyle1}" Grid.Column="1" Content="2"/>
+                <Button Grid.Row="4" Command="{Binding AddNumberCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" Template="{DynamicResource ButtonBaseControlTemplate1}" Style="{DynamicResource ButtonStyle1}" Grid.Column="2" Content="3"/>
+                <Button Grid.Row="5" Command="{Binding AddNumberCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" Template="{DynamicResource ButtonBaseControlTemplate1}" Style="{DynamicResource ButtonStyle1}" Grid.Column="0" Content="."/>
+                <Button Grid.Row="5" Command="{Binding AddNumberCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" Template="{DynamicResource ButtonBaseControlTemplate1}" Style="{DynamicResource ButtonStyle1}" Grid.Column="1" Content="0"/>
+                <Button Grid.Row="5" Command="{Binding AddNumberCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" Template="{DynamicResource ButtonBaseControlTemplate1}" Style="{DynamicResource ButtonStyle1}" Grid.Column="2" Content="000"/>
+                <Button Grid.Row="6" Command="{Binding AddNumberCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" Template="{DynamicResource ButtonBaseControlTemplate1}" Style="{DynamicResource ButtonStyle1}" Grid.Column="0" Content="+"/>
+                <Button Grid.Row="6" Command="{Binding AddNumberCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" Template="{DynamicResource ButtonBaseControlTemplate1}" Style="{DynamicResource ButtonStyle1}" Grid.Column="1" Content="-"/>
+                <Button Grid.Row="6" Command="{Binding AddNumberCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}" Template="{DynamicResource ButtonBaseControlTemplate1}" Style="{DynamicResource ButtonStyle1}" Grid.Column="2" Content="C"/>
+                <Button Grid.Row="7" Grid.Column="0"  Command="{Binding ChangingDoneCommand}" Template="{DynamicResource ButtonBaseControlTemplate1}" Style="{DynamicResource ButtonStyle1}" Content="Ок" MinWidth="135"/>
+                <Button Grid.Row="7" Grid.Column="1" Command="{Binding ChangingCancelCommand}" Template="{DynamicResource ButtonBaseControlTemplate1}" Style="{DynamicResource ButtonStyle1}" Content="Отмена" MinWidth="135"/>
+                <Button Grid.Row="7" Grid.Column="2" Command="{Binding AddNumberCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"  Template="{DynamicResource ButtonBaseControlTemplate1}" Style="{DynamicResource ButtonStyle1}" Content="Сброс" MinWidth="135"/>
+            </Grid>
+        </ig:XamDialogWindow>
+        <DataGrid ItemsSource="{Binding Offsets}" commands:DataGridCommands.DataGridDoubleClickCommand="{Binding ChangeOffsetCommand}" CurrentCell="{Binding CurrentCell, Mode=OneWayToSource}" SelectedItem="{Binding CurrentItem}" SelectionMode="Single" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" RowHeight="60">
+            <DataGrid.Columns>
+                <DataGridTextColumn IsReadOnly="True" FontSize="25" Header="{x:Static res:GeneralComponentsStrings.GCode}" Binding="{Binding Offset, Mode=OneWay}"/>
+                <DataGridTextColumn IsReadOnly="True" FontSize="25" Header="X" Binding="{Binding X, StringFormat=\{0:F3\}}" Width="*"/>
+                <DataGridTextColumn IsReadOnly="True" FontSize="25" Header="Y" Binding="{Binding Y, StringFormat=\{0:F3\}}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="5">
+            <Button Command="{Binding ResetAllCommand}" Template="{DynamicResource ButtonBaseControlTemplate1}" Style="{DynamicResource ButtonStyle1}" Content="Reset all" MinHeight="100" MinWidth="120" MaxWidth="100"/>
+            <Button Command="{Binding SetAllCommand}" Template="{DynamicResource ButtonBaseControlTemplate1}" Style="{DynamicResource ButtonStyle1}" Content="Set all" MinHeight="100" MinWidth="120" MaxWidth="100"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

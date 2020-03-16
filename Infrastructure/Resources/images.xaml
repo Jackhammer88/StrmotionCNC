@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <BitmapImage x:Key="message-icon" UriSource="pack://application:,,,/Infrastructure;component/Resources/icons/message.png"/>
+    <BitmapImage x:Key="information-icon" UriSource="pack://application:,,,/Infrastructure;component/Resources/icons/information.png"/>
+    <BitmapImage x:Key="warning-icon" UriSource="pack://application:,,,/Infrastructure;component/Resources/icons/warning.png"/>
+    <BitmapImage x:Key="error-icon" UriSource="pack://application:,,,/Infrastructure;component/Resources/icons/error.png"/>
+    <BitmapImage x:Key="settings-icon" UriSource="pack://application:,,,/Infrastructure;component/Resources/icons/settings.png"/>
+    <BitmapImage x:Key="splashscreen" UriSource="pack://application:,,,/Infrastructure;component/Resources/images/splash.jpg"/>
+</ResourceDictionary>

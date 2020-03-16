@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+  
+	<ItemGroup>
+		<None Remove="Resources\icons\error.jpg" />
+		<None Remove="Resources\icons\error.png" />
+		<None Remove="Resources\icons\file-icon.jpg" />
+		<None Remove="Resources\icons\file-icon.png" />
+		<None Remove="Resources\icons\folder-icon.jpg" />
+		<None Remove="Resources\icons\folder-icon.png" />
+		<None Remove="Resources\icons\information.jpg" />
+		<None Remove="Resources\icons\information.png" />
+		<None Remove="Resources\icons\message.jpg" />
+		<None Remove="Resources\icons\message.png" />
+		<None Remove="Resources\icons\settings.jpg" />
+		<None Remove="Resources\icons\settings.png" />
+		<None Remove="Resources\icons\warning.jpg" />
+		<None Remove="Resources\icons\warning.png" />
+		<None Remove="Resources\images\splash.jpg" />
+	</ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Prism.Wpf" Version="7.2.0.1422" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="CNCPrecompiledRegex">
+      <HintPath>..\..\..\..\Sources\Cnc_prism\Libraries\RegexPrecompiler\bin\Debug\CNCPrecompiledRegex.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\icons\error.jpg" />
+    <Resource Include="Resources\icons\error.png" />
+    <Resource Include="Resources\icons\file-icon.jpg" />
+    <Resource Include="Resources\icons\file-icon.png" />
+    <Resource Include="Resources\icons\folder-icon.jpg" />
+    <Resource Include="Resources\icons\folder-icon.png" />
+    <Resource Include="Resources\icons\information.jpg" />
+    <Resource Include="Resources\icons\information.png" />
+    <Resource Include="Resources\icons\message.jpg" />
+    <Resource Include="Resources\icons\message.png" />
+    <Resource Include="Resources\icons\settings.jpg" />
+    <Resource Include="Resources\icons\settings.png" />
+    <Resource Include="Resources\icons\warning.jpg" />
+    <Resource Include="Resources\icons\warning.png" />
+    <Resource Include="Resources\images\splash.jpg" />
+  </ItemGroup>
+
+</Project>

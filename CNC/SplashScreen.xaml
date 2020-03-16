@@ -1,0 +1,32 @@
+﻿<Window x:Class="CNC.SplashScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:res="http://www.infrastructure.cnc.com/resources"
+        xmlns:local="clr-namespace:CNC"
+        xmlns:ig="http://schemas.infragistics.com/xaml"
+        mc:Ignorable="d"
+        Title="SplashScreen" Height="237" Topmost="True" Width="855" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Infrastructure;component/Resources/Images.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Border Background="AliceBlue">
+        <Grid  Background="AliceBlue">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Image Source="{StaticResource splashscreen}" Grid.ColumnSpan="2" Grid.RowSpan="2" Opacity="80"/>
+            <TextBlock Grid.Column="1" Grid.Row="1" Text="{x:Static res:CNCStrings.Loading}" Foreground="DimGray" FontWeight="Bold" FontSize="20" Margin="0 0 25 7"/>
+        </Grid>
+    </Border>
+</Window>

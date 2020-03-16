@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AvalonEdit" Version="6.0.1" />
+    <PackageReference Include="HelixToolkit" Version="2.12.0-alpha0068" />
+    <PackageReference Include="HelixToolkit.SharpDX.Core" Version="2.12.0-alpha0068" />
+    <PackageReference Include="HelixToolkit.SharpDX.Core.Wpf" Version="2.12.0-alpha0068" />
+    <PackageReference Include="Infragistics.WPF" Version="19.1.301" />
+    <PackageReference Include="Infragistics.WPF.DialogWindow" Version="19.1.301" />
+    <PackageReference Include="Prism.Wpf" Version="7.2.0.1422" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Infrastructure\Infrastructure.csproj" />
+    <ProjectReference Include="..\..\Libraries\CNCDraw\CNCDraw.csproj" />
+    <ProjectReference Include="..\..\Libraries\CncMachine\CncMachine.csproj" />
+    <ProjectReference Include="..\..\Services\GcodeParser\GcodeParser.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,495 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AxisToJog" xml:space="preserve">
+    <value>SELECT AXIS TO JOG:</value>
+  </data>
+  <data name="HoldButtonToJog" xml:space="preserve">
+    <value>HOLD BUTTON TO JOG CONTINUOUS:</value>
+  </data>
+  <data name="IncrementalDistance" xml:space="preserve">
+    <value>Incremental distance:</value>
+  </data>
+  <data name="JogIncremental" xml:space="preserve">
+    <value>JOG INCREMENTAL:</value>
+  </data>
+  <data name="SelectJogSpeed" xml:space="preserve">
+    <value>SELECT JOG SPEED:</value>
+  </data>
+  <data name="ToolNumber" xml:space="preserve">
+    <value>Tool number</value>
+  </data>
+  <data name="ToolLength" xml:space="preserve">
+    <value>Tool length</value>
+  </data>
+  <data name="ToolDiameter" xml:space="preserve">
+    <value>Tool diameter</value>
+  </data>
+  <data name="GCode" xml:space="preserve">
+    <value>G-Code</value>
+  </data>
+  <data name="ToolOffsets" xml:space="preserve">
+    <value>TOOL OFFSETS</value>
+  </data>
+  <data name="Terminal" xml:space="preserve">
+    <value>TERMINAL</value>
+  </data>
+  <data name="Auto" xml:space="preserve">
+    <value>AUTO</value>
+  </data>
+  <data name="Plot" xml:space="preserve">
+    <value>PLOT</value>
+  </data>
+  <data name="Offsets" xml:space="preserve">
+    <value>OFFSETS</value>
+  </data>
+  <data name="Mdi" xml:space="preserve">
+    <value>MDI</value>
+  </data>
+  <data name="Manual" xml:space="preserve">
+    <value>MANUAL</value>
+  </data>
+  <data name="EditExitTitle" xml:space="preserve">
+    <value>Question</value>
+  </data>
+  <data name="EditExitMessage" xml:space="preserve">
+    <value>Are you want to save changes?</value>
+  </data>
+  <data name="ClearCamera" xml:space="preserve">
+    <value>Clear camera</value>
+  </data>
+  <data name="ManualExt" xml:space="preserve">
+    <value>MANUAL EXT</value>
+  </data>
+  <data name="JogIncrementalMkm" xml:space="preserve">
+    <value>JOG INCREMENTAL (um):</value>
+  </data>
+  <data name="Laser" xml:space="preserve">
+    <value>LASER</value>
+  </data>
+  <data name="MinimalCuttingPower" xml:space="preserve">
+    <value>Minimal Cutting Power %</value>
+  </data>
+  <data name="MaximalCuttingPower" xml:space="preserve">
+    <value>Maximal Cutting Power %</value>
+  </data>
+  <data name="CuttingSpeed" xml:space="preserve">
+    <value>Cutting Speed mm per minute</value>
+  </data>
+  <data name="MaximalGravPower" xml:space="preserve">
+    <value>Maximal Grav Power %</value>
+  </data>
+  <data name="MinimalGravPower" xml:space="preserve">
+    <value>Minimal Grav Power %</value>
+  </data>
+  <data name="GravSpeed" xml:space="preserve">
+    <value>Grav Speed mm per minute</value>
+  </data>
+  <data name="Y2Offset" xml:space="preserve">
+    <value>Y2 Offset um</value>
+  </data>
+  <data name="BurnTime" xml:space="preserve">
+    <value>Burn Time ms</value>
+  </data>
+  <data name="ResetAllOffsetsMessage" xml:space="preserve">
+    <value>Are you sure to reset all offsets?</value>
+  </data>
+  <data name="ResetAllOffsetsTitle" xml:space="preserve">
+    <value>Reset offsets confirmation</value>
+  </data>
+  <data name="SetAllOffsetsMessage" xml:space="preserve">
+    <value>Are you sure to set all offsets to current position?</value>
+  </data>
+  <data name="SetAllOffsetsTitle" xml:space="preserve">
+    <value>Set all offsets confirmation</value>
+  </data>
+  <data name="ThisCardAddressedSerially" xml:space="preserve">
+    <value>This card addressed serially</value>
+  </data>
+  <data name="AllCardsAddressedSerially" xml:space="preserve">
+    <value>All cards addressed serially</value>
+  </data>
+  <data name="PhaseClockMissing" xml:space="preserve">
+    <value>Phase сlock missing</value>
+  </data>
+  <data name="MacroRingError" xml:space="preserve">
+    <value>Macro ring error</value>
+  </data>
+  <data name="MacroCommunicationError" xml:space="preserve">
+    <value>Macro communication error</value>
+  </data>
+  <data name="TWSVariableParityError" xml:space="preserve">
+    <value>TWS variable parity error</value>
+  </data>
+  <data name="ServoMacroICConfigError" xml:space="preserve">
+    <value>Servo macro IC config error</value>
+  </data>
+  <data name="IllegalLVariableDefinition" xml:space="preserve">
+    <value>Illegal L variable definition</value>
+  </data>
+  <data name="RealTimeInterruptWarning" xml:space="preserve">
+    <value>Real time interrupt warning</value>
+  </data>
+  <data name="EAROMError" xml:space="preserve">
+    <value>EAROM error</value>
+  </data>
+  <data name="DPRamError" xml:space="preserve">
+    <value>DPRam error</value>
+  </data>
+  <data name="FirmwareChecksumError" xml:space="preserve">
+    <value>Firmware checksum error</value>
+  </data>
+  <data name="GeneralChecksumError" xml:space="preserve">
+    <value>General checksum error</value>
+  </data>
+  <data name="CompensateTableOn" xml:space="preserve">
+    <value>Compensate table on</value>
+  </data>
+  <data name="SmallMemoryTurboPMAC" xml:space="preserve">
+    <value>Small memory TurboPMAC</value>
+  </data>
+  <data name="GatherOnExternalTrig" xml:space="preserve">
+    <value>Gather on external trig</value>
+  </data>
+  <data name="DataGatheringEnabled" xml:space="preserve">
+    <value>Data gathering enabled</value>
+  </data>
+  <data name="ServoError" xml:space="preserve">
+    <value>Servo error</value>
+  </data>
+  <data name="RTIReEntryError" xml:space="preserve">
+    <value>RTI reentry error</value>
+  </data>
+  <data name="MainError" xml:space="preserve">
+    <value>Main error</value>
+  </data>
+  <data name="BinaryRotaryBufferOpen" xml:space="preserve">
+    <value>Binary rotary buffer open</value>
+  </data>
+  <data name="MotionBufferOpen" xml:space="preserve">
+    <value>Motion buffer open</value>
+  </data>
+  <data name="ASCIIRotaryBufferOpen" xml:space="preserve">
+    <value>ASCII rotary buffer open</value>
+  </data>
+  <data name="PLCBufferOpen" xml:space="preserve">
+    <value>PLC buffer open</value>
+  </data>
+  <data name="MacroServoClockSync" xml:space="preserve">
+    <value>Macro servo clock sync</value>
+  </data>
+  <data name="MacroAuxiliaryMode" xml:space="preserve">
+    <value>Macro auxiliary mode</value>
+  </data>
+  <data name="FixedBufferFull" xml:space="preserve">
+    <value>Fixed buffer full</value>
+  </data>
+  <data name="MacroRingTestEnable" xml:space="preserve">
+    <value>Macro ring test enable</value>
+  </data>
+  <data name="RingActive" xml:space="preserve">
+    <value>Ring active</value>
+  </data>
+  <data name="ModbusActive" xml:space="preserve">
+    <value>Modbus active</value>
+  </data>
+  <data name="MacroRingRcvdBreakMsg" xml:space="preserve">
+    <value>Macro ring rcvd break msg</value>
+  </data>
+  <data name="MacroRingBreak" xml:space="preserve">
+    <value>Macro ring break</value>
+  </data>
+  <data name="MacroRingSynchPacketFault" xml:space="preserve">
+    <value>Macro ring synch packet fault</value>
+  </data>
+  <data name="AbortInput" xml:space="preserve">
+    <value>Abort input</value>
+  </data>
+  <data name="RapidMaxVelocitySelect" xml:space="preserve">
+    <value>Rapid max velocity select</value>
+  </data>
+  <data name="SignMagnitudeServoEn" xml:space="preserve">
+    <value>Sign Magnitude Servo En</value>
+  </data>
+  <data name="SoftwareCaptureEn" xml:space="preserve">
+    <value>Software capture en</value>
+  </data>
+  <data name="CaptureOnErrorEn" xml:space="preserve">
+    <value>Capture on error en</value>
+  </data>
+  <data name="PosFollowEn" xml:space="preserve">
+    <value>Position following en</value>
+  </data>
+  <data name="PosFollowOffsetMode" xml:space="preserve">
+    <value>Position follow offset mode</value>
+  </data>
+  <data name="CommutationEnable" xml:space="preserve">
+    <value>Commutation enable</value>
+  </data>
+  <data name="YaddrCommuteEnc" xml:space="preserve">
+    <value>Y addr commute enc</value>
+  </data>
+  <data name="UserWrittenServoEn" xml:space="preserve">
+    <value>User written servo en</value>
+  </data>
+  <data name="UserWrittenPhaseEn" xml:space="preserve">
+    <value>User written phase en</value>
+  </data>
+  <data name="HomeSearchInProgress" xml:space="preserve">
+    <value>Home search in progress</value>
+  </data>
+  <data name="BlockRequest" xml:space="preserve">
+    <value>Block request</value>
+  </data>
+  <data name="AbortDecelerationInProgress" xml:space="preserve">
+    <value>Abort deceleration in progress</value>
+  </data>
+  <data name="DesiredVelocityNull" xml:space="preserve">
+    <value>Desired velocity null</value>
+  </data>
+  <data name="DataBlockError" xml:space="preserve">
+    <value>Data block error</value>
+  </data>
+  <data name="DwellInProgress" xml:space="preserve">
+    <value>Dwell in progress</value>
+  </data>
+  <data name="IntegrationMode" xml:space="preserve">
+    <value>Integration mode</value>
+  </data>
+  <data name="MoveTimerActive" xml:space="preserve">
+    <value>Move timer active</value>
+  </data>
+  <data name="OpenLoopMode" xml:space="preserve">
+    <value>Open loop mode</value>
+  </data>
+  <data name="AmplifierEn" xml:space="preserve">
+    <value>Amplifier en</value>
+  </data>
+  <data name="ExtServoAlgoEn" xml:space="preserve">
+    <value>Ext servo algo en</value>
+  </data>
+  <data name="PositiveEndLimitSet" xml:space="preserve">
+    <value>Positive end limit set</value>
+  </data>
+  <data name="NegativeEndLimitSet" xml:space="preserve">
+    <value>Negative end limit set</value>
+  </data>
+  <data name="MotorActivated" xml:space="preserve">
+    <value>Motor activated</value>
+  </data>
+  <data name="InPositionTrue" xml:space="preserve">
+    <value>In position true</value>
+  </data>
+  <data name="WarningFollowingErrorEx" xml:space="preserve">
+    <value>Warning following error ex</value>
+  </data>
+  <data name="FatalFollowingErrorEx" xml:space="preserve">
+    <value>Fatal following error ex</value>
+  </data>
+  <data name="AmplifierFaultError" xml:space="preserve">
+    <value>Amplifier fault error</value>
+  </data>
+  <data name="BacklashDirectionFlag" xml:space="preserve">
+    <value>Backlash direction flag</value>
+  </data>
+  <data name="I2TAmplifierFaultError" xml:space="preserve">
+    <value>I2T amplifier fault error</value>
+  </data>
+  <data name="IntegratedFatalFollowingError" xml:space="preserve">
+    <value>Integrated fatal following error</value>
+  </data>
+  <data name="TriggerMove" xml:space="preserve">
+    <value>Trigger move</value>
+  </data>
+  <data name="PhasingSearchError" xml:space="preserve">
+    <value>Phasing search error</value>
+  </data>
+  <data name="MotorPhaseRequest" xml:space="preserve">
+    <value>Motor phase request</value>
+  </data>
+  <data name="HomeComplete" xml:space="preserve">
+    <value>Home complete</value>
+  </data>
+  <data name="StoppedOnPositionLimit" xml:space="preserve">
+    <value>Stopped on position limit</value>
+  </data>
+  <data name="DesiredPositionLimitStop" xml:space="preserve">
+    <value>Desired position limit stop</value>
+  </data>
+  <data name="ForegroundInPosition" xml:space="preserve">
+    <value>Foreground in position</value>
+  </data>
+  <data name="AssignedToCS" xml:space="preserve">
+    <value>Assigned to CS</value>
+  </data>
+  <data name="CSAxisDefinitionBit0" xml:space="preserve">
+    <value>CS axis definition bit 0</value>
+  </data>
+  <data name="CSAxisDefinitionBit1" xml:space="preserve">
+    <value>CS axis definition bit 1</value>
+  </data>
+  <data name="CSAxisDefinitionBit2" xml:space="preserve">
+    <value>CS axis definition bit 2</value>
+  </data>
+  <data name="CSAxisDefinitionBit3" xml:space="preserve">
+    <value>CS axis definition bit 3</value>
+  </data>
+  <data name="CS1Bit0" xml:space="preserve">
+    <value>CS1 bit 0</value>
+  </data>
+  <data name="CS1Bit1" xml:space="preserve">
+    <value>CS1 bit 1</value>
+  </data>
+  <data name="CS1Bit2" xml:space="preserve">
+    <value>CS1 bit 2</value>
+  </data>
+  <data name="CS1Bit3" xml:space="preserve">
+    <value>CS1 bit 3</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="Motor1" xml:space="preserve">
+    <value>Motor 1</value>
+  </data>
+  <data name="Motor2" xml:space="preserve">
+    <value>Motor 2</value>
+  </data>
+  <data name="Motor3" xml:space="preserve">
+    <value>Motor 3</value>
+  </data>
+  <data name="Motor4" xml:space="preserve">
+    <value>Motor 4</value>
+  </data>
+  <data name="Motor5" xml:space="preserve">
+    <value>Motor 5</value>
+  </data>
+  <data name="Motor6" xml:space="preserve">
+    <value>Motor 6</value>
+  </data>
+  <data name="Motor7" xml:space="preserve">
+    <value>Motor 7</value>
+  </data>
+  <data name="Motor8" xml:space="preserve">
+    <value>Motor 8</value>
+  </data>
+  <data name="PlotBadFileFormat" xml:space="preserve">
+    <value>3D Visualizer: bad gcode format.</value>
+  </data>
+</root>
