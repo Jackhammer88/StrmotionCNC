@@ -19,7 +19,7 @@
     <ProjectReference Include="..\..\Infrastructure\Infrastructure.csproj" />
     <ProjectReference Include="..\..\Libraries\CNCDraw\CNCDraw.csproj" />
     <ProjectReference Include="..\..\Libraries\CncMachine\CncMachine.csproj" />
-    <ProjectReference Include="..\..\Services\GcodeParser\GcodeParser.csproj" />
+    <ProjectReference Include="..\..\Libraries\GcodeParser\GcodeParser.csproj" />
   </ItemGroup>
 
   <ItemGroup>

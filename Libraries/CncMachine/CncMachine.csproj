@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Services\GcodeParser\GcodeParser.csproj" />
+    <ProjectReference Include="..\GcodeParser\GcodeParser.csproj" />
   </ItemGroup>
 
 </Project>
