@@ -29,7 +29,7 @@ namespace GeneralComponents
             regionManager.RequestNavigate(RegionNames.RightCenterRegion, ViewNames.Plot);
             regionManager.RequestNavigate(RegionNames.RightCenterRegion, ViewNames.LaserTuning);
             regionManager.RequestNavigate(RegionNames.RightCenterRegion, ViewNames.Terminal);
-
+            
             regionManager.RequestNavigate(RegionNames.LeftCenterRegion, ViewNames.Auto);
             regionManager.RequestNavigate(RegionNames.RightCenterRegion, ViewNames.ToolOffsets);
 

@@ -141,7 +141,7 @@ namespace GeneralComponents.ViewModels
         {
             IsBusy = true;
             string[] programText;
-            if (selectedLine == 0)
+            if (selectedLine != 0)
                 programText = await _programLoader.OpenProgramFileAsync(path, selectedLine, CancellationToken.None).ConfigureAwait(false);
             else
                 programText = await _programLoader.OpenProgramFileAsync(path, CancellationToken.None).ConfigureAwait(false);
