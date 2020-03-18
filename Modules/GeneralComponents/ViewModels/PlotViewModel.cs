@@ -2,6 +2,9 @@
 using CncMachine.Machines;
 using GcodeParser.GcodeInterpreter.Interpreter;
 using HelixToolkit.SharpDX.Core;
+using HelixToolkit.SharpDX.Core.Assimp;
+using HelixToolkit.SharpDX.Core.Model;
+using HelixToolkit.SharpDX.Core.Model.Scene;
 using HelixToolkit.Wpf.SharpDX;
 using HelixToolkit.Wpf.SharpDX.Model;
 using Infrastructure.Abstract;
@@ -89,38 +92,38 @@ namespace GeneralComponents.ViewModels
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Reliability", "CA2000:Ликвидировать объекты перед потерей области", Justification = "<Ожидание>")]
         private void LoadLaserModel()
         {
-            //try
-            //{
-            //    var loader = new Importer();
-            //    var scene = loader.Load(@"Models3d\soplo.stl");
+            try
+            {
+                var loader = new Importer();
+                var scene = loader.Load(@"Models3d\soplo.stl");
 
-            //    LoadScene(scene, Colors.Orange.ToColor4(), LaserModel);
-            //    scene = loader.Load(@"Models3d\ray.stl");
-            //    LoadScene(scene, new Color4(255, 0, 0, 1), LaserModel);
-            //}
-            //catch (Exception ex)
-            //{
-            //    _loggerFacade.Log(ex.Message, Category.Exception, Priority.High);
-            //}
+                LoadScene(scene, Colors.Orange.ToColor4(), LaserModel);
+                scene = loader.Load(@"Models3d\ray.stl");
+                LoadScene(scene, new Color4(255, 0, 0, 1), LaserModel);
+            }
+            catch (Exception ex)
+            {
+                _loggerFacade.Log(ex.Message, Category.Exception, Priority.High);
+            }
         }
 
-        //private static void LoadScene(HelixToolkitScene loadedScene, Color4 color4, SceneNodeGroupModel3D loadedGroupModel3D)
-        //{
-        //    //if (loadedScene != null)
-        //    //{
-        //    //    if (loadedScene.Root != null)
-        //    //    {
-        //    //        foreach (var node in loadedScene.Root.Traverse())
-        //    //        {
-        //    //            if (node is MaterialGeometryNode m)
-        //    //            {
-        //    //                m.Material = new PhongMaterial(new PhongMaterialCore()) { EmissiveColor = color4 };
-        //    //            }
-        //    //        }
-        //    //    }
-        //    //    loadedGroupModel3D.AddNode(loadedScene.Root);
-        //    //}
-        //}
+        private static void LoadScene(HelixToolkitScene loadedScene, Color4 color4, SceneNodeGroupModel3D loadedGroupModel3D)
+        {
+            if (loadedScene != null)
+            {
+                if (loadedScene.Root != null)
+                {
+                    foreach (var node in loadedScene.Root.Traverse())
+                    {
+                        if (node is MaterialGeometryNode m)
+                        {
+                            m.Material = new PhongMaterial(new PhongMaterialCore()) { EmissiveColor = color4 };
+                        }
+                    }
+                }
+                loadedGroupModel3D.AddNode(loadedScene.Root);
+            }
+        }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Не перехватывать исключения общих типов", Justification = "<Ожидание>")]
         private async void ProgramLoadedEventExecuted(string path)
@@ -147,7 +150,7 @@ namespace GeneralComponents.ViewModels
                 {
                     await Machine.LoadProgramAsync(path).ConfigureAwait(false);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     _loggerFacade.Log(ex.ToString(), Category.Exception, Priority.High);
                     _loggerFacade.Log(GeneralComponentsStrings.PlotBadFileFormat, Category.Warn, Priority.High);
