@@ -244,6 +244,13 @@ namespace ControllerService.Modules
             StartLine = 0;
             PrepareProgramAsync().Wait();
         }
+        public async Task AbortProgramAsync()
+        {
+            ClearStates();
+            _rotaryBufferCancellationToken?.Cancel();
+            StartLine = 0;
+            await PrepareProgramAsync();
+        }
         private static void StartLoadProgram(Action action, CancellationToken token)
         {
             if (token != null)

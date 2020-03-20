@@ -201,6 +201,19 @@ namespace CncMachine.Machines
                 InitFrame();
             }
         }
+        public virtual void SetFrame(int number)
+        {
+            if (Program.Count >= number)
+            {
+                for (int i = FrameNumber; i < number; i++)
+                {
+                    FrameNumber++;
+                    InitFrame();
+                }
+            }
+            else
+                throw new ArgumentOutOfRangeException();
+        }
 
         public int FrameNumber { get; protected set; }
         public virtual GFrame CurrentFrame { get; private set; }

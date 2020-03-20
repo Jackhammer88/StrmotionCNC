@@ -18,11 +18,13 @@ using Prism.Events;
 using Prism.Logging;
 using SharpDX;
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
+using System.Windows.Threading;
 
 namespace GeneralComponents.ViewModels
 {
@@ -31,10 +33,10 @@ namespace GeneralComponents.ViewModels
 
     public class PlotViewModel : ViewModelBase
     {
-        private Camera _camera;
+        private HelixToolkit.Wpf.SharpDX.Camera _camera;
         private EffectsManager _effectsManager;
-        private Geometry3D _linesGeometry;
-        private Geometry3D _rapidGeometry;
+        private HelixToolkit.SharpDX.Core.Geometry3D _linesGeometry;
+        private HelixToolkit.SharpDX.Core.Geometry3D _rapidGeometry;
         private Point3D _pointHit;
         private string _frameText;
         private readonly IControllerInformation _controllerInformation;
@@ -82,10 +84,7 @@ namespace GeneralComponents.ViewModels
             PortEffectsManager = new DefaultEffectsManager();
             ResetCameraCommand.Execute();
 
-
             FrameText = "Test";
-
-            var tier = RenderCapability.Tier;
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1031:Не перехватывать исключения общих типов", Justification = "<Ожидание>")]
@@ -203,11 +202,34 @@ namespace GeneralComponents.ViewModels
         private void ProgramLoader_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             if (e == null) throw new ArgumentNullException(nameof(e));
-            if (_programLoader.CurrentState == ProgramLoaderState.Auto && e.PropertyName.Equals(nameof(_programLoader.ProgramStringNumber), StringComparison.Ordinal) && _programLoader.ProgramStringNumber > 2)
+            if (e.PropertyName.Equals(nameof(_programLoader.ProgramStringNumber), StringComparison.Ordinal))
             {
-                Machine.NextFrame();
+                if (_programLoader.ProgramStringNumber == 0)
+                {
+                    ResetCurrentLines();
+                    Machine.Rewind(0);
+                }
+                else
+                    Machine.SetFrame(_programLoader.ProgramStringNumber);
             }
+            //if (_programLoader.CurrentState == ProgramLoaderState.Auto && e.PropertyName.Equals(nameof(_programLoader.ProgramStringNumber), StringComparison.Ordinal) && _programLoader.ProgramStringNumber > 2)
+            //{
+            //    Machine.NextFrame();
+            //}
         }
+
+        private void ResetCurrentLines()
+        {
+            CurrentGeometry = MakeNewLinesGeometry();
+        }
+
+        private Geometry3D MakeNewLinesGeometry()
+        {
+            var builder = new LineBuilder();
+            builder.AddLine(new Vector3(), new Vector3());
+            return builder.ToLineGeometry3D();
+        }
+
         private static void UpdateGeometry(Geometry3D geometry)
         {
             geometry.UpdateVertices();
@@ -238,13 +260,17 @@ namespace GeneralComponents.ViewModels
             var newCoordinates = new Point3D(CalculateNewCoordinate(Machine.CurrentCoordinates.X, oldCoordinates.X, absolute),
                 CalculateNewCoordinate(Machine.CurrentCoordinates.Y, oldCoordinates.Y, absolute),
                 CalculateNewCoordinate(Machine.CurrentCoordinates.Z, oldCoordinates.Z, absolute));
-            //Machine.CurrentCoordinates.X ?? oldCoordinates.X,
-            //Machine.CurrentCoordinates.Y ?? oldCoordinates.Y,
-            //Machine.CurrentCoordinates.Z ?? oldCoordinates.Z);
             var radius = Machine.CurrentFrame.RValue;
             ScaleCoordinates(_userSettingsService.ScaleFactor, ref oldCoordinates, ref newCoordinates, ref centers, ref radius);
-            //ApplyOffset(_userSettingsService.ScaleFactor, ref oldCoordinates, ref newCoordinates, ref centers, ref radius, _userSettingsService);
 
+            if (_dry)
+                DrawDry(gModalGroup1, oldCoordinates, newCoordinates, radius, centers);
+            else
+                Draw(gModalGroup1, oldCoordinates, newCoordinates, radius, centers);
+        }
+
+        private void Draw(float gModalGroup1, Point3D oldCoordinates, Point3D newCoordinates, float? radius, ArcCenters centers)
+        {
             ArcInterpolation interpolation;
 
             switch (gModalGroup1)
@@ -255,7 +281,7 @@ namespace GeneralComponents.ViewModels
                     break;
                 case 1:
                     //Linear
-                    AddLine(oldCoordinates.ToVector3(), newCoordinates.ToVector3(), _dry ? LinesGeometry : CurrentGeometry);
+                    AddLine(oldCoordinates.ToVector3(), newCoordinates.ToVector3(), CurrentGeometry);
                     break;
                 case 2:
                     //Arc clockwise
@@ -265,10 +291,10 @@ namespace GeneralComponents.ViewModels
                     for (int i = 0; i <= 100; i += 5)
                     {
                         var point = interpolation.GetArcCoordinatesEx(i);
-                        AddLine(oldCoordinates.ToVector3(), point.ToVector3(), _dry ? LinesGeometry : CurrentGeometry);
+                        AddLine(oldCoordinates.ToVector3(), point.ToVector3(), CurrentGeometry);
                         oldCoordinates = point;
                     }
-                    AddLine(oldCoordinates.ToVector3(), newCoordinates.ToVector3(), _dry ? LinesGeometry : CurrentGeometry);
+                    AddLine(oldCoordinates.ToVector3(), newCoordinates.ToVector3(), CurrentGeometry);
                     break;
                 case 3:
                     //Arc Counter-clockwise
@@ -279,30 +305,73 @@ namespace GeneralComponents.ViewModels
                     for (int i = 100; i >= 0; i -= 5)
                     {
                         var point = interpolation.GetArcCoordinatesEx(i);
-                        AddLine(oldCoordinates.ToVector3(), point.ToVector3(), _dry ? LinesGeometry : CurrentGeometry);
+                        AddLine(oldCoordinates.ToVector3(), point.ToVector3(), CurrentGeometry);
                         oldCoordinates = point;
                     }
-                    AddLine(oldCoordinates.ToVector3(), newCoordinates.ToVector3(), _dry ? LinesGeometry : CurrentGeometry);
+                    AddLine(oldCoordinates.ToVector3(), newCoordinates.ToVector3(), CurrentGeometry);
                     break;
                 default:
                     break;
                     //throw new Exception("Неизвестный код 1-й группы.");
             }
 
-            if (!_dry)
-            {
-                UpdateCurrentGeometry(CurrentGeometry);
-                var programLineNumber = _programLoader.ProgramStringNumber <= 1 ? 0 : _programLoader.ProgramStringNumber;
-                if (programLineNumber == 0)
-                    FrameText = $"{programLineNumber}: {Machine.Program[0]}";
-                else
-                    FrameText = $"{programLineNumber}: {Machine.Program[_programLoader.ProgramStringNumber - 2 < Machine.Program.Count ? _programLoader.ProgramStringNumber - 2 : 0]}";
-                PositionSubtitle = $"X{AxisX.PlotPosition} Y{AxisY.PlotPosition}";
-            }
+
+            UpdateCurrentGeometry(CurrentGeometry);
+            var programLineNumber = _programLoader.ProgramStringNumber <= 1 ? 0 : _programLoader.ProgramStringNumber;
+            if (programLineNumber == 0)
+                FrameText = $"{programLineNumber}: {Machine.Program[0]}";
             else
+                FrameText = $"{programLineNumber}: {Machine.Program[_programLoader.ProgramStringNumber - 2 < Machine.Program.Count ? _programLoader.ProgramStringNumber - 2 : 0]}";
+            if (AxisX != null && AxisY != null)
+                PositionSubtitle = $"X{AxisX.PlotPosition} Y{AxisY.PlotPosition}";
+        }
+        private void DrawDry(float gModalGroup1, Point3D oldCoordinates, Point3D newCoordinates, float? radius, ArcCenters centers)
+        {
+            ArcInterpolation interpolation;
+
+            switch (gModalGroup1)
             {
-                FrameText = $"{Machine.FrameNumber}: {Machine}";
+                case 0:
+                    //Rapid
+                    AddLine(oldCoordinates.ToVector3(), newCoordinates.ToVector3(), RapidGeometry);
+                    break;
+                case 1:
+                    //Linear
+                    AddLine(oldCoordinates.ToVector3(), newCoordinates.ToVector3(), LinesGeometry);
+                    break;
+                case 2:
+                    //Arc clockwise
+                    if (Machine.CurrentFrame.RValue.HasValue) interpolation = new ArcInterpolation(oldCoordinates, radius: radius.Value, newCoordinates, true);
+                    else interpolation = new ArcInterpolation(oldCoordinates, centers, newCoordinates, true);
+
+                    for (int i = 0; i <= 100; i += 5)
+                    {
+                        var point = interpolation.GetArcCoordinatesEx(i);
+                        AddLine(oldCoordinates.ToVector3(), point.ToVector3(), LinesGeometry);
+                        oldCoordinates = point;
+                    }
+                    AddLine(oldCoordinates.ToVector3(), newCoordinates.ToVector3(), LinesGeometry);
+                    break;
+                case 3:
+                    //Arc Counter-clockwise
+                    if (Machine.CurrentFrame.RValue.HasValue)
+                        interpolation = new ArcInterpolation(oldCoordinates, radius: radius.Value, newCoordinates, false);
+                    else
+                        interpolation = new ArcInterpolation(oldCoordinates, centers, newCoordinates, false);
+                    for (int i = 100; i >= 0; i -= 5)
+                    {
+                        var point = interpolation.GetArcCoordinatesEx(i);
+                        AddLine(oldCoordinates.ToVector3(), point.ToVector3(), LinesGeometry);
+                        oldCoordinates = point;
+                    }
+                    AddLine(oldCoordinates.ToVector3(), newCoordinates.ToVector3(), LinesGeometry);
+                    break;
+                default:
+                    break;
+                    //throw new Exception("Неизвестный код 1-й группы.");
             }
+
+            FrameText = $"{Machine.FrameNumber}: {Machine}";
         }
 
         private double CalculateNewCoordinate(float? newCoordinate, double? oldCoordinate, bool absolute)

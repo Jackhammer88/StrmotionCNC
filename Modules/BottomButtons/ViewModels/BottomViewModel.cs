@@ -246,9 +246,9 @@ namespace BottomButtons.ViewModels
         {
             _programLoader.CycleStart();
         }
-        void ExecuteAbortCommand()
+        async void ExecuteAbortCommand()
         {
-            _programLoader.AbortProgram();
+            await _programLoader.AbortProgramAsync();
             StartCycleCommand.RaiseCanExecuteChanged();
         }
         private void ExecuteResumeCommand()

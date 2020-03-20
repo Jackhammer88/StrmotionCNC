@@ -50,7 +50,7 @@ namespace Infrastructure.Resources.Converters
 
         private string RemoveDateTime(string sValue)
         {
-            var length = DateTime.Now.ToString(CultureInfo.InvariantCulture).Length + 2;
+            var length = DateTime.Now.ToString(CultureInfo.InvariantCulture).Length /* + 2*/;
             return new string(sValue.Skip(length).ToArray());
         }
 

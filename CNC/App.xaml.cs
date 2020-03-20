@@ -155,6 +155,11 @@ namespace CNC
             var logger = Container.Resolve<ILoggerFacade>();
             GlobalLogger.Fatal(e);
             logger.Log(e.ExceptionObject.ToString(), Category.Exception, Priority.High);
+            if (e.IsTerminating)
+            {
+                logger.Log("Application is shutting down.", Category.Exception, Priority.High);
+                App.Current.Shutdown();
+            }
         }
         private void TaskScheduler_UnobservedTaskException(object sender, UnobservedTaskExceptionEventArgs e)
         {
@@ -162,7 +167,7 @@ namespace CNC
             GlobalLogger.Fatal(e);
             logger.Log(e.Exception.ToString(), Category.Exception, Priority.High);
         }
-        private void App_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
+        private void App_DispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
             var logger = Container.Resolve<ILoggerFacade>();
             var exception = e.Exception;

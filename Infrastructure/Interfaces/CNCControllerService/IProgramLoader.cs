@@ -25,6 +25,7 @@ namespace Infrastructure.Interfaces.CNCControllerService
 
         Task PrepareProgramAsync(bool mdi = false);
         void AbortProgram();
+        Task AbortProgramAsync();
         Task<string[]> OpenProgramFileAsync(string programPath, CancellationToken cancellationToken);
         Task<string[]> OpenProgramFileAsync(string programPath, int selectedLine, CancellationToken cancellationToken);
         void LoadMDIProgram(IEnumerable<string> programStrings);
