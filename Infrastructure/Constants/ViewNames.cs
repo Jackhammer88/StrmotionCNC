@@ -10,7 +10,8 @@
         public const string MDI = "MDI";
         public const string Plot = "Plot";
         public const string LaserTuning = "LaserTuning";
-        public const string LaserSettingsView = "LaserSettingsView";
+        public const string LaserSettings = "LaserSettings";
+        public const string LaserInformation = "LaserInformation";
         public const string Offset = "Offset";
         public const string ToolOffsets = "ToolOffsets";
         public const string Terminal = "Terminal";

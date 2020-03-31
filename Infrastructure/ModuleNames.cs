@@ -14,5 +14,6 @@
         public const string ActualCodesModule = "ActualCodesModule";
         public const string BottomButtonsModule = "BottomButtonsModule";
         public const string LasserSettingsModule = "LasserSettingsModule";
+        public const string ModbusLaserServiceModule = "ModbusLaserServiceModule";
     }
 }

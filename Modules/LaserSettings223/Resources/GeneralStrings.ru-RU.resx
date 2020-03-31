@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ApproachNormal" xml:space="preserve">
+    <value>Подвод норм</value>
+  </data>
+  <data name="ApproachPrecut" xml:space="preserve">
+    <value>Подвод precut</value>
+  </data>
+  <data name="ApproachRedAcc" xml:space="preserve">
+    <value>Подвод red acc</value>
+  </data>
+  <data name="ApproachRedSpeed" xml:space="preserve">
+    <value>Подвод red speed</value>
+  </data>
+  <data name="ApproachRedSpeedAcc" xml:space="preserve">
+    <value>Подвод red speed acc</value>
+  </data>
+  <data name="BurnNormal" xml:space="preserve">
+    <value>Прожиг норм</value>
+  </data>
+  <data name="BurnSoft" xml:space="preserve">
+    <value>Прожиг мягкий</value>
+  </data>
+  <data name="Cooling" xml:space="preserve">
+    <value>Охлаждение</value>
+  </data>
+  <data name="Engraving" xml:space="preserve">
+    <value>Гравировка</value>
+  </data>
+  <data name="Evaporation" xml:space="preserve">
+    <value>Испарение</value>
+  </data>
+  <data name="LargeContour" xml:space="preserve">
+    <value>Большой контур</value>
+  </data>
+  <data name="MicroweldHard" xml:space="preserve">
+    <value>Microweld hard</value>
+  </data>
+  <data name="MicroweldSoft" xml:space="preserve">
+    <value>Microweld soft</value>
+  </data>
+  <data name="MiddleContour" xml:space="preserve">
+    <value>Средний контур</value>
+  </data>
+  <data name="PreBurn" xml:space="preserve">
+    <value>Препрожиг</value>
+  </data>
+  <data name="Punching" xml:space="preserve">
+    <value>Кернение</value>
+  </data>
+  <data name="SmallContour" xml:space="preserve">
+    <value>Малый контур</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Значение</value>
+  </data>
+  <data name="Acceleration" xml:space="preserve">
+    <value>Ускорение, м/с^2</value>
+  </data>
+  <data name="BeamDiameter" xml:space="preserve">
+    <value>Диаметр луча, мм</value>
+  </data>
+  <data name="BurningType" xml:space="preserve">
+    <value>Тип прожига</value>
+  </data>
+  <data name="Coefficient" xml:space="preserve">
+    <value>Коэффициент</value>
+  </data>
+  <data name="Feedrate" xml:space="preserve">
+    <value>Подача, мм/мин</value>
+  </data>
+  <data name="LaserPower" xml:space="preserve">
+    <value>Мощность, Вт</value>
+  </data>
+  <data name="MinLaserPower" xml:space="preserve">
+    <value>Минимальная мощность, Вт</value>
+  </data>
+  <data name="Gap" xml:space="preserve">
+    <value>Зазор, мм</value>
+  </data>
+  <data name="LaserFocus" xml:space="preserve">
+    <value>Фокус, мм</value>
+  </data>
+  <data name="GasPressure" xml:space="preserve">
+    <value>Давление газа, бар</value>
+  </data>
+  <data name="ImpFrequeency" xml:space="preserve">
+    <value>Частота, Гц</value>
+  </data>
+  <data name="ImpDutyCycle" xml:space="preserve">
+    <value>Скважность, %</value>
+  </data>
+  <data name="RampNo" xml:space="preserve">
+    <value>Рампа №</value>
+  </data>
+  <data name="NozzleDiameter" xml:space="preserve">
+    <value>Диаметр сопла, мм</value>
+  </data>
+  <data name="FollowingOn" xml:space="preserve">
+    <value>Слежение</value>
+  </data>
+  <data name="SensorSensitivityI1" xml:space="preserve">
+    <value>Чувствительность 1</value>
+  </data>
+  <data name="SensorSensitivityI2" xml:space="preserve">
+    <value>Чувствительность 2</value>
+  </data>
+  <data name="RoundedOn" xml:space="preserve">
+    <value>Без скругления</value>
+  </data>
+  <data name="GasType" xml:space="preserve">
+    <value>Тип газа</value>
+  </data>
+  <data name="BurningTime" xml:space="preserve">
+    <value>Время прожига</value>
+  </data>
+  <data name="Air" xml:space="preserve">
+    <value>Воздух</value>
+  </data>
+  <data name="Oxygen" xml:space="preserve">
+    <value>Кислород</value>
+  </data>
+  <data name="Nitrogen" xml:space="preserve">
+    <value>Азот</value>
+  </data>
+  <data name="BigContour" xml:space="preserve">
+    <value>Большой контур</value>
+  </data>
+  <data name="Steel" xml:space="preserve">
+    <value>Сталь</value>
+  </data>
+  <data name="StainlessSteel" xml:space="preserve">
+    <value>Нержавеющая сталь</value>
+  </data>
+  <data name="ElectricalSteel" xml:space="preserve">
+    <value>Электротехническая сталь</value>
+  </data>
+  <data name="Aluminium" xml:space="preserve">
+    <value>Алюминий</value>
+  </data>
+  <data name="Cooper" xml:space="preserve">
+    <value>Медь</value>
+  </data>
+  <data name="Brass" xml:space="preserve">
+    <value>Латунь</value>
+  </data>
+  <data name="Titanium" xml:space="preserve">
+    <value>Титан</value>
+  </data>
+  <data name="Other" xml:space="preserve">
+    <value>Другой</value>
+  </data>
+  <data name="SavingError" xml:space="preserve">
+    <value>Ошибка при попытке сохранить файл</value>
+  </data>
+  <data name="OpeningError" xml:space="preserve">
+    <value>Произошла ошибка во время открытия файла</value>
+  </data>
+  <data name="LaserSettingsTitle" xml:space="preserve">
+    <value>НАСТР ЛАЗЕРА</value>
+  </data>
+</root>
