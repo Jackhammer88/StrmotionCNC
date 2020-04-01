@@ -1,5 +1,6 @@
 ﻿using Infrastructure.Abstract;
 using Infrastructure.Constants;
+using Infrastructure.Interfaces.LaserService;
 using Infrastructure.Interfaces.Logger;
 using LaserSettings.Model;
 using LaserSettings.ParamsLoader;
@@ -21,19 +22,39 @@ namespace LaserSettings.ViewModels
         private readonly ConfigurationLoader _configurationLoader;
         private readonly IDialogService _dialogService;
         private readonly ILoggerExtended _logger;
+        private readonly ILaserService _laserService;
         private LaserConfiguration _dataItems;
 
-        public LaserSettingsViewModel(IDialogService dialogService, ILoggerExtended logger)
+        public LaserSettingsViewModel(IDialogService dialogService, ILoggerExtended logger, ILaserService laserService)
         {
+            _dialogService = dialogService ?? throw new ArgumentNullException(nameof(dialogService));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _laserService = laserService ?? throw new ArgumentNullException(nameof(laserService));
+
+            _laserService.FocusChangingRequested += _laserService_FocusChangingRequested;
             Title = GeneralStrings.LaserSettingsTitle;
-            _dialogService = dialogService;
-            _logger = logger;
             _configurationLoader = new ConfigurationLoader(_logger);
             DataItems = GenerateDataItems();
 
             LoadConfigurationCommand = new DelegateCommand(LoadConfigurationExecute);
             SaveConfigurationCommand = new DelegateCommand(SaveConfigurationExecute);
             ReorderCollectionCommand = new DelegateCommand(ReorderCollectionExecute);
+        }
+
+        private void _laserService_FocusChangingRequested(object sender, EventArgs e)
+        {
+            /* TODO:
+             *  1)прочитать запрошенную операцию и связанные параметры
+             *  2)загрузить профиль запрошенной операции в контроллер
+             *  3)изменить фокусировку
+             */
+            //1 - чтение типа операции из контроллера и связанные параметры
+            var lensFocalDistance = 1;
+            //2 - загрузить профиль запрошенной операции в контроллер
+
+            //3 - изменить фокусировку
+            if (!_laserService.ChangeLensFocus(lensFocalDistance).Result)
+                _logger.Fatal("Can't change focal distance.");
         }
 
         private void SaveConfigurationExecute()

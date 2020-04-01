@@ -4,12 +4,16 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:LaserSettings.Views"
-             xmlns:prism="http://prismlibrary.com/"
+             xmlns:prism="http://prismlibrary.com/" xmlns:converters="clr-namespace:LaserSettings.Resources.Converters"
              mc:Ignorable="d" 
              prism:ViewModelLocator.AutoWireViewModel="True"
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+    </UserControl.Resources>
     <Grid Background="{StaticResource MainBackgroundColor}" DataContext="{Binding InfoModel}">
         <Grid.Resources>
+            <converters:ConnectedStatusToColorConverter x:Key="ConnectedStatusToColorConverter" ConnectedColor="{StaticResource MainTextColor}"
+                                                        DisconnectedColor="Red"/>
             <Style TargetType="GroupBox">
                 <Setter Property="Foreground" Value="{DynamicResource MainTextColor}"/>
                 <Setter Property="Margin" Value="5"/>
@@ -30,7 +34,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Контрольные значения лазерной головки" FontWeight="DemiBold" Grid.ColumnSpan="2" FontSize="20" HorizontalAlignment="Center" Margin="3"/>
+        <TextBlock Text="Контрольные значения лазерной головки" Foreground="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}, Path=DataContext.IsConnected, Converter={StaticResource ConnectedStatusToColorConverter}}" FontWeight="DemiBold" Grid.ColumnSpan="2" FontSize="20" HorizontalAlignment="Center" Margin="3"/>
         <GroupBox Header="Температура" Grid.Row="1" Grid.Column="0" BorderBrush="{DynamicResource MainTextColor}">
             <Grid>
                 <Grid.ColumnDefinitions>
