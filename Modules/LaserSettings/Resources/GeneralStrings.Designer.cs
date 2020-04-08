@@ -205,6 +205,15 @@ namespace LaserSettings.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Colim lens temperature,, ℃.
+        /// </summary>
+        public static string ColimLensTemperature {
+            get {
+                return ResourceManager.GetString("ColimLensTemperature", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Cooling.
         /// </summary>
         public static string Cooling {
@@ -219,6 +228,15 @@ namespace LaserSettings.Resources {
         public static string Cooper {
             get {
                 return ResourceManager.GetString("Cooper", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Cutting gas pressure, bar.
+        /// </summary>
+        public static string CuttingGasPressure {
+            get {
+                return ResourceManager.GetString("CuttingGasPressure", resourceCulture);
             }
         }
         
@@ -268,6 +286,24 @@ namespace LaserSettings.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Focal configuration number.
+        /// </summary>
+        public static string FocalConfigNumber {
+            get {
+                return ResourceManager.GetString("FocalConfigNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Focal lens temperature, ℃.
+        /// </summary>
+        public static string FocalLensTemperature {
+            get {
+                return ResourceManager.GetString("FocalLensTemperature", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Following.
         /// </summary>
         public static string FollowingOn {
@@ -300,6 +336,15 @@ namespace LaserSettings.Resources {
         public static string GasType {
             get {
                 return ResourceManager.GetString("GasType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на ▶.
+        /// </summary>
+        public static string HtmlEntity {
+            get {
+                return ResourceManager.GetString("HtmlEntity", resourceCulture);
             }
         }
         
@@ -340,6 +385,24 @@ namespace LaserSettings.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Laser head control values.
+        /// </summary>
+        public static string LaserHeadControlValues {
+            get {
+                return ResourceManager.GetString("LaserHeadControlValues", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Laser head temperature, ℃.
+        /// </summary>
+        public static string LaserHeadTemperature {
+            get {
+                return ResourceManager.GetString("LaserHeadTemperature", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Laser power, W.
         /// </summary>
         public static string LaserPower {
@@ -354,6 +417,15 @@ namespace LaserSettings.Resources {
         public static string LaserSettingsTitle {
             get {
                 return ResourceManager.GetString("LaserSettingsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Lens current position.
+        /// </summary>
+        public static string LensCurrentPosition {
+            get {
+                return ResourceManager.GetString("LensCurrentPosition", resourceCulture);
             }
         }
         
@@ -430,6 +502,15 @@ namespace LaserSettings.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Other parameters.
+        /// </summary>
+        public static string OtherParameters {
+            get {
+                return ResourceManager.GetString("OtherParameters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Oxygen.
         /// </summary>
         public static string Oxygen {
@@ -439,11 +520,47 @@ namespace LaserSettings.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Power of the ray refraction.
+        /// </summary>
+        public static string PowerOfRefraction {
+            get {
+                return ResourceManager.GetString("PowerOfRefraction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Pre burn.
         /// </summary>
         public static string PreBurn {
             get {
                 return ResourceManager.GetString("PreBurn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Pressure.
+        /// </summary>
+        public static string Pressure {
+            get {
+                return ResourceManager.GetString("Pressure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Pressure inside the head, bar.
+        /// </summary>
+        public static string PressureInsideHead {
+            get {
+                return ResourceManager.GetString("PressureInsideHead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Protective window temperature, ℃.
+        /// </summary>
+        public static string ProtectiveWindowTemp {
+            get {
+                return ResourceManager.GetString("ProtectiveWindowTemp", resourceCulture);
             }
         }
         
@@ -529,6 +646,15 @@ namespace LaserSettings.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Temperature.
+        /// </summary>
+        public static string Temperature {
+            get {
+                return ResourceManager.GetString("Temperature", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Titanium.
         /// </summary>
         public static string Titanium {
@@ -543,6 +669,15 @@ namespace LaserSettings.Resources {
         public static string Value {
             get {
                 return ResourceManager.GetString("Value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Z offset correction.
+        /// </summary>
+        public static string ZCorrection {
+            get {
+                return ResourceManager.GetString("ZCorrection", resourceCulture);
             }
         }
     }

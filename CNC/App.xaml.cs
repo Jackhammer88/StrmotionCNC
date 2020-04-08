@@ -5,11 +5,8 @@ using CNCDialogService.Views;
 using ControllerService;
 using GeneralComponents;
 using Infrastructure;
-using LaserSettings;
-using LaserSettings.Views;
 using LoggerService;
 using Messages;
-using ModbusLaserService;
 using MotorInfo;
 using NLog;
 using OpenDialog.Views;
@@ -85,7 +82,6 @@ namespace CNC
             var generalComponentsModule = typeof(GeneralComponentsModule);
             var motorInfoModule = typeof(MotorInfoModule);
             var topButtonsModule = typeof(TopButtonsModule);
-            var laserSettings = typeof(LaserSettinigsModule);
 
             moduleCatalog.AddModule(new ModuleInfo
             {
@@ -129,20 +125,10 @@ namespace CNC
                 InitializationMode = InitializationMode.WhenAvailable,
                 DependsOn = new Collection<string> { ModuleNames.MotorInfoModule, ModuleNames.ControllerServiceModule }
             });
-
-
-            moduleCatalog.AddModule(new ModuleInfo
-            {
-                ModuleName = laserSettings.Name,
-                ModuleType = laserSettings.AssemblyQualifiedName,
-                InitializationMode = InitializationMode.WhenAvailable,
-                DependsOn = new Collection<string> { ModuleNames.GeneralComponentsModule, ModuleNames.ModbusLaserServiceModule }
-            });
         }
         private void LoadServices(IModuleCatalog moduleCatalog)
         {
             var userSettingServiceModule = typeof(UserSettingServiceModule);
-            var modbusLaserService = typeof(ModbusLaserServiceModule);
 
             moduleCatalog.AddModule<LoggerServiceModule>(InitializationMode.WhenAvailable);
             moduleCatalog.AddModule(new ModuleInfo
@@ -154,13 +140,7 @@ namespace CNC
             });
             //moduleCatalog.AddModule<ControlPanelServiceModule>(InitializationMode.WhenAvailable);
             moduleCatalog.AddModule<ControllerServiceModule>(InitializationMode.WhenAvailable);
-            moduleCatalog.AddModule(new ModuleInfo
-            {
-                ModuleName = modbusLaserService.Name,
-                ModuleType = modbusLaserService.AssemblyQualifiedName,
-                InitializationMode = InitializationMode.WhenAvailable,
-                DependsOn = new Collection<string> { ModuleNames.LoggerServiceModule }
-            });
+            
         }
 
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)

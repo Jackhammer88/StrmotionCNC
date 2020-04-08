@@ -279,4 +279,49 @@
   <data name="LaserSettingsTitle" xml:space="preserve">
     <value>НАСТР ЛАЗЕРА</value>
   </data>
+  <data name="Temperature" xml:space="preserve">
+    <value>Температура</value>
+  </data>
+  <data name="LaserHeadControlValues" xml:space="preserve">
+    <value>Контрольные значения лазерной головки</value>
+  </data>
+  <data name="ProtectiveWindowTemp" xml:space="preserve">
+    <value>Температура защитного окна, ℃</value>
+  </data>
+  <data name="ColimLensTemperature" xml:space="preserve">
+    <value>Температура коллиматорной линзы, ℃</value>
+  </data>
+  <data name="FocalLensTemperature" xml:space="preserve">
+    <value>Температура фокусирующей линзы, ℃</value>
+  </data>
+  <data name="LaserHeadTemperature" xml:space="preserve">
+    <value>Температура лазерной головки, ℃</value>
+  </data>
+  <data name="Pressure" xml:space="preserve">
+    <value>Давление</value>
+  </data>
+  <data name="CuttingGasPressure" xml:space="preserve">
+    <value>Давление режущего газа, bar</value>
+  </data>
+  <data name="PressureInsideHead" xml:space="preserve">
+    <value>Давление внутри лазерной головки, bar</value>
+  </data>
+  <data name="OtherParameters" xml:space="preserve">
+    <value>Прочие параметры</value>
+  </data>
+  <data name="LensCurrentPosition" xml:space="preserve">
+    <value>Текущая позиция линзы</value>
+  </data>
+  <data name="FocalConfigNumber" xml:space="preserve">
+    <value>Номер конфигурации фокальной линзы</value>
+  </data>
+  <data name="PowerOfRefraction" xml:space="preserve">
+    <value>Степень преломления луча(загрязнение)</value>
+  </data>
+  <data name="ZCorrection" xml:space="preserve">
+    <value>Z коррекция смещения</value>
+  </data>
+  <data name="HtmlEntity" xml:space="preserve">
+    <value>▶</value>
+  </data>
 </root>

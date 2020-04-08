@@ -27,7 +27,6 @@ namespace GeneralComponents
             regionManager.RequestNavigate(RegionNames.RightCenterRegion, ViewNames.ToolOffsets);
             regionManager.RequestNavigate(RegionNames.RightCenterRegion, ViewNames.Offset);
             regionManager.RequestNavigate(RegionNames.RightCenterRegion, ViewNames.Plot);
-            regionManager.RequestNavigate(RegionNames.RightCenterRegion, ViewNames.LaserTuning);
             regionManager.RequestNavigate(RegionNames.RightCenterRegion, ViewNames.Terminal);
             
             regionManager.RequestNavigate(RegionNames.LeftCenterRegion, ViewNames.Auto);
@@ -55,7 +54,6 @@ namespace GeneralComponents
             containerRegistry.RegisterForNavigation<Manual>();
             containerRegistry.RegisterForNavigation<ManualExt>();
             containerRegistry.RegisterForNavigation<Offset>();
-            containerRegistry.RegisterForNavigation<LaserTuning>();
             containerRegistry.RegisterForNavigation<ToolOffsets>();
             containerRegistry.RegisterForNavigation<Plot>();
             containerRegistry.RegisterForNavigation<Terminal>();

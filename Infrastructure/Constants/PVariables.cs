@@ -34,5 +34,10 @@
         public const string PBTestButtonState = "P7011";
 
         public const string MachineStateInternal = "P8147";
+
+        //TODO: Назначить переменную
+        public const string LaserFocusChangingRequired = "P1111";
+        public const string LaserFocusChanging = "P1112";
+        public const string LaserCurrentFocus = "P1112";
     }
 }

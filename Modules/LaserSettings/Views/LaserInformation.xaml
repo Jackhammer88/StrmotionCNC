@@ -4,7 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:LaserSettings.Views"
-             xmlns:prism="http://prismlibrary.com/" xmlns:converters="clr-namespace:LaserSettings.Resources.Converters"
+             xmlns:prism="http://prismlibrary.com/" 
+             xmlns:converters="clr-namespace:LaserSettings.Resources.Converters"
+             xmlns:res="clr-namespace:LaserSettings.Resources"
              mc:Ignorable="d" 
              prism:ViewModelLocator.AutoWireViewModel="True"
              d:DesignHeight="450" d:DesignWidth="800">
@@ -34,8 +36,8 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Контрольные значения лазерной головки" Foreground="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}, Path=DataContext.IsConnected, Converter={StaticResource ConnectedStatusToColorConverter}}" FontWeight="DemiBold" Grid.ColumnSpan="2" FontSize="20" HorizontalAlignment="Center" Margin="3"/>
-        <GroupBox Header="Температура" Grid.Row="1" Grid.Column="0" BorderBrush="{DynamicResource MainTextColor}">
+        <TextBlock Text="{x:Static res:GeneralStrings.LaserHeadControlValues}" Foreground="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=UserControl}, Path=DataContext.IsConnected, Converter={StaticResource ConnectedStatusToColorConverter}}" FontWeight="DemiBold" Grid.ColumnSpan="2" FontSize="20" HorizontalAlignment="Center" Margin="3"/>
+        <GroupBox Header="{x:Static res:GeneralStrings.Temperature}" Grid.Row="1" Grid.Column="0" BorderBrush="{DynamicResource MainTextColor}">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -49,17 +51,17 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <TextBlock Grid.Row="0" Grid.Column="0" Text="Температура защитного окна, &#176;C"/>
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="{x:Static res:GeneralStrings.ProtectiveWindowTemp}"/>
                 <TextBlock Grid.Row="0" Grid.Column="1" DockPanel.Dock="Right" Text="{Binding ProtectiveWindowTemp}"/>
-                <TextBlock Grid.Row="1" Grid.Column="0" Text="Температура коллиматорной линзы, &#176;C"/>
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="{x:Static res:GeneralStrings.ColimLensTemperature}"/>
                 <TextBlock Grid.Row="1" Grid.Column="1" DockPanel.Dock="Right" Text="{Binding ColimLensTemp}"/>
-                <TextBlock Grid.Row="2" Grid.Column="0" Text="Температура фокусирующей линзы, &#176;C"/>
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="{x:Static res:GeneralStrings.FocalLensTemperature}"/>
                 <TextBlock Grid.Row="2" Grid.Column="1" DockPanel.Dock="Right" Text="{Binding FocusingLensTemp}"/>
-                <TextBlock Grid.Row="3" Grid.Column="0" Text="Температура лазерной головки, &#176;C"/>
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="{x:Static res:GeneralStrings.LaserHeadTemperature}"/>
                 <TextBlock Grid.Row="3" Grid.Column="1" DockPanel.Dock="Right" Text="{Binding MainTemperature}"/>
             </Grid>
         </GroupBox>
-        <GroupBox Header="Давление" Grid.Row="1" Grid.Column="2" BorderBrush="{DynamicResource MainTextColor}">
+        <GroupBox Header="{x:Static res:GeneralStrings.Pressure}" Grid.Row="1" Grid.Column="2" BorderBrush="{DynamicResource MainTextColor}">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -73,13 +75,13 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <TextBlock Text="Давление режущего газа, bar"/>
+                <TextBlock Text="{x:Static res:GeneralStrings.CuttingGasPressure}"/>
                 <TextBlock Grid.Column="1" Text="{Binding WorkingGasPressure}"/>
-                <TextBlock Grid.Row="1" Text="Давление внутри лазерной головки, bar"/>
+                <TextBlock Grid.Row="1" Text="{x:Static res:GeneralStrings.PressureInsideHead}"/>
                 <TextBlock  Grid.Column="1" Grid.Row="1" Text="{Binding InternalPressure}"/>
             </Grid>
         </GroupBox>
-        <GroupBox Header="Прочие параметры" Grid.Row="2" Grid.ColumnSpan="2" BorderBrush="{DynamicResource MainTextColor}">
+        <GroupBox Header="{x:Static res:GeneralStrings.OtherParameters}" Grid.Row="2" Grid.ColumnSpan="2" BorderBrush="{DynamicResource MainTextColor}">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -100,9 +102,9 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
 
-                    <TextBlock Grid.Column="0" Text="Текущая позиция линзы"/>
+                    <TextBlock Grid.Column="0" Text="{x:Static res:GeneralStrings.LensCurrentPosition}"/>
                     <TextBlock Grid.Column="1" DockPanel.Dock="Right" Text="{Binding LensPosition}"/>
-                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Номер конфигурации фокальной линзы"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="{x:Static res:GeneralStrings.FocalConfigNumber}"/>
                     <TextBlock Grid.Row="1" Grid.Column="1" DockPanel.Dock="Right" Text="{Binding FocalConfiguration}"/>
                 </Grid>
                 <Separator Grid.Column="1" Height="0" Width="20">
@@ -117,9 +119,9 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
 
-                    <TextBlock Grid.Column="0" Text="Степень преломления луча (загрязнение)"/>
+                    <TextBlock Grid.Column="0" Text="{x:Static res:GeneralStrings.PowerOfRefraction}"/>
                     <TextBlock Grid.Column="1" DockPanel.Dock="Right" Text="{Binding DirtyLaserRayCoefficient}"/>
-                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Z коррекция смещения"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="{x:Static res:GeneralStrings.ZCorrection}"/>
                     <TextBlock Grid.Row="1" Grid.Column="1" DockPanel.Dock="Right" Text="{Binding ZPosition}"/>
                     
                 </Grid>

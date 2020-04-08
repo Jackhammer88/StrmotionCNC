@@ -40,10 +40,23 @@ namespace MotorInfo.ViewModels
 
             ChangeCoordinateState = new DelegateCommand<string>(ExecuteChangeCoordinateState);
 
+            Btn1Command = new DelegateCommand(Btn1Execute);
+            Btn2Command = new DelegateCommand(Btn2Execute);
+
             Text = "Test";
             RegisterCallbacks();
             ConnectToController();
             _controllerInformation.ActivatedMotorsCountChanged += ControllerInformation_ActivatedMotorsCountChanged;
+        }
+
+        private void Btn2Execute()
+        {
+            _logger.Log("Btn2", Category.Info, Priority.High);
+        }
+
+        private void Btn1Execute()
+        {
+            _logger.Log("Btn1", Category.Info, Priority.High);
         }
 
         private void RegisterCallbacks()
@@ -150,5 +163,7 @@ namespace MotorInfo.ViewModels
         }
 
         public DelegateCommand<string> ChangeCoordinateState { get; }
+        public DelegateCommand Btn1Command { get; }
+        public DelegateCommand Btn2Command { get; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using ControllerService.Models;
+using Infrastructure.AppEventArgs;
 using Infrastructure.Enums;
 using Infrastructure.Interfaces.CNCControllerService;
 using Infrastructure.Interfaces.UserSettingService;
@@ -77,7 +78,7 @@ namespace ControllerService.Modules
                     StatusX = globalStatusX;
                     StatusY = globalStatusY;
                 }
-
+                //Опрос моторов
                 for (int i = 0; i < _motorCount; i++)
                 {
                     var motor = (Motor)Motors[i];

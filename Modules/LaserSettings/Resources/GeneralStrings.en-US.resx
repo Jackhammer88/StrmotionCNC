@@ -279,4 +279,49 @@
   <data name="LaserSettingsTitle" xml:space="preserve">
     <value>LASER SETTINGS</value>
   </data>
+  <data name="Temperature" xml:space="preserve">
+    <value>Temperature</value>
+  </data>
+  <data name="LaserHeadControlValues" xml:space="preserve">
+    <value>Laser head control values</value>
+  </data>
+  <data name="ProtectiveWindowTemp" xml:space="preserve">
+    <value>Protective window temperature, ℃</value>
+  </data>
+  <data name="ColimLensTemperature" xml:space="preserve">
+    <value>Colim lens temperature,℃</value>
+  </data>
+  <data name="FocalLensTemperature" xml:space="preserve">
+    <value>Focal lens temperature, ℃</value>
+  </data>
+  <data name="LaserHeadTemperature" xml:space="preserve">
+    <value>Laser head temperature, ℃</value>
+  </data>
+  <data name="Pressure" xml:space="preserve">
+    <value>Pressure</value>
+  </data>
+  <data name="CuttingGasPressure" xml:space="preserve">
+    <value>Cutting gas pressure, bar</value>
+  </data>
+  <data name="PressureInsideHead" xml:space="preserve">
+    <value>Pressure inside the head, bar</value>
+  </data>
+  <data name="OtherParameters" xml:space="preserve">
+    <value>Other parameters</value>
+  </data>
+  <data name="LensCurrentPosition" xml:space="preserve">
+    <value>Lens current position</value>
+  </data>
+  <data name="FocalConfigNumber" xml:space="preserve">
+    <value>Focal configuration number</value>
+  </data>
+  <data name="PowerOfRefraction" xml:space="preserve">
+    <value>Power of the ray refraction</value>
+  </data>
+  <data name="ZCorrection" xml:space="preserve">
+    <value>Z offset correction</value>
+  </data>
+  <data name="HtmlEntity" xml:space="preserve">
+    <value>▶</value>
+  </data>
 </root>

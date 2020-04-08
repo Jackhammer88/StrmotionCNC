@@ -11,7 +11,6 @@ namespace Infrastructure.Interfaces.LaserService
         
         void TryToStart();
         void TryToStop();
-        bool TestRead(ushort address);
         Task<bool> ChangeLensFocus(int value);
         bool IsConnected { get; }
         ILaserInfo LaserInfoModel { get; }

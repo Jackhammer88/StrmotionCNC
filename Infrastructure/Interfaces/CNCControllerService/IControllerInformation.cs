@@ -1,4 +1,5 @@
-﻿using Infrastructure.Enums;
+﻿using Infrastructure.AppEventArgs;
+using Infrastructure.Enums;
 using Infrastructure.SharedClasses;
 using System;
 using System.Collections.Generic;

@@ -27,13 +27,11 @@
     <ProjectReference Include="..\Modules\ActualCodes\ActualCodes.csproj" />
     <ProjectReference Include="..\Modules\BottomButtons\BottomButtons.csproj" />
     <ProjectReference Include="..\Modules\GeneralComponents\GeneralComponents.csproj" />
-    <ProjectReference Include="..\Modules\LaserSettings\LaserSettings.csproj" />
     <ProjectReference Include="..\Modules\Messages\Messages.csproj" />
     <ProjectReference Include="..\Modules\MotorInfo\MotorInfo.csproj" />
     <ProjectReference Include="..\Modules\TopButtons\TopButtons.csproj" />
     <ProjectReference Include="..\Services\CNCDialogService\CNCDialogService.csproj" />
     <ProjectReference Include="..\Services\LoggerService\LoggerService.csproj" />
-    <ProjectReference Include="..\Services\ModbusLaserService\ModbusLaserService.csproj" />
     <ProjectReference Include="..\Services\TurboPMACService\TurboPMACService.csproj" />
     <ProjectReference Include="..\Services\UserSettingService\UserSettingService.csproj" />
   </ItemGroup>

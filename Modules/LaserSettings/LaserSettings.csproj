@@ -53,9 +53,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Resources\GeneralStrings.en-US.resx">
+      <Generator></Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Resources\GeneralStrings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>GeneralStrings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\GeneralStrings.ru-RU.resx">
+      <Generator></Generator>
     </EmbeddedResource>
   </ItemGroup>
 

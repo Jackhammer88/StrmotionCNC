@@ -34,13 +34,13 @@ namespace ModbusLaserService.Model
         }
         public float WorkingGasPressure
         {
-            get { return _workingGasPressure; }
-            set { _workingGasPressure = value; }
+            get  => _workingGasPressure;
+            set => SetProperty(ref _workingGasPressure, value);
         }
         public float InternalPressure
         {
-            get { return _internalPressure; }
-            set { _internalPressure = value; }
+            get => _internalPressure;
+            set => SetProperty(ref _internalPressure, value);
         }
         public float ColimLensTemp
         {
