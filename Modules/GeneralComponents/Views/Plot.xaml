@@ -6,7 +6,8 @@
              xmlns:hx="http://helix-toolkit.org/wpf/SharpDX"
              xmlns:converters="http://www.infrastructure.cnc.com/converters"
              mc:Ignorable="d" 
-             xmlns:prism="http://prismlibrary.com/"
+             xmlns:prism="http://prismlibrary.com/" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              prism:ViewModelLocator.AutoWireViewModel="True"
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
@@ -16,25 +17,21 @@
         <hx:Viewport3DX x:Name="viewPort" Camera="{Binding PortCamera}" EffectsManager="{Binding PortEffectsManager}" Title="{Binding FrameText}" TextBrush="LightGreen"
                                  BackgroundColor="#4c659c"  UseDefaultGestures="True" SubTitle="{Binding AxisX.PlotPosition}"
                                     ShowCoordinateSystem="True" CoordinateSystemLabelForeground="LightYellow" IsCoordinateSystemMoverEnabled="True">
-            <!--<hx:PointGeometryModel3D DepthBias="-10000" Figure="Cross" FigureRatio="0.12" Size="16 16" Color="Yellow">
-                <hx:PointGeometryModel3D.Resources>
-                    <converters:CoordinatesScaleConverter x:Key="CoordinatesScaleConverter"/>
-                </hx:PointGeometryModel3D.Resources>
-                <hx:PointGeometryModel3D.Geometry>
-                    <hx:PointGeometry3D Indices="0" Positions="0 0 0" />
-                </hx:PointGeometryModel3D.Geometry>
-                --><!--<hx:PointGeometryModel3D.Transform>
-                    <TranslateTransform3D OffsetX="{Binding AxisX.Position, Converter={StaticResource CoordinatesScaleConverter}, Delay=100}" 
-                                          OffsetY="{Binding AxisY.Position, Converter={StaticResource CoordinatesScaleConverter}, Delay=100}" 
-                                          OffsetZ="{Binding AxisZ.Position, Converter={StaticResource CoordinatesScaleConverter}, Delay=100}"/>
-                </hx:PointGeometryModel3D.Transform>--><!--
-            </hx:PointGeometryModel3D>-->
 
             <hx:Element3DPresenter Content="{Binding LaserModel}">
                 <hx:Element3DPresenter.Transform>
-                    <TranslateTransform3D OffsetX="{Binding AxisX.PlotPosition, Converter={StaticResource CoordinatesScaleConverter}, Delay=100}" 
+                    <Transform3DGroup>
+                        <TranslateTransform3D OffsetX="{Binding AxisX.PlotPosition, Converter={StaticResource CoordinatesScaleConverter}, Delay=100}" 
                                           OffsetY="{Binding AxisY.PlotPosition, Converter={StaticResource CoordinatesScaleConverter}, Delay=100}" 
-                                          OffsetZ="{Binding AxisZ.PlotPosition, Converter={StaticResource CoordinatesScaleConverter}, Delay=100}"/>
+                                            OffsetZ="{Binding AxisZ.PlotPosition, Converter={StaticResource CoordinatesScaleConverter}, Delay=100}"/>
+                        <RotateTransform3D CenterX="{Binding AxisX.PlotPosition, Converter={StaticResource CoordinatesScaleConverter}, Delay=100}" 
+                                           CenterY="{Binding AxisY.PlotPosition, Converter={StaticResource CoordinatesScaleConverter}, Delay=100}" 
+                                           CenterZ="{Binding AxisZ.PlotPosition, Converter={StaticResource CoordinatesScaleConverter}, Delay=100}">
+                            <RotateTransform3D.Rotation>
+                                <AxisAngleRotation3D Axis="0,0,3" Angle="{Binding RotateAngle}" />
+                            </RotateTransform3D.Rotation>
+                        </RotateTransform3D>
+                    </Transform3DGroup>
                 </hx:Element3DPresenter.Transform>
             </hx:Element3DPresenter>
 

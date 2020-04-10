@@ -24,6 +24,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
+using System.Windows.Media.Media3D;
 using System.Windows.Threading;
 
 namespace GeneralComponents.ViewModels
@@ -44,8 +45,10 @@ namespace GeneralComponents.ViewModels
         private readonly ILoggerFacade _loggerFacade;
         private readonly IEventAggregator _eventAggregator;
         private readonly IProgramLoader _programLoader;
+        private bool isRotating;
         private bool _programLoaded;
-        private Geometry3D _currentGeometry;
+        private HelixToolkit.SharpDX.Core.Geometry3D _currentGeometry;
+        private int _rotateAngle;
         private bool _showRapid;
         private bool _showGreen;
         private bool _showOrange;
@@ -61,7 +64,9 @@ namespace GeneralComponents.ViewModels
             _loggerFacade = loggerFacade;
             _eventAggregator = eventAggregator ?? throw new ArgumentNullException(nameof(eventAggregator));
             _programLoader = programLoader ?? throw new ArgumentNullException(nameof(programLoader));
+
             Title = GeneralComponentsStrings.Plot;
+
             ShowRapid = true;
             ShowGreen = true;
             ShowOrange = false;
@@ -80,7 +85,7 @@ namespace GeneralComponents.ViewModels
             _programLoader.PropertyChanged += ProgramLoader_PropertyChanged;
 
             ResetCameraCommand = new DelegateCommand(ResetCameraExecute);
-            PortCamera = new PerspectiveCamera();
+            PortCamera = new HelixToolkit.Wpf.SharpDX.PerspectiveCamera();
             PortEffectsManager = new DefaultEffectsManager();
             ResetCameraCommand.Execute();
 
@@ -94,11 +99,28 @@ namespace GeneralComponents.ViewModels
             try
             {
                 var loader = new Importer();
-                var scene = loader.Load(@"Models3d\soplo.stl");
+                var scene = loader.Load(@"Models3d\ss.obj");
+                LaserModel.AddNode(scene.Root);
 
-                LoadScene(scene, Colors.Orange.ToColor4(), LaserModel);
-                scene = loader.Load(@"Models3d\ray.stl");
-                LoadScene(scene, new Color4(255, 0, 0, 1), LaserModel);
+                Task.Run(() =>
+                {
+                    while(true)
+                    {
+                        Application.Current?.Dispatcher.BeginInvoke(new Action(() =>
+                        {
+                            //if(_programLoader.IsProgramRunning)
+                                RotateAngle = RotateAngle <= -360 ? 0 : RotateAngle - 10;
+                        }), System.Windows.Threading.DispatcherPriority.Normal);
+                        Task.Delay(20).Wait();
+                    }
+                });
+
+                //var loader = new Importer();
+                //var scene = loader.Load(@"Models3d\soplo.stl");
+
+                //LoadScene(scene, Colors.Orange.ToColor4(), LaserModel);
+                //scene = loader.Load(@"Models3d\ray.stl");
+                //LoadScene(scene, new Color4(255, 0, 0, 1), LaserModel);
             }
             catch (Exception ex)
             {
@@ -223,14 +245,14 @@ namespace GeneralComponents.ViewModels
             CurrentGeometry = MakeNewLinesGeometry();
         }
 
-        private Geometry3D MakeNewLinesGeometry()
+        private HelixToolkit.SharpDX.Core.Geometry3D MakeNewLinesGeometry()
         {
             var builder = new LineBuilder();
             builder.AddLine(new Vector3(), new Vector3());
             return builder.ToLineGeometry3D();
         }
 
-        private static void UpdateGeometry(Geometry3D geometry)
+        private static void UpdateGeometry(HelixToolkit.SharpDX.Core.Geometry3D geometry)
         {
             geometry.UpdateVertices();
             geometry.UpdateTriangles();
@@ -379,7 +401,7 @@ namespace GeneralComponents.ViewModels
             return absolute ? (double)(newCoordinate ?? oldCoordinate) : (double)(newCoordinate.HasValue ? newCoordinate + oldCoordinate : oldCoordinate);
         }
 
-        private void UpdateCurrentGeometry(Geometry3D geometry)
+        private void UpdateCurrentGeometry(HelixToolkit.SharpDX.Core.Geometry3D geometry)
         {
             geometry.UpdateColors();
             geometry.UpdateVertices();
@@ -387,7 +409,7 @@ namespace GeneralComponents.ViewModels
             geometry.UpdateTriangles();
             geometry.UpdateBounds();
         }
-        private void AddLine(Vector3 old, Vector3 next, Geometry3D geometry)
+        private void AddLine(Vector3 old, Vector3 next, HelixToolkit.SharpDX.Core.Geometry3D geometry)
         {
             int i0 = geometry.Positions.Count;
             geometry.Positions.Add(old);
@@ -438,13 +460,13 @@ namespace GeneralComponents.ViewModels
             camera.FieldOfView = 90;
             camera.FarPlaneDistance = 1000;
         }
-        private static void MakeDefaultGeometry(ref Geometry3D geometry3D)
+        private static void MakeDefaultGeometry(ref HelixToolkit.SharpDX.Core.Geometry3D geometry3D)
         {
             var builder = new LineBuilder();
             geometry3D = builder.ToLineGeometry3D();
         }
 
-        public Camera PortCamera
+        public HelixToolkit.Wpf.SharpDX.Camera PortCamera
         {
             get => _camera;
             set => SetProperty(ref _camera, value);
@@ -454,17 +476,17 @@ namespace GeneralComponents.ViewModels
             get => _effectsManager;
             set => SetProperty(ref _effectsManager, value);
         }
-        public Geometry3D LinesGeometry
+        public HelixToolkit.SharpDX.Core.Geometry3D LinesGeometry
         {
             get => _linesGeometry;
             set => SetProperty(ref _linesGeometry, value);
         }
-        public Geometry3D RapidGeometry
+        public HelixToolkit.SharpDX.Core.Geometry3D RapidGeometry
         {
             get => _rapidGeometry;
             private set => SetProperty(ref _rapidGeometry, value);
         }
-        public Geometry3D CurrentGeometry
+        public HelixToolkit.SharpDX.Core.Geometry3D CurrentGeometry
         {
             get => _currentGeometry;
             set => SetProperty(ref _currentGeometry, value);
@@ -508,6 +530,13 @@ namespace GeneralComponents.ViewModels
         {
             get => _controllerInformation.Motors.FirstOrDefault(m => m.Letter.Equals("Z", StringComparison.Ordinal));
         }
+
+        public int RotateAngle
+        {
+            get => _rotateAngle;
+            set => SetProperty(ref _rotateAngle, value);
+        }
+
 
         public bool ShowRapid
         {
