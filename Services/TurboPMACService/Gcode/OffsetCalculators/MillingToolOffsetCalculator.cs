@@ -13,6 +13,9 @@ namespace ControllerService.Gcode.OffsetCalculators
             toolOffset.MustNotBeNullReference(nameof(toolOffset));
             if (string.IsNullOrEmpty(programString)) return programString;
 
+            //Remove bad -0.000
+            programString = programString.Replace("-0.000", "0").Replace("0.000", "0");
+
             if (ParseAxis("X", programString, out double xValue))
                 programString = programString.Replace($"X{xValue.ToString(CultureInfo.InvariantCulture)}", $"X{(xValue + (toolOffset.ToolDiameter / 2)).ToString(CultureInfo.InvariantCulture)}");
             if (ParseAxis("I", programString, out double iValue))
