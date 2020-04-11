@@ -89,6 +89,7 @@
                 <DataGridTextColumn IsReadOnly="True" FontSize="25" Header="{x:Static res:GeneralComponentsStrings.GCode}" Binding="{Binding Offset, Mode=OneWay}"/>
                 <DataGridTextColumn IsReadOnly="True" FontSize="25" Header="X" Binding="{Binding X, StringFormat=\{0:F3\}}" Width="*"/>
                 <DataGridTextColumn IsReadOnly="True" FontSize="25" Header="Y" Binding="{Binding Y, StringFormat=\{0:F3\}}" Width="*"/>
+                <DataGridTextColumn IsReadOnly="True" FontSize="25" Header="Z" Binding="{Binding Z, StringFormat=\{0:F3\}}" Width="*"/>
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="5">
