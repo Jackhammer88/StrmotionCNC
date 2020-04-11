@@ -39,15 +39,10 @@ namespace CNC
         {
             CatchUnhandledExceptions();
 
-            SplashScreen splash = new SplashScreen();
-            splash.Show();
-            var shell = Container.Resolve<Shell>();
-            shell.Dispatcher.BeginInvoke((Action)delegate
-            {
-                splash.Close();
-            });
+            SplashScreen splash = new SplashScreen("splash.jpg");
+            splash.Show(true);
 
-            return shell;
+            return Container.Resolve<Shell>();
         }
 
         private void CatchUnhandledExceptions()
