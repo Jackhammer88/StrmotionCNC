@@ -17,35 +17,35 @@
         <option>transformxaml</option>
         <file dir="${configdir}\obj\Release\netcoreapp3.1" name="GeneralComponents.dll" />
       </inputassembly>
-      <inputassembly refid="cc2d3ab6-dd73-4b8d-b162-190aefcf961a">
+      <inputassembly refid="56266a5a-3324-4323-8e4b-6387c2e16011">
         <option>honoroas</option>
         <option>stripoa</option>
         <option>library</option>
         <option>transformxaml</option>
         <file dir="${configdir}\..\..\Libraries\GcodeParser\bin\Release\netcoreapp3.1" name="GcodeParser.dll" />
       </inputassembly>
-      <inputassembly refid="0bc5d260-3d8c-41a9-89e5-a88c260a2e12">
+      <inputassembly refid="8ca348c8-9080-4dbf-afbf-638f39005a78">
         <option>honoroas</option>
         <option>stripoa</option>
         <option>library</option>
         <option>transformxaml</option>
         <file dir="${configdir}\..\..\Libraries\CncMachine\bin\Release\netcoreapp3.1" name="CncMachine.dll" />
       </inputassembly>
-      <inputassembly refid="09ec1c4f-5dc5-4cf7-a879-9d8d36f92075">
+      <inputassembly refid="d1bdf3f9-58bb-4431-a5d5-8dc99060e7df">
         <option>honoroas</option>
         <option>stripoa</option>
         <option>library</option>
         <option>transformxaml</option>
         <file dir="${configdir}\..\..\Libraries\CNCDraw\bin\Release\netcoreapp3.1" name="CNCDraw.dll" />
       </inputassembly>
-      <inputassembly refid="22ec491e-5949-447e-a69d-01cfb56a818c">
+      <inputassembly refid="7ef346b1-e422-4859-8251-5f3a085684cf">
         <option>honoroas</option>
         <option>stripoa</option>
         <option>library</option>
         <option>transformxaml</option>
         <file dir="${configdir}\..\..\Libraries\MyExtensions\bin\Release\netcoreapp3.1" name="MyExtensions.dll" />
       </inputassembly>
-      <inputassembly refid="0408487c-0dbc-45f2-b093-a68e0dc88129">
+      <inputassembly refid="b32b751a-a757-44f9-aa25-9a12bb1aac7f">
         <option>honoroas</option>
         <option>stripoa</option>
         <option>library</option>
