@@ -10,26 +10,12 @@
   <input>
     <loadpaths />
     <asmlist>
-      <inputassembly refid="1e2c735f-6431-4ba1-9b7a-61e8bf70e652">
+      <inputassembly refid="c0a5f672-a105-4217-9278-0240f0ae3636">
         <option>honoroas</option>
         <option>stripoa</option>
         <option>library</option>
         <option>transformxaml</option>
-        <file dir="${configdir}\obj\Release\netcoreapp3.1" name="TurboPMACService.dll" />
-      </inputassembly>
-      <inputassembly refid="3c9f746b-3317-4e2a-a588-680f368627a4">
-        <option>honoroas</option>
-        <option>stripoa</option>
-        <option>library</option>
-        <option>transformxaml</option>
-        <file dir="${configdir}\..\..\Libraries\GcodeParser\bin\Release\netcoreapp3.1" name="GcodeParser.dll" />
-      </inputassembly>
-      <inputassembly refid="b3f59ab7-8e0c-4451-a5d3-ddc839af129c">
-        <option>honoroas</option>
-        <option>stripoa</option>
-        <option>library</option>
-        <option>transformxaml</option>
-        <file dir="${configdir}\..\..\Infrastructure\bin\Release\netcoreapp3.1" name="Infrastructure.dll" />
+        <file dir="${configdir}\obj\Release\netcoreapp3.1" name="GcodeParser.dll" />
       </inputassembly>
     </asmlist>
   </input>

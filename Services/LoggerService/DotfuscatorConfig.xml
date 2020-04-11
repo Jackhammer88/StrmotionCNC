@@ -10,21 +10,14 @@
   <input>
     <loadpaths />
     <asmlist>
-      <inputassembly refid="1e2c735f-6431-4ba1-9b7a-61e8bf70e652">
+      <inputassembly refid="bae66a61-7b77-49fc-aa71-518f9545dc8b">
         <option>honoroas</option>
         <option>stripoa</option>
         <option>library</option>
         <option>transformxaml</option>
-        <file dir="${configdir}\obj\Release\netcoreapp3.1" name="TurboPMACService.dll" />
+        <file dir="${configdir}\obj\Release\netcoreapp3.1" name="LoggerService.dll" />
       </inputassembly>
-      <inputassembly refid="3c9f746b-3317-4e2a-a588-680f368627a4">
-        <option>honoroas</option>
-        <option>stripoa</option>
-        <option>library</option>
-        <option>transformxaml</option>
-        <file dir="${configdir}\..\..\Libraries\GcodeParser\bin\Release\netcoreapp3.1" name="GcodeParser.dll" />
-      </inputassembly>
-      <inputassembly refid="b3f59ab7-8e0c-4451-a5d3-ddc839af129c">
+      <inputassembly refid="faa71c3a-fd72-485f-95d4-f4b679c36e2e">
         <option>honoroas</option>
         <option>stripoa</option>
         <option>library</option>
