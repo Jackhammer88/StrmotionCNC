@@ -20,18 +20,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="SplashScreen.xaml.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="splash.jpg" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Page Remove="SplashScreen.xaml" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Prism.Unity" Version="7.2.0.1422" />
   </ItemGroup>
 
@@ -51,10 +39,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <SplashScreen Include="splash.jpg" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="Resources\hl.xshd">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -67,8 +51,7 @@
   </ItemGroup>
 	<!-- +Dotfuscator p2 -->
 	<Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
-	<Import Project="$([System.Environment]::GetFolderPath(SpecialFolder.UserProfile))\.dotfuscator.user.props"
-			Condition="Exists('$([System.Environment]::GetFolderPath(SpecialFolder.UserProfile))\.dotfuscator.user.props')"/>
+	<Import Project="$([System.Environment]::GetFolderPath(SpecialFolder.UserProfile))\.dotfuscator.user.props" Condition="Exists('$([System.Environment]::GetFolderPath(SpecialFolder.UserProfile))\.dotfuscator.user.props')" />
 	<PropertyGroup>
 		<DotfuscatorMSBuildDir Condition="'$(DotfuscatorMSBuildDir)' == ''">$(MSBuildProgramFiles32)\MSBuild\PreEmptive\Dotfuscator\6</DotfuscatorMSBuildDir>
 		<DotfuscatorGenerateConfigFileIfMissing>true</DotfuscatorGenerateConfigFileIfMissing>

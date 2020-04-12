@@ -1,5 +1,7 @@
 ﻿using ActualCodes;
 using BottomButtons;
+using CNC.ViewModels;
+using CNC.Views;
 using CNCDialogService.ViewModels;
 using CNCDialogService.Views;
 using ControllerService;
@@ -14,8 +16,10 @@ using Prism.Ioc;
 using Prism.Logging;
 using Prism.Modularity;
 using Prism.Unity;
+using SharpDX.Direct3D11;
 using System;
 using System.Collections.ObjectModel;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
@@ -29,6 +33,8 @@ namespace CNC
     /// </summary>
     public partial class App : PrismApplication
     {
+        private Views.SplashScreen _tempWindow;
+
         public Logger GlobalLogger { get; }
 
         public App()
@@ -39,10 +45,30 @@ namespace CNC
         {
             CatchUnhandledExceptions();
 
-            SplashScreen splash = new SplashScreen("splash.jpg");
-            splash.Show(true);
+            //SplashScreen splash = new SplashScreen("splash.jpg");
+            //splash.Show(true);
+            var shell = Container.Resolve<Shell>();
+            return shell;
+        }
 
-            return Container.Resolve<Shell>();
+        protected override void InitializeModules()
+        {
+            bool wasException = false;
+            try
+            {
+                NewWindowHandler();
+                base.InitializeModules();
+            }
+            catch(Exception)
+            {
+                SetLoadingMessage($"An error ocurrs during the app was loading.");
+                wasException = true;
+            }
+            SetFinishLoadingProgress();
+            Thread.Sleep(500);
+            if (wasException)
+                Thread.Sleep(5000);
+            CloseWindowSafe();
         }
 
         private void CatchUnhandledExceptions()
@@ -55,6 +81,7 @@ namespace CNC
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.RegisterSingleton<Shell>();
             containerRegistry.RegisterDialog<GotoLine, GotoLineViewModel>();
             containerRegistry.RegisterDialog<Open, OpenViewModel>();
             containerRegistry.RegisterDialog<Save, SaveViewModel>();
@@ -135,7 +162,7 @@ namespace CNC
             });
             //moduleCatalog.AddModule<ControlPanelServiceModule>(InitializationMode.WhenAvailable);
             moduleCatalog.AddModule<ControllerServiceModule>(InitializationMode.WhenAvailable);
-            
+
         }
 
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
@@ -166,6 +193,43 @@ namespace CNC
                 exception = exception.InnerException;
             }
             e.Handled = true;
+        }
+
+        private void NewWindowHandler()
+        {
+            Thread newWindowThread = new Thread(new ThreadStart(() =>
+            {
+                _tempWindow = new Views.SplashScreen();
+                // When the window closes, shut down the dispatcher
+                _tempWindow.Closed += (s, e) =>
+                   Dispatcher.CurrentDispatcher.BeginInvokeShutdown(DispatcherPriority.Background);
+
+                _tempWindow.Show();
+                // Start the Dispatcher Processing
+                System.Windows.Threading.Dispatcher.Run();
+            }));
+            newWindowThread.SetApartmentState(ApartmentState.STA);
+            newWindowThread.IsBackground = true;
+            newWindowThread.Start();
+        }
+        void SetLoadingMessage(string message)
+        {
+            RunThroughThread(() => _tempWindow.loadingMessage.Text = message);
+        }
+        void SetFinishLoadingProgress()
+        {
+            RunThroughThread(() => _tempWindow.loadingBar.Maximum = 1);
+        }
+        void CloseWindowSafe()
+        {
+            RunThroughThread(() => _tempWindow.Close());
+        }
+        void RunThroughThread(Action runner)
+        {
+            if (_tempWindow.Dispatcher.CheckAccess())
+                runner();
+            else
+                _tempWindow.Dispatcher.Invoke(DispatcherPriority.Normal, new ThreadStart(runner));
         }
     }
 

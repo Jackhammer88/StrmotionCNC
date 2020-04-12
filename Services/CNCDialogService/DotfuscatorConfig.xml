@@ -17,7 +17,7 @@
         <option>transformxaml</option>
         <file dir="${configdir}\obj\Release\netcoreapp3.1" name="CNCDialogService.dll" />
       </inputassembly>
-      <inputassembly refid="f210a1ad-bf78-4742-8dcf-2bdbf7d7f51f">
+      <inputassembly refid="e3951fa4-cdb6-4cfe-842c-4c8aa2634450">
         <option>honoroas</option>
         <option>stripoa</option>
         <option>library</option>

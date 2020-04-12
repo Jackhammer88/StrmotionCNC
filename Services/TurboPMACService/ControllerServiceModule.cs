@@ -4,6 +4,7 @@ using Infrastructure;
 using Infrastructure.Interfaces.CNCControllerService;
 using Prism.Ioc;
 using Prism.Modularity;
+using System;
 
 namespace ControllerService
 {

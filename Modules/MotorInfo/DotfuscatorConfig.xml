@@ -17,7 +17,7 @@
         <option>transformxaml</option>
         <file dir="${configdir}\obj\Release\netcoreapp3.1" name="MotorInfo.dll" />
       </inputassembly>
-      <inputassembly refid="1233264f-8546-48a7-af5d-8e988d89e02c">
+      <inputassembly refid="f940d679-ca78-4196-8116-27442550b1e3">
         <option>honoroas</option>
         <option>stripoa</option>
         <option>library</option>
