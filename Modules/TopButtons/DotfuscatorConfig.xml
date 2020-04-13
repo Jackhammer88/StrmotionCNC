@@ -17,13 +17,6 @@
         <option>transformxaml</option>
         <file dir="${configdir}\obj\Release\netcoreapp3.1" name="TopButtons.dll" />
       </inputassembly>
-      <inputassembly refid="5dd64f35-b44f-4318-9dfa-9fade271e6a5">
-        <option>honoroas</option>
-        <option>stripoa</option>
-        <option>library</option>
-        <option>transformxaml</option>
-        <file dir="${configdir}\..\..\Infrastructure\bin\Release\netcoreapp3.1" name="Infrastructure.dll" />
-      </inputassembly>
     </asmlist>
   </input>
   <output>

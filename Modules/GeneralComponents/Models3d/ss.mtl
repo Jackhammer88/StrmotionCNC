@@ -1,20 +1,22 @@
-newmtl freza:Steel___Satin
+newmtl ss:Steel___Satin
 illum 4
 Kd 0.30 0.30 0.30
 Ka 0.40 0.40 0.40
 Tf 1.00 1.00 1.00
 Ni 1.00
-newmtl phongE1SG
+newmtl ss:phongE1SG
 illum 4
 Kd 1.00 1.00 1.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 Ni 1.00
 Ks 0.50 0.50 0.50
-newmtl phongE2SG
+Ns 0.06
+newmtl ss:phongE2SG
 illum 4
 Kd 0.00 0.00 0.00
 Ka 0.00 0.00 0.00
 Tf 1.00 1.00 1.00
 Ni 1.00
 Ks 0.50 0.50 0.50
+Ns 0.06

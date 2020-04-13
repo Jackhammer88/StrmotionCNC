@@ -121,7 +121,7 @@
                 <Button Grid.ColumnSpan="2" Content="100%" Grid.Row="2" Template="{DynamicResource ButtonBaseControlTemplate1_modif}"/>
             </Grid>
         </GroupBox>
-        <GroupBox Header="{x:Static res:TopButtonsStrings.Laser}" Grid.Column="2" Style="{DynamicResource GroupBoxTopStyle1}">
+        <GroupBox Header="{x:Static res:TopButtonsStrings.Spindel}" Grid.Column="2" Style="{DynamicResource GroupBoxTopStyle1}">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition/>

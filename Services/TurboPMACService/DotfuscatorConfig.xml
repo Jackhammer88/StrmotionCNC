@@ -17,14 +17,14 @@
         <option>transformxaml</option>
         <file dir="${configdir}\obj\Release\netcoreapp3.1" name="TurboPMACService.dll" />
       </inputassembly>
-      <inputassembly refid="975cdfe2-f8c3-4edf-bf18-80de2e9efc9e">
+      <inputassembly refid="9d28ffe0-6aa1-487d-8ad4-f68c5470c91a">
         <option>honoroas</option>
         <option>stripoa</option>
         <option>library</option>
         <option>transformxaml</option>
         <file dir="${configdir}\..\..\Libraries\GcodeParser\bin\Release\netcoreapp3.1" name="GcodeParser.dll" />
       </inputassembly>
-      <inputassembly refid="ad3d6153-bb84-4e20-a896-3c7c30b86a2c">
+      <inputassembly refid="16833ca8-6cf7-48ce-9be2-be60718b8640">
         <option>honoroas</option>
         <option>stripoa</option>
         <option>library</option>

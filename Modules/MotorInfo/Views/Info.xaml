@@ -15,7 +15,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <smen:Smenu Grid.RowSpan="3" Panel.ZIndex="1000" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch" BorderBrush="#FF3152A0" BorderThickness=".8"  IsHorizontal="True" MenuHorizontalAlignment="Left" MenuVerticalAlignment="Center" MenuWidth="100" MinimizedWidth="25" MenuHeight="110" Delay="2500" MenuBorderCornerRadius="5">
+            <!--<smen:Smenu Grid.RowSpan="3" Panel.ZIndex="1000" VerticalContentAlignment="Center" HorizontalContentAlignment="Stretch" BorderBrush="#FF3152A0" BorderThickness=".8"  IsHorizontal="True" MenuHorizontalAlignment="Left" MenuVerticalAlignment="Center" MenuWidth="100" MinimizedWidth="25" MenuHeight="110" Delay="2500" MenuBorderCornerRadius="5">
                 <smen:Smenu.Background>
                     <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
                         <GradientStop Offset="0" Color="#FFF0F6FE" />
@@ -31,7 +31,7 @@
                     <TextBlock Text="▶" Foreground="{DynamicResource MainTextColor}" FontSize="20"/>
                 </smen:Smenu.MinimizedContent>
                     
-            </smen:Smenu>
+            </smen:Smenu>-->
 
             <Viewbox Grid.Row="0">
                 <DockPanel LastChildFill="False" HorizontalAlignment="Center" x:Name="dpCoordType">
