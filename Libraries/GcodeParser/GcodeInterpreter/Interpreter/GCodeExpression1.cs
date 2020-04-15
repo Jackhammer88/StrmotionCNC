@@ -10,6 +10,15 @@ namespace GcodeParser.GcodeInterpreter.Interpreter
 {
     public class GCodeExpression : IExpression
     {
+        public static readonly int MotionCodeGroup = 0;
+        public static readonly int PlaneSelectionCodeGroup = 1;
+        public static readonly int AbsoluteIncrementalCodeGroup = 2;
+        public static readonly int FeedrateModeCodeGroup = 3;
+        public static readonly int UnitsInchesMillimetersCodeGroup = 4;
+        public static readonly int CutterRadiusCompensationCodeGroup = 5;
+        public static readonly int ToolLengthOffsetCodeGroup = 6;
+        public static readonly int ReturnModeInCannedCyclesCodeGroup = 7;
+        public static readonly int WCSSCodeGroup = 7;
         public GCodeExpression()
         {
 
@@ -17,7 +26,7 @@ namespace GcodeParser.GcodeInterpreter.Interpreter
         private static readonly string[] AdditionalValues = new string[] { "I", "J", "K", "R" };
         public static readonly float[][] MutuallyExclusiveCodes = new float[][]
         {
-            new float[] { 0, 1, 2, 3, 80, 81, 82, 84, 85, 86, 87, 88, 89 }, new float[] { 17, 18 , 19 }, //motion
+            new float[] { 0, 1, 2, 3, 80, 81, 82, 84, 85, 86, 87, 88, 89 }, /*new float[] { 17, 18 , 19 }, *///motion
             new float[] { 17, 18, 19 }, //plane selection – XY, YZ, ZX
             new float[] { 90, 91 }, //absolute/incremental mode
             new float[] { 93, 94 }, //feed rate mode
