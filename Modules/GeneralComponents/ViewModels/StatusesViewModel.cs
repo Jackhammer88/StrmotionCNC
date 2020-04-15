@@ -2,6 +2,7 @@
 using Infrastructure.Abstract;
 using Infrastructure.Enums;
 using Infrastructure.Interfaces.CNCControllerService;
+using Infrastructure.Resources.Strings;
 using Infrastructure.SharedClasses;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,7 @@ namespace GeneralComponents.ViewModels
             NotificationClient = nClient;
             MotorsStatuses = new List<MotorStatuses>();
 
-            Title = "STATUS";
+            Title = GeneralComponentsStrings.StatusString;
 
             nClient.OnStatusesUpdated += NClient_OnStatusesUpdated;
             _controllerInformation.StatusManager.Subscribe(nClient);

@@ -492,4 +492,7 @@
   <data name="PlotBadFileFormat" xml:space="preserve">
     <value>3D Visualizer: bad gcode format.</value>
   </data>
+  <data name="StatusString" xml:space="preserve">
+    <value>STATUS</value>
+  </data>
 </root>

@@ -1060,6 +1060,15 @@ namespace Infrastructure.Resources.Strings {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на STATUS.
+        /// </summary>
+        public static string StatusString {
+            get {
+                return ResourceManager.GetString("StatusString", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Stopped on position limit.
         /// </summary>
         public static string StoppedOnPositionLimit {

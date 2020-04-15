@@ -492,4 +492,7 @@
   <data name="PlotBadFileFormat" xml:space="preserve">
     <value>Визуализатор: Неизвестный формат g-кода.</value>
   </data>
+  <data name="StatusString" xml:space="preserve">
+    <value>СТАТУС</value>
+  </data>
 </root>

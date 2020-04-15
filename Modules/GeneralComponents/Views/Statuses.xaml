@@ -258,103 +258,103 @@
                     <TextBlock Text="{x:Static res:GeneralComponentsStrings.ThisCardAddressedSerially}" IsEnabled="{Binding Global.ThisCardAddressedSerially, FallbackValue=False}"/>
                 </Border>
                 <Border Grid.Column="0" Grid.Row="1">
-                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.AllCardsAddressedSerially}" IsEnabled="{Binding Global.AllCardsAddressedSerially}"/>
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.AllCardsAddressedSerially}" IsEnabled="{Binding Global.AllCardsAddressedSerially, FallbackValue=False}"/>
                 </Border>
                 <Border Grid.Column="0" Grid.Row="2">
-                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.PhaseClockMissing}" IsEnabled="{Binding Global.PhaseClockMissing}"/>
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.PhaseClockMissing}" IsEnabled="{Binding Global.PhaseClockMissing, FallbackValue=False}"/>
                 </Border>
                 <Border Grid.Column="0" Grid.Row="3">
-                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.MacroRingError}" IsEnabled="{Binding Global.MacroRingError}"/>
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.MacroRingError}" IsEnabled="{Binding Global.MacroRingError, FallbackValue=False}"/>
                 </Border>
                 <Border Grid.Column="0" Grid.Row="4">
-                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.MacroCommunicationError}" IsEnabled="{Binding Global.MacroCommunicationError}"/>
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.MacroCommunicationError}" IsEnabled="{Binding Global.MacroCommunicationError, FallbackValue=False}"/>
                 </Border>
                 <Border Grid.Column="0" Grid.Row="5">
-                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.TWSVariableParityError}" IsEnabled="{Binding Global.TWSVariableParityError}"/>
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.TWSVariableParityError}" IsEnabled="{Binding Global.TWSVariableParityError, FallbackValue=False}"/>
                 </Border>
                 <Border Grid.Column="0" Grid.Row="6">
-                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.ServoMacroICConfigError}" IsEnabled="{Binding Global.ServoMacroICConfigError}"/>
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.ServoMacroICConfigError}" IsEnabled="{Binding Global.ServoMacroICConfigError, FallbackValue=False}"/>
                 </Border>
                 <Border Grid.Column="0" Grid.Row="7">
-                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.IllegalLVariableDefinition}" IsEnabled="{Binding Global.IllegalLVariableDefinition}"/>
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.IllegalLVariableDefinition}" IsEnabled="{Binding Global.IllegalLVariableDefinition, FallbackValue=False}"/>
                 </Border>
                 <Border Grid.Column="0" Grid.Row="8">
-                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.RealTimeInterruptWarning}" IsEnabled="{Binding Global.RealTimeInterruptWarning}"/>
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.RealTimeInterruptWarning}" IsEnabled="{Binding Global.RealTimeInterruptWarning, FallbackValue=False}"/>
                 </Border>
                 <Border Grid.Column="0" Grid.Row="9">
-                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.EAROMError}" IsEnabled="{Binding Global.EAROMError}"/>
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.EAROMError}" IsEnabled="{Binding Global.EAROMError, FallbackValue=False}"/>
                 </Border>
                 <Border Grid.Column="0" Grid.Row="10">
-                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.DPRamError}" IsEnabled="{Binding Global.DPRamError}"/>
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.DPRamError}" IsEnabled="{Binding Global.DPRamError, FallbackValue=False}"/>
                 </Border>
                 <Border Grid.Column="0" Grid.Row="11">
-                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.FirmwareChecksumError}" IsEnabled="{Binding Global.FirmwareChecksumError}"/>
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.FirmwareChecksumError}" IsEnabled="{Binding Global.FirmwareChecksumError, FallbackValue=False}"/>
                 </Border>
                 <Border Grid.Column="0" Grid.Row="12">
-                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.GeneralChecksumError}" IsEnabled="{Binding Global.GeneralChecksumError}"/>
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.GeneralChecksumError}" IsEnabled="{Binding Global.GeneralChecksumError, FallbackValue=False}"/>
                 </Border>
                 <Border Grid.Column="0" Grid.Row="13">
-                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.CompensateTableOn}" IsEnabled="{Binding Global.CompensateTableOn}"/>
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.CompensateTableOn}" IsEnabled="{Binding Global.CompensateTableOn, FallbackValue=False}"/>
                 </Border>
                 <Border Grid.Column="0" Grid.Row="14">
-                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.SmallMemoryTurboPMAC}" IsEnabled="{Binding Global.SmallMemoryTurboPMAC}"/>
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.SmallMemoryTurboPMAC}" IsEnabled="{Binding Global.SmallMemoryTurboPMAC, FallbackValue=False}"/>
                 </Border>
                 <Border Grid.Column="0" Grid.Row="15">
-                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.GatherOnExternalTrig}" IsEnabled="{Binding Global.GatherOnExternalTrig}"/>
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.GatherOnExternalTrig}" IsEnabled="{Binding Global.GatherOnExternalTrig, FallbackValue=False}"/>
                 </Border>
                 <Border Grid.Column="0" Grid.Row="16">
-                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.DataGatheringEnabled}" IsEnabled="{Binding Global.DataGatheringEnabled}"/>
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.DataGatheringEnabled}" IsEnabled="{Binding Global.DataGatheringEnabled, FallbackValue=False}"/>
                 </Border>
                 <Border Grid.Column="1" Grid.Row="0">
-                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.ServoError}" IsEnabled="{Binding Global.ServoError}"/>
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.ServoError}" IsEnabled="{Binding Global.ServoError, FallbackValue=False}"/>
                 </Border>
                 <Border Grid.Column="1" Grid.Row="1">
-                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.RTIReEntryError}" IsEnabled="{Binding Global.RTIReEntryError}"/>
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.RTIReEntryError}" IsEnabled="{Binding Global.RTIReEntryError, FallbackValue=False}"/>
                 </Border>
                 <Border Grid.Column="1" Grid.Row="2">
-                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.MainError}" IsEnabled="{Binding Global.MainError}"/>
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.MainError}" IsEnabled="{Binding Global.MainError, FallbackValue=False}"/>
                 </Border>
                 <Border Grid.Column="1" Grid.Row="3">
-                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.BinaryRotaryBufferOpen}" IsEnabled="{Binding Global.BinaryRotaryBufferOpen}"/>
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.BinaryRotaryBufferOpen}" IsEnabled="{Binding Global.BinaryRotaryBufferOpen, FallbackValue=False}"/>
                 </Border>
                 <Border Grid.Column="1" Grid.Row="4">
-                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.MotionBufferOpen}" IsEnabled="{Binding Global.MotionBufferOpen}"/>
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.MotionBufferOpen}" IsEnabled="{Binding Global.MotionBufferOpen, FallbackValue=False}"/>
                 </Border>
                 <Border Grid.Column="1" Grid.Row="5">
-                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.ASCIIRotaryBufferOpen}" IsEnabled="{Binding Global.ASCIIRotaryBufferOpen}"/>
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.ASCIIRotaryBufferOpen}" IsEnabled="{Binding Global.ASCIIRotaryBufferOpen, FallbackValue=False}"/>
                 </Border>
                 <Border Grid.Column="1" Grid.Row="6">
-                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.PLCBufferOpen}" IsEnabled="{Binding Global.PLCBufferOpen}"/>
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.PLCBufferOpen}" IsEnabled="{Binding Global.PLCBufferOpen, FallbackValue=False}"/>
                 </Border>
                 <Border Grid.Column="1" Grid.Row="7">
-                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.MacroServoClockSync}" IsEnabled="{Binding Global.MacroServoClockSync}"/>
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.MacroServoClockSync}" IsEnabled="{Binding Global.MacroServoClockSync, FallbackValue=False}"/>
                 </Border>
                 <Border Grid.Column="1" Grid.Row="8">
-                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.MacroAuxiliaryMode}" IsEnabled="{Binding Global.MacroAuxiliaryMode}"/>
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.MacroAuxiliaryMode}" IsEnabled="{Binding Global.MacroAuxiliaryMode, FallbackValue=False}"/>
                 </Border>
                 <Border Grid.Column="1" Grid.Row="9">
-                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.FixedBufferFull}" IsEnabled="{Binding Global.FixedBufferFull}"/>
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.FixedBufferFull}" IsEnabled="{Binding Global.FixedBufferFull, FallbackValue=False}"/>
                 </Border>
                 <Border Grid.Column="1" Grid.Row="10">
-                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.MacroRingTestEnable}" IsEnabled="{Binding Global.MacroRingTestEnable}"/>
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.MacroRingTestEnable}" IsEnabled="{Binding Global.MacroRingTestEnable, FallbackValue=False}"/>
                 </Border>
                 <Border Grid.Column="1" Grid.Row="11">
-                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.RingActive}" IsEnabled="{Binding Global.RingActive}"/>
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.RingActive}" IsEnabled="{Binding Global.RingActive, FallbackValue=False}"/>
                 </Border>
                 <Border Grid.Column="1" Grid.Row="12">
-                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.ModbusActive}" IsEnabled="{Binding Global.ModbusActive}"/>
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.ModbusActive}" IsEnabled="{Binding Global.ModbusActive, FallbackValue=False}"/>
                 </Border>
                 <Border Grid.Column="1" Grid.Row="13">
-                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.MacroRingRcvdBreakMsg}" IsEnabled="{Binding Global.MacroRingRcvdBreakMsg}"/>
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.MacroRingRcvdBreakMsg}" IsEnabled="{Binding Global.MacroRingRcvdBreakMsg, FallbackValue=False}"/>
                 </Border>
                 <Border Grid.Column="1" Grid.Row="14">
-                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.MacroRingBreak}" IsEnabled="{Binding Global.MacroRingBreak}"/>
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.MacroRingBreak}" IsEnabled="{Binding Global.MacroRingBreak, FallbackValue=False}"/>
                 </Border>
                 <Border Grid.Column="1" Grid.Row="15">
-                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.MacroRingSynchPacketFault}" IsEnabled="{Binding Global.MacroRingSynchPacketFault}"/>
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.MacroRingSynchPacketFault}" IsEnabled="{Binding Global.MacroRingSynchPacketFault, FallbackValue=False}"/>
                 </Border>
                 <Border Grid.Column="1" Grid.Row="16">
-                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.AbortInput}" IsEnabled="{Binding Global.AbortInput}"/>
+                    <TextBlock Text="{x:Static res:GeneralComponentsStrings.AbortInput}" IsEnabled="{Binding Global.AbortInput, FallbackValue=False}"/>
                 </Border>
             </Grid>
         </TabItem>
