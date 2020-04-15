@@ -17,7 +17,7 @@
         <option>transformxaml</option>
         <file dir="${configdir}\obj\Release\netcoreapp3.1" name="CncMachine.dll" />
       </inputassembly>
-      <inputassembly refid="6af97c49-1c72-416a-b546-cf3f46ca285b">
+      <inputassembly refid="453b0683-db3a-454b-8709-f3fc6b00cea0">
         <option>honoroas</option>
         <option>stripoa</option>
         <option>library</option>

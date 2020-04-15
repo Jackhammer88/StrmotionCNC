@@ -17,7 +17,7 @@
         <option>transformxaml</option>
         <file dir="${configdir}\obj\Release\netcoreapp3.1" name="BottomButtons.dll" />
       </inputassembly>
-      <inputassembly refid="8dcaad69-ff19-4d46-b130-c1322beb2a94">
+      <inputassembly refid="ac7e8447-05a6-45a0-9286-251e04e79509">
         <option>honoroas</option>
         <option>stripoa</option>
         <option>library</option>

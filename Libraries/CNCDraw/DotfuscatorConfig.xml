@@ -17,7 +17,7 @@
         <option>transformxaml</option>
         <file dir="${configdir}\obj\Release\netcoreapp3.1" name="CNCDraw.dll" />
       </inputassembly>
-      <inputassembly refid="444f0256-515b-4a76-9142-5ee5cb8effae">
+      <inputassembly refid="00aa7ae0-e569-4500-a2a5-5610f85aee71">
         <option>honoroas</option>
         <option>stripoa</option>
         <option>library</option>

@@ -17,7 +17,7 @@
         <option>transformxaml</option>
         <file dir="${configdir}\obj\Release\netcoreapp3.1" name="Messages.dll" />
       </inputassembly>
-      <inputassembly refid="c22084d5-8293-4c7e-9158-9485258a6f24">
+      <inputassembly refid="ea590ae9-117b-4875-96c5-3cba8f3a80af">
         <option>honoroas</option>
         <option>stripoa</option>
         <option>library</option>

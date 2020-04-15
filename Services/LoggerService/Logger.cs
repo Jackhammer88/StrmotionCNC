@@ -18,6 +18,14 @@ namespace LoggerService
         public LoggerExtended()
         {
             Logger = LogManager.GetCurrentClassLogger();
+            WriteLoggerInitialMessage();
+        }
+
+        private void WriteLoggerInitialMessage()
+        {
+            var lTime = $"---------------------------------------------Launching time: {DateTime.Now}------------------------------------------";
+            Logger.Info(lTime);
+            Logger.Error(lTime);
         }
 
         public void Log(string message, Category category, Priority priority)

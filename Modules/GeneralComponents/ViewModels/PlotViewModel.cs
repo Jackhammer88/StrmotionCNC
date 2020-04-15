@@ -108,7 +108,7 @@ namespace GeneralComponents.ViewModels
                     {
                         Application.Current?.Dispatcher.BeginInvoke(new Action(() =>
                         {
-                            //if(_programLoader.IsProgramRunning)
+                            if (_programLoader.IsProgramRunning)
                                 RotateAngle = RotateAngle <= -360 ? 0 : RotateAngle - 10;
                         }), System.Windows.Threading.DispatcherPriority.Normal);
                         Task.Delay(20).Wait();

@@ -17,7 +17,7 @@
         <option>transformxaml</option>
         <file dir="${configdir}\obj\Release\netcoreapp3.1" name="UserSettingService.dll" />
       </inputassembly>
-      <inputassembly refid="b0f93426-4a84-4a38-b189-92067a1d5678">
+      <inputassembly refid="647a03a9-5649-4166-b311-7f5e15b79712">
         <option>honoroas</option>
         <option>stripoa</option>
         <option>library</option>

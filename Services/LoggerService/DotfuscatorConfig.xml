@@ -17,7 +17,7 @@
         <option>transformxaml</option>
         <file dir="${configdir}\obj\Release\netcoreapp3.1" name="LoggerService.dll" />
       </inputassembly>
-      <inputassembly refid="625a6fee-19b4-4b32-922f-5aa728f71b00">
+      <inputassembly refid="0b1795f6-cd2a-421d-9c52-659e41e29de7">
         <option>honoroas</option>
         <option>stripoa</option>
         <option>library</option>
