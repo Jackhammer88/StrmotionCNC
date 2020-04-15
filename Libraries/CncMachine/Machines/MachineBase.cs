@@ -147,6 +147,7 @@ namespace CncMachine.Machines
             InterpretProgram(preparer);
 
             if (Program.Count == 0) return;
+            AddDefaultModalGCodes();
             FrameNumber = 0;
             CurrentFrame = Program[FrameNumber];
             InitFrame();
@@ -160,10 +161,19 @@ namespace CncMachine.Machines
 
             await Task.Run(() => InterpretProgram(preparer)).ConfigureAwait(false);
             if (Program.Count == 0) return;
+            AddDefaultModalGCodes();
             FrameNumber = 0;
             CurrentFrame = Program[FrameNumber];
             InitFrame();
         }
+
+        private void AddDefaultModalGCodes()
+        {
+            ModalGCodes.Clear();
+            ModalGCodes.Add(0);
+            ModalGCodes.Add(90);
+        }
+
         private void InterpretProgram(GCodePreparer preparer)
         {
             CoordintatesExpression coordintatesExpression = new CoordintatesExpression();

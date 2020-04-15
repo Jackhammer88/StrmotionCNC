@@ -7,7 +7,7 @@ namespace CncMachine.Machines
     {
         public MillMachine()
         {
-
+            
         }
         protected new void Initialize()
         {

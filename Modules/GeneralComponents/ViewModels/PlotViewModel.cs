@@ -6,7 +6,6 @@ using HelixToolkit.SharpDX.Core.Assimp;
 using HelixToolkit.SharpDX.Core.Model;
 using HelixToolkit.SharpDX.Core.Model.Scene;
 using HelixToolkit.Wpf.SharpDX;
-using HelixToolkit.Wpf.SharpDX.Model;
 using Infrastructure.Abstract;
 using Infrastructure.AggregatorEvents;
 using Infrastructure.Enums;
@@ -18,14 +17,10 @@ using Prism.Events;
 using Prism.Logging;
 using SharpDX;
 using System;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Media;
-using System.Windows.Media.Media3D;
-using System.Windows.Threading;
 
 namespace GeneralComponents.ViewModels
 {
@@ -34,7 +29,7 @@ namespace GeneralComponents.ViewModels
 
     public class PlotViewModel : ViewModelBase
     {
-        private HelixToolkit.Wpf.SharpDX.Camera _camera;
+        private Camera _camera;
         private EffectsManager _effectsManager;
         private HelixToolkit.SharpDX.Core.Geometry3D _linesGeometry;
         private HelixToolkit.SharpDX.Core.Geometry3D _rapidGeometry;
@@ -85,7 +80,7 @@ namespace GeneralComponents.ViewModels
             _programLoader.PropertyChanged += ProgramLoader_PropertyChanged;
 
             ResetCameraCommand = new DelegateCommand(ResetCameraExecute);
-            PortCamera = new HelixToolkit.Wpf.SharpDX.PerspectiveCamera();
+            PortCamera = new PerspectiveCamera();
             PortEffectsManager = new DefaultEffectsManager();
             ResetCameraCommand.Execute();
 
@@ -104,12 +99,12 @@ namespace GeneralComponents.ViewModels
 
                 Task.Run(() =>
                 {
-                    while(true)
+                    while (true)
                     {
                         Application.Current?.Dispatcher.BeginInvoke(new Action(() =>
                         {
                             //if(_programLoader.IsProgramRunning)
-                                RotateAngle = RotateAngle <= -360 ? 0 : RotateAngle - 10;
+                            RotateAngle = RotateAngle <= -360 ? 0 : RotateAngle - 10;
                         }), System.Windows.Threading.DispatcherPriority.Normal);
                         Task.Delay(20).Wait();
                     }
@@ -274,7 +269,7 @@ namespace GeneralComponents.ViewModels
         private void MachineFrameChanged(object sender, FrameChangedEventArgs e)
         {
             if (!Machine.CurrentCoordinates.NotEmpty()) return;
-            var gModalGroup1 = Machine.ModalGCodes.Single(c => GCodeExpression.MutuallyExclusiveCodes[0].Contains(c));
+            var gModalGroup1 = Machine.ModalGCodes.Single(c => GCodeExpression.MutuallyExclusiveCodes[GCodeExpression.MotionCodeGroup].Contains(c));
 
             var oldCoordinates = new Point3D(Machine.OldCoordinates.X.Value, Machine.OldCoordinates.Y.Value, Machine.OldCoordinates.Z.Value);
             var centers = new ArcCenters { I = Machine.CurrentFrame.IValue, J = Machine.CurrentFrame.JValue, K = Machine.CurrentFrame.KValue };
