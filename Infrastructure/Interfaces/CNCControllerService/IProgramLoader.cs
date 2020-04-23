@@ -23,7 +23,8 @@ namespace Infrastructure.Interfaces.CNCControllerService
         event EventHandler OnProgramReseted;
         event PropertyChangedEventHandler PropertyChanged;
 
-        Task PrepareProgramAsync(bool mdi = false);
+        Task PrepareProgramAsync();
+        Task InitNewRotaryBuffer(bool mdi = false);
         void AbortProgram();
         Task AbortProgramAsync();
         Task<string[]> OpenProgramFileAsync(string programPath, CancellationToken cancellationToken);

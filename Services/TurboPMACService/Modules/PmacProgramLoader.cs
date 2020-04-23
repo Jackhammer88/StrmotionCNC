@@ -56,6 +56,7 @@ namespace ControllerService.Modules
 
             LoadedProgram.Clear();
             StartLine = selectedLine;
+            await InitNewRotaryBuffer().ConfigureAwait(false);
             return await Task.Run(() =>
             {
                 _programFile = new NCFile(programPath, true);
@@ -77,6 +78,7 @@ namespace ControllerService.Modules
                 _programFile.Dispose();
 
             LoadedProgram.Clear();
+            await InitNewRotaryBuffer().ConfigureAwait(false);
             return await Task.Run(() =>
             {
                 _programFile = new NCFile(programPath, true);
@@ -108,7 +110,7 @@ namespace ControllerService.Modules
             }
             return result;
         }
-        public async Task PrepareProgramAsync(bool mdi = false)
+        public async Task InitNewRotaryBuffer(bool mdi = false)
         {
             _eventAggregator.GetEvent<MachineLockedState>().Publish(true);
             IsProgramRunning = false;
@@ -142,6 +144,22 @@ namespace ControllerService.Modules
                         Task.Delay(200).Wait();
                     }
                 }
+
+            }).ConfigureAwait(false);
+            _eventAggregator.GetEvent<MachineLockedState>().Publish(false);
+        }
+        public async Task PrepareProgramAsync()
+        {
+            _eventAggregator.GetEvent<MachineLockedState>().Publish(true);
+            IsProgramRunning = false;
+
+            await Task.Run(() =>
+            {
+                ClearStates();
+                _controller.GetResponse($"{MVariables.ProgramLineNumberFirst}=0", out string result);
+                _controller.GetResponse($"{MVariables.ProgramLineNumberSecond}=0", out result);
+                _settings.CSNumber = 0;
+                _controller.GetResponse("ABR0", out result);
 
             }).ConfigureAwait(false);
             _eventAggregator.GetEvent<MachineLockedState>().Publish(false);
@@ -329,7 +347,7 @@ namespace ControllerService.Modules
                 _rotaryBufferCancellationToken.Cancel();
             _rotaryBufferCancellationToken = new CancellationTokenSource();
 
-            Task.Run(async () => await PrepareProgramAsync(true).ConfigureAwait(false), _rotaryBufferCancellationToken.Token)
+            Task.Run(async () => await InitNewRotaryBuffer(true).ConfigureAwait(false), _rotaryBufferCancellationToken.Token)
                 .ContinueWith((t) => DoMdiProgramLoad(normalizedProgramStrings), _rotaryBufferCancellationToken.Token);
         }
         //private async Task PrepareMdiProgram()
@@ -383,7 +401,7 @@ namespace ControllerService.Modules
             }
             while (ProgramStringNumber < stringCount && !_rotaryBufferCancellationToken.IsCancellationRequested); //Ожидание окончания программы
             Task.Delay(4000).Wait();
-            PrepareProgramAsync(true).Wait(); // вместо ClearBuffer
+            InitNewRotaryBuffer(true).Wait(); // вместо ClearBuffer
             IsProgramRunning = false;
             CurrentState = ProgramLoaderState.NotRunning;
         }
