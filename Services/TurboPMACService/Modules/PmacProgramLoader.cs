@@ -136,15 +136,6 @@ namespace ControllerService.Modules
                 _controller.RotBufInit();
                 _settings.CSNumber = 0;
 
-                if (!mdi)
-                {
-                    StartProgram();
-                    while (!ReadyToRun)
-                    {
-                        Task.Delay(200).Wait();
-                    }
-                }
-
             }).ConfigureAwait(false);
             _eventAggregator.GetEvent<MachineLockedState>().Publish(false);
         }
@@ -161,6 +152,11 @@ namespace ControllerService.Modules
                 _settings.CSNumber = 0;
                 _controller.GetResponse("ABR0", out result);
 
+                StartProgram();
+                while (!ReadyToRun)
+                {
+                    Task.Delay(200).Wait();
+                }
             }).ConfigureAwait(false);
             _eventAggregator.GetEvent<MachineLockedState>().Publish(false);
         }
