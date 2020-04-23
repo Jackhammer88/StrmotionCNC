@@ -20,4 +20,10 @@
     <ProjectReference Include="..\..\..\Libraries\GcodeParser\GcodeParser.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="testprog.nc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

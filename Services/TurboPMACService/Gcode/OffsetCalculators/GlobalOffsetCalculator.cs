@@ -3,6 +3,7 @@ using Infrastructure.Abstract;
 using Infrastructure.Interfaces.UserSettingService;
 using System.Globalization;
 using System.Linq;
+using System;
 
 namespace ControllerService.Gcode.OffsetCalculators
 {
@@ -29,7 +30,13 @@ namespace ControllerService.Gcode.OffsetCalculators
         {
             if (oldValue == 0)
                 programString = programString.Replace("-0.000", "0");
-            programString = programString.Replace($"{axisName}{oldValue.ToString(CultureInfo.InvariantCulture)}", $"{axisName}{(oldValue + offsetValue).ToString(CultureInfo.InvariantCulture)}");
+
+            programString = programString.Replace($"{axisName}{oldValue.ToString(CultureInfo.InvariantCulture)}", $"{axisName}{RoundValue(oldValue + offsetValue, 3)}");
+        }
+
+        private static object RoundValue(double value, int accuracy)
+        {
+            return Math.Round(value, accuracy, MidpointRounding.AwayFromZero).ToString("F3", CultureInfo.InvariantCulture);
         }
     }
 }
