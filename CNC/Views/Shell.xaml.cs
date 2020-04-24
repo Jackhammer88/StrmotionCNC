@@ -1,7 +1,7 @@
 ﻿using Infrastructure.WinAPI;
 using System.Windows;
 
-namespace CNC
+namespace CNC.Views
 {
     /// <summary>
     /// Логика взаимодействия для Shell.xaml

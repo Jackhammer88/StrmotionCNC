@@ -1,13 +1,13 @@
 ﻿using System.Windows;
 
-namespace CNC
+namespace CNC.Views
 {
     /// <summary>
     /// Логика взаимодействия для SplashScreen.xaml
     /// </summary>
-    public partial class SplashScreen : Window
+    public partial class Splash : Window
     {
-        public SplashScreen()
+        public Splash()
         {
             InitializeComponent();
         }

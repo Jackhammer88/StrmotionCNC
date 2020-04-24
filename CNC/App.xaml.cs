@@ -1,5 +1,6 @@
 ﻿using ActualCodes;
 using BottomButtons;
+using CNC.Views;
 using CNCDialogService.ViewModels;
 using CNCDialogService.Views;
 using ControllerService;
@@ -19,6 +20,7 @@ using Prism.Modularity;
 using Prism.Unity;
 using System;
 using System.Collections.ObjectModel;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
@@ -32,6 +34,8 @@ namespace CNC
     /// </summary>
     public partial class App : PrismApplication
     {
+        private Splash _tempWindow;
+
         public Logger GlobalLogger { get; }
 
         public App()
@@ -42,15 +46,30 @@ namespace CNC
         {
             CatchUnhandledExceptions();
 
-            SplashScreen splash = new SplashScreen();
-            splash.Show();
+            //SplashScreen splash = new SplashScreen("splash.jpg");
+            //splash.Show(true);
             var shell = Container.Resolve<Shell>();
-            shell.Dispatcher.BeginInvoke((Action)delegate
-            {
-                splash.Close();
-            });
-
             return shell;
+        }
+
+        protected override void InitializeModules()
+        {
+            bool wasException = false;
+            try
+            {
+                NewWindowHandler();
+                base.InitializeModules();
+            }
+            catch (Exception)
+            {
+                SetLoadingMessage($"An error ocurrs during the app was loading.");
+                wasException = true;
+            }
+            SetFinishLoadingProgress();
+            Thread.Sleep(500);
+            if (wasException)
+                Thread.Sleep(5000);
+            CloseWindowSafe();
         }
 
         private void CatchUnhandledExceptions()
@@ -191,6 +210,43 @@ namespace CNC
                 exception = exception.InnerException;
             }
             e.Handled = true;
+        }
+
+        private void NewWindowHandler()
+        {
+            Thread newWindowThread = new Thread(new ThreadStart(() =>
+            {
+                _tempWindow = new Splash();
+                // When the window closes, shut down the dispatcher
+                _tempWindow.Closed += (s, e) =>
+                   Dispatcher.CurrentDispatcher.BeginInvokeShutdown(DispatcherPriority.Background);
+
+                _tempWindow.Show();
+                // Start the Dispatcher Processing
+                System.Windows.Threading.Dispatcher.Run();
+            }));
+            newWindowThread.SetApartmentState(ApartmentState.STA);
+            newWindowThread.IsBackground = true;
+            newWindowThread.Start();
+        }
+        void SetLoadingMessage(string message)
+        {
+            RunThroughThread(() => _tempWindow.loadingMessage.Text = message);
+        }
+        void SetFinishLoadingProgress()
+        {
+            RunThroughThread(() => _tempWindow.loadingBar.Maximum = 1);
+        }
+        void CloseWindowSafe()
+        {
+            RunThroughThread(() => _tempWindow.Close());
+        }
+        void RunThroughThread(Action runner)
+        {
+            if (_tempWindow.Dispatcher.CheckAccess())
+                runner();
+            else
+                _tempWindow.Dispatcher.Invoke(DispatcherPriority.Normal, new ThreadStart(runner));
         }
     }
 
