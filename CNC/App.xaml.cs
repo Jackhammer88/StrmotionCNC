@@ -20,6 +20,7 @@ using Prism.Modularity;
 using Prism.Unity;
 using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -35,13 +36,14 @@ namespace CNC
     public partial class App : PrismApplication
     {
         private Splash _tempWindow;
+        private bool _noLaserExtendedModules;
 
-        public Logger GlobalLogger { get; }
 
         public App()
         {
             GlobalLogger = LogManager.GetCurrentClassLogger();
         }
+
         protected override Window CreateShell()
         {
             CatchUnhandledExceptions();
@@ -51,7 +53,12 @@ namespace CNC
             var shell = Container.Resolve<Shell>();
             return shell;
         }
-
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            if (e.Args.Length > 0 && e.Args.Contains("-nolaser-extended"))
+                _noLaserExtendedModules = true;
+            base.OnStartup(e);
+        }
         protected override void InitializeModules()
         {
             bool wasException = false;
@@ -71,14 +78,12 @@ namespace CNC
                 Thread.Sleep(5000);
             CloseWindowSafe();
         }
-
         private void CatchUnhandledExceptions()
         {
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
             DispatcherUnhandledException += App_DispatcherUnhandledException;
             TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
         }
-
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
@@ -104,7 +109,6 @@ namespace CNC
             var generalComponentsModule = typeof(GeneralComponentsModule);
             var motorInfoModule = typeof(MotorInfoModule);
             var topButtonsModule = typeof(TopButtonsModule);
-            var laserSettings = typeof(LaserSettinigsModule);
 
             moduleCatalog.AddModule(new ModuleInfo
             {
@@ -148,20 +152,21 @@ namespace CNC
                 InitializationMode = InitializationMode.WhenAvailable,
                 DependsOn = new Collection<string> { ModuleNames.MotorInfoModule, ModuleNames.ControllerServiceModule }
             });
-
-
-            moduleCatalog.AddModule(new ModuleInfo
+            if (_noLaserExtendedModules == false)
             {
-                ModuleName = laserSettings.Name,
-                ModuleType = laserSettings.AssemblyQualifiedName,
-                InitializationMode = InitializationMode.WhenAvailable,
-                DependsOn = new Collection<string> { ModuleNames.GeneralComponentsModule, ModuleNames.ModbusLaserServiceModule }
-            });
+                var laserSettings = typeof(LaserSettinigsModule);
+                moduleCatalog.AddModule(new ModuleInfo
+                {
+                    ModuleName = laserSettings.Name,
+                    ModuleType = laserSettings.AssemblyQualifiedName,
+                    InitializationMode = InitializationMode.WhenAvailable,
+                    DependsOn = new Collection<string> { ModuleNames.GeneralComponentsModule, ModuleNames.ModbusLaserServiceModule }
+                });
+            }
         }
         private void LoadServices(IModuleCatalog moduleCatalog)
         {
             var userSettingServiceModule = typeof(UserSettingServiceModule);
-            var modbusLaserService = typeof(ModbusLaserServiceModule);
 
             moduleCatalog.AddModule<LoggerServiceModule>(InitializationMode.WhenAvailable);
             moduleCatalog.AddModule(new ModuleInfo
@@ -173,13 +178,17 @@ namespace CNC
             });
             //moduleCatalog.AddModule<ControlPanelServiceModule>(InitializationMode.WhenAvailable);
             moduleCatalog.AddModule<ControllerServiceModule>(InitializationMode.WhenAvailable);
-            moduleCatalog.AddModule(new ModuleInfo
+            if (_noLaserExtendedModules == false)
             {
-                ModuleName = modbusLaserService.Name,
-                ModuleType = modbusLaserService.AssemblyQualifiedName,
-                InitializationMode = InitializationMode.WhenAvailable,
-                DependsOn = new Collection<string> { ModuleNames.LoggerServiceModule }
-            });
+                var modbusLaserService = typeof(ModbusLaserServiceModule);
+                moduleCatalog.AddModule(new ModuleInfo
+                {
+                    ModuleName = modbusLaserService.Name,
+                    ModuleType = modbusLaserService.AssemblyQualifiedName,
+                    InitializationMode = InitializationMode.WhenAvailable,
+                    DependsOn = new Collection<string> { ModuleNames.LoggerServiceModule }
+                });
+            }
         }
 
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
@@ -248,6 +257,8 @@ namespace CNC
             else
                 _tempWindow.Dispatcher.Invoke(DispatcherPriority.Normal, new ThreadStart(runner));
         }
+
+        public Logger GlobalLogger { get; }
     }
 
 

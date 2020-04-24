@@ -12,7 +12,7 @@ namespace UserSettingService {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.4.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.6.0.0")]
     public sealed partial class AppUserSettings : global::System.Configuration.ApplicationSettingsBase {
         
         private static AppUserSettings defaultInstance = ((AppUserSettings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new AppUserSettings())));
@@ -73,7 +73,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G54X {
             get {
                 return ((double)(this["G54X"]));
@@ -85,7 +85,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G54Y {
             get {
                 return ((double)(this["G54Y"]));
@@ -97,7 +97,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G54Z {
             get {
                 return ((double)(this["G54Z"]));
@@ -109,7 +109,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("4")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G54A {
             get {
                 return ((double)(this["G54A"]));
@@ -121,7 +121,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G54B {
             get {
                 return ((double)(this["G54B"]));
@@ -133,7 +133,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("6")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G54C {
             get {
                 return ((double)(this["G54C"]));
@@ -145,7 +145,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("7")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G54U {
             get {
                 return ((double)(this["G54U"]));
@@ -157,7 +157,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("8")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G54V {
             get {
                 return ((double)(this["G54V"]));
@@ -169,7 +169,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("9")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G54W {
             get {
                 return ((double)(this["G54W"]));
@@ -181,7 +181,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G55X {
             get {
                 return ((double)(this["G55X"]));
@@ -193,7 +193,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("11")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G55Y {
             get {
                 return ((double)(this["G55Y"]));
@@ -205,7 +205,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("12")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G55Z {
             get {
                 return ((double)(this["G55Z"]));
@@ -217,7 +217,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("13")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G55A {
             get {
                 return ((double)(this["G55A"]));
@@ -229,7 +229,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("14")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G55B {
             get {
                 return ((double)(this["G55B"]));
@@ -241,7 +241,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("15")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G55C {
             get {
                 return ((double)(this["G55C"]));
@@ -253,7 +253,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("16")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G55U {
             get {
                 return ((double)(this["G55U"]));
@@ -265,7 +265,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("17")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G55V {
             get {
                 return ((double)(this["G55V"]));
@@ -277,7 +277,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("18")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G55W {
             get {
                 return ((double)(this["G55W"]));
@@ -289,7 +289,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("19")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G56X {
             get {
                 return ((double)(this["G56X"]));
@@ -301,7 +301,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("20")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G56Y {
             get {
                 return ((double)(this["G56Y"]));
@@ -313,7 +313,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("21")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G56Z {
             get {
                 return ((double)(this["G56Z"]));
@@ -325,7 +325,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("22")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G56A {
             get {
                 return ((double)(this["G56A"]));
@@ -337,7 +337,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("23")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G56B {
             get {
                 return ((double)(this["G56B"]));
@@ -349,7 +349,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("24")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G56C {
             get {
                 return ((double)(this["G56C"]));
@@ -361,7 +361,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("25")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G56U {
             get {
                 return ((double)(this["G56U"]));
@@ -373,7 +373,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("26")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G56V {
             get {
                 return ((double)(this["G56V"]));
@@ -385,7 +385,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("27")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G56W {
             get {
                 return ((double)(this["G56W"]));
@@ -397,7 +397,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("28")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G57X {
             get {
                 return ((double)(this["G57X"]));
@@ -409,7 +409,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("29")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G57Y {
             get {
                 return ((double)(this["G57Y"]));
@@ -421,7 +421,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("30")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G57Z {
             get {
                 return ((double)(this["G57Z"]));
@@ -433,7 +433,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("31")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G57A {
             get {
                 return ((double)(this["G57A"]));
@@ -445,7 +445,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("32")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G57B {
             get {
                 return ((double)(this["G57B"]));
@@ -457,7 +457,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("33")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G57C {
             get {
                 return ((double)(this["G57C"]));
@@ -469,7 +469,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("34")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G57U {
             get {
                 return ((double)(this["G57U"]));
@@ -481,7 +481,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("35")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G57V {
             get {
                 return ((double)(this["G57V"]));
@@ -493,7 +493,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("36")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G57W {
             get {
                 return ((double)(this["G57W"]));
@@ -505,7 +505,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("37")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G58X {
             get {
                 return ((double)(this["G58X"]));
@@ -517,7 +517,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("38")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G58Y {
             get {
                 return ((double)(this["G58Y"]));
@@ -529,7 +529,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("39")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G58Z {
             get {
                 return ((double)(this["G58Z"]));
@@ -541,7 +541,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("40")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G58A {
             get {
                 return ((double)(this["G58A"]));
@@ -553,7 +553,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("41")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G58B {
             get {
                 return ((double)(this["G58B"]));
@@ -565,7 +565,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("42")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G58C {
             get {
                 return ((double)(this["G58C"]));
@@ -577,7 +577,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("43")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G58U {
             get {
                 return ((double)(this["G58U"]));
@@ -589,7 +589,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("44")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G58V {
             get {
                 return ((double)(this["G58V"]));
@@ -601,7 +601,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("45")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G58W {
             get {
                 return ((double)(this["G58W"]));
@@ -613,7 +613,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("46")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G59X {
             get {
                 return ((double)(this["G59X"]));
@@ -625,7 +625,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("47")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G59Y {
             get {
                 return ((double)(this["G59Y"]));
@@ -637,7 +637,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("48")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G59Z {
             get {
                 return ((double)(this["G59Z"]));
@@ -649,7 +649,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("49")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G59A {
             get {
                 return ((double)(this["G59A"]));
@@ -661,7 +661,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("50")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G59B {
             get {
                 return ((double)(this["G59B"]));
@@ -673,7 +673,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("51")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G59C {
             get {
                 return ((double)(this["G59C"]));
@@ -685,7 +685,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("52")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G59U {
             get {
                 return ((double)(this["G59U"]));
@@ -697,7 +697,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("53")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G59V {
             get {
                 return ((double)(this["G59V"]));
@@ -709,7 +709,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("54")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double G59W {
             get {
                 return ((double)(this["G59W"]));
@@ -721,7 +721,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("11")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double T1L {
             get {
                 return ((double)(this["T1L"]));
@@ -733,7 +733,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("12")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double T2L {
             get {
                 return ((double)(this["T2L"]));
@@ -745,7 +745,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("13")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double T3L {
             get {
                 return ((double)(this["T3L"]));
@@ -757,7 +757,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("14")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double T4L {
             get {
                 return ((double)(this["T4L"]));
@@ -769,7 +769,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("15")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double T5L {
             get {
                 return ((double)(this["T5L"]));
@@ -781,7 +781,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("16")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double T6L {
             get {
                 return ((double)(this["T6L"]));
@@ -793,7 +793,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("17")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double T7L {
             get {
                 return ((double)(this["T7L"]));
@@ -805,7 +805,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("18")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double T8L {
             get {
                 return ((double)(this["T8L"]));
@@ -817,7 +817,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("19")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double T9L {
             get {
                 return ((double)(this["T9L"]));
@@ -829,7 +829,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("20")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double T10L {
             get {
                 return ((double)(this["T10L"]));
@@ -841,7 +841,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("21")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double T11L {
             get {
                 return ((double)(this["T11L"]));
@@ -853,7 +853,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("22")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double T12L {
             get {
                 return ((double)(this["T12L"]));
@@ -865,7 +865,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double T1D {
             get {
                 return ((double)(this["T1D"]));
@@ -877,7 +877,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double T2D {
             get {
                 return ((double)(this["T2D"]));
@@ -889,7 +889,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double T3D {
             get {
                 return ((double)(this["T3D"]));
@@ -901,7 +901,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("4")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double T4D {
             get {
                 return ((double)(this["T4D"]));
@@ -913,7 +913,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double T5D {
             get {
                 return ((double)(this["T5D"]));
@@ -925,7 +925,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("6")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double T6D {
             get {
                 return ((double)(this["T6D"]));
@@ -937,7 +937,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("7")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double T7D {
             get {
                 return ((double)(this["T7D"]));
@@ -949,7 +949,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("8")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double T8D {
             get {
                 return ((double)(this["T8D"]));
@@ -961,7 +961,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("9")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double T9D {
             get {
                 return ((double)(this["T9D"]));
@@ -973,7 +973,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double T10D {
             get {
                 return ((double)(this["T10D"]));
@@ -985,7 +985,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("11")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double T11D {
             get {
                 return ((double)(this["T11D"]));
@@ -997,7 +997,7 @@ namespace UserSettingService {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("12")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public double T12D {
             get {
                 return ((double)(this["T12D"]));
