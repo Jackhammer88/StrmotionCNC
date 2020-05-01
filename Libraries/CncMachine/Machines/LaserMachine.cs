@@ -18,19 +18,21 @@ namespace CncMachine.Machines
             var builder = new StringBuilder();
             if (ModalGCodes != null && ModalGCodes.Count > 0)
             {
-                if (ModalGCodes.Count > 1)
-                {
-                    builder.Append(ModalGCodes.Select(c => $"G{c}").Aggregate((s1, s2) => $"{s1} {s2} "));
-                }
-                else
-                    builder.Append($"G{ModalGCodes.First().ToString(CultureInfo.InvariantCulture)} ");
+                builder.Append(ModalGCodes.Aggregate(string.Empty, (t, s2) => $"{t}G{s2} "));
+                //if (ModalGCodes.Count > 1)
+                //{
+                //    builder.Append(ModalGCodes.Aggregate(string.Empty, (t, s2) => $"{t}G{s2} "));
+                //}
+                //else
+                //    builder.Append($"G{ModalGCodes.First().ToString(CultureInfo.InvariantCulture)} ");
             }
             if (CurrentGCodes != null && CurrentGCodes.Count > 0)
             {
-                if (CurrentGCodes.Count > 1)
-                    builder.Append(CurrentGCodes.Select(c => $"G{c}").Aggregate((s1, s2) => $"{s1} {s2} "));
-                else
-                    builder.Append($"G{CurrentGCodes.First().ToString(CultureInfo.InvariantCulture)} ");
+                builder.Append(CurrentGCodes.Aggregate(string.Empty, (t, s2) => $"{t}G{s2} "));
+                //if (CurrentGCodes.Count > 1)
+                //    builder.Append(CurrentGCodes.Select(c => $"G{c}").Aggregate((s1, s2) => $"{s1} {s2} "));
+                //else
+                //    builder.Append($"G{CurrentGCodes.First().ToString(CultureInfo.InvariantCulture)} ");
             }
 
             builder.Append($"T{ToolNumber} ");
@@ -38,17 +40,19 @@ namespace CncMachine.Machines
 
             if (ModalMCodes != null && ModalMCodes.Count > 0)
             {
-                if (ModalGCodes.Count > 1)
-                    builder.Append(ModalMCodes.Select(c => $"M{c}").Aggregate((s1, s2) => $"{s1} {s2} "));
-                else
-                    builder.Append($"M{ModalMCodes.First().ToString(CultureInfo.InvariantCulture)} ");
+                builder.Append(ModalMCodes.Aggregate(string.Empty, (t, s2) => $"{t}M{s2} "));
+                //if (ModalGCodes.Count > 1)
+                //    builder.Append(ModalMCodes.Select(c => $"M{c}").Aggregate((s1, s2) => $"{s1} {s2} "));
+                //else
+                //    builder.Append($"M{ModalMCodes.First().ToString(CultureInfo.InvariantCulture)} ");
             }
             if (CurrentMCodes != null && CurrentMCodes.Count > 0)
             {
-                if (CurrentMCodes.Count > 1)
-                    builder.Append(CurrentMCodes.Select(c => $"M{c}").Aggregate((s1, s2) => $"{s1} {s2} "));
-                else
-                    builder.Append($"M{CurrentMCodes.First().ToString(CultureInfo.InvariantCulture)} ");
+                builder.Append(CurrentMCodes.Aggregate(string.Empty, (t, s2) => $"{t}M{s2} "));
+                //if (CurrentMCodes.Count > 1)
+                //    builder.Append(CurrentMCodes.Select(c => $"M{c}").Aggregate((s1, s2) => $"{s1} {s2} "));
+                //else
+                //    builder.Append($"M{CurrentMCodes.First().ToString(CultureInfo.InvariantCulture)} ");
             }
 
             var x = CurrentCoordinates.X.HasValue ? $"X{CurrentCoordinates.X.Value} " : string.Empty;

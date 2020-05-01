@@ -27,17 +27,19 @@ namespace GcodeParser
             var builder = new StringBuilder();
             if (GCodes != null && GCodes.Count > 0)
             {
-                if (GCodes.Count > 1)
-                    builder.Append($"{GCodes.Select(c => c.ToString(CultureInfo.InvariantCulture)).Aggregate((s1, s2) => $"G{s1} G{s2} ")}");
-                else
-                    builder.Append($"G{GCodes.First().ToString(CultureInfo.InvariantCulture)} ");
+                builder.Append(GCodes.Aggregate(string.Empty, (t, n) => $"{t}G{n} ")); ;
+                //if (GCodes.Count > 1)
+                //    builder.Append($"{GCodes.Select(c => c.ToString(CultureInfo.InvariantCulture)).Aggregate((s1, s2) => $"{s1} G{s2} ")}");
+                //else
+                //    builder.Append($"G{GCodes.First().ToString(CultureInfo.InvariantCulture)} ");
             }
             if (MCodes != null && MCodes.Count > 0)
             {
-                if (MCodes.Count > 1)
-                    builder.Append($"{MCodes.Select(c => c.ToString(CultureInfo.InvariantCulture)).Aggregate((s1, s2) => $"M{s1} M{s2} ")}");
-                else
-                    builder.Append($"M{MCodes.First().ToString(CultureInfo.InvariantCulture)} ");
+                builder.Append(MCodes.Aggregate(string.Empty, (t, n) => $"{t}M{n} "));
+                //if (MCodes.Count > 1)
+                //    builder.Append($"{MCodes.Select(c => c.ToString(CultureInfo.InvariantCulture)).Aggregate((s1, s2) => $"{s1}M{s2} ")}");
+                //else
+                //    builder.Append($"M{MCodes.First().ToString(CultureInfo.InvariantCulture)} ");
             }
             if (Coordinate.X.HasValue)
             {
