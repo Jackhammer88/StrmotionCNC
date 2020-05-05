@@ -79,9 +79,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserSettingServiceTests", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RegexPrecompiler", "Libraries\RegexPrecompiler\RegexPrecompiler.csproj", "{F6A33B99-5E6C-4E9A-8AC7-A843F48385B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModbusLaserService", "Services\ModbusLaserService\ModbusLaserService.csproj", "{80DB071B-C838-46A0-B41E-C4EE138B308A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModbusLaserService", "Services\ModbusLaserService\ModbusLaserService.csproj", "{80DB071B-C838-46A0-B41E-C4EE138B308A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaserSettings", "Modules\LaserSettings\LaserSettings.csproj", "{832F9BF4-0BC8-4CB8-8822-57212561E631}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LaserSettings", "Modules\LaserSettings\LaserSettings.csproj", "{832F9BF4-0BC8-4CB8-8822-57212561E631}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diag", "Modules\Diag\Diag.csproj", "{B83F8C5D-F068-4674-9A33-F802A8ADAB2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -757,6 +759,26 @@ Global
 		{832F9BF4-0BC8-4CB8-8822-57212561E631}.Release|x64.Build.0 = Release|Any CPU
 		{832F9BF4-0BC8-4CB8-8822-57212561E631}.Release|x86.ActiveCfg = Release|Any CPU
 		{832F9BF4-0BC8-4CB8-8822-57212561E631}.Release|x86.Build.0 = Release|Any CPU
+		{B83F8C5D-F068-4674-9A33-F802A8ADAB2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B83F8C5D-F068-4674-9A33-F802A8ADAB2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B83F8C5D-F068-4674-9A33-F802A8ADAB2F}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{B83F8C5D-F068-4674-9A33-F802A8ADAB2F}.Debug|ARM.Build.0 = Debug|Any CPU
+		{B83F8C5D-F068-4674-9A33-F802A8ADAB2F}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{B83F8C5D-F068-4674-9A33-F802A8ADAB2F}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{B83F8C5D-F068-4674-9A33-F802A8ADAB2F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B83F8C5D-F068-4674-9A33-F802A8ADAB2F}.Debug|x64.Build.0 = Debug|Any CPU
+		{B83F8C5D-F068-4674-9A33-F802A8ADAB2F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B83F8C5D-F068-4674-9A33-F802A8ADAB2F}.Debug|x86.Build.0 = Debug|Any CPU
+		{B83F8C5D-F068-4674-9A33-F802A8ADAB2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B83F8C5D-F068-4674-9A33-F802A8ADAB2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B83F8C5D-F068-4674-9A33-F802A8ADAB2F}.Release|ARM.ActiveCfg = Release|Any CPU
+		{B83F8C5D-F068-4674-9A33-F802A8ADAB2F}.Release|ARM.Build.0 = Release|Any CPU
+		{B83F8C5D-F068-4674-9A33-F802A8ADAB2F}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{B83F8C5D-F068-4674-9A33-F802A8ADAB2F}.Release|ARM64.Build.0 = Release|Any CPU
+		{B83F8C5D-F068-4674-9A33-F802A8ADAB2F}.Release|x64.ActiveCfg = Release|Any CPU
+		{B83F8C5D-F068-4674-9A33-F802A8ADAB2F}.Release|x64.Build.0 = Release|Any CPU
+		{B83F8C5D-F068-4674-9A33-F802A8ADAB2F}.Release|x86.ActiveCfg = Release|Any CPU
+		{B83F8C5D-F068-4674-9A33-F802A8ADAB2F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -796,9 +818,10 @@ Global
 		{F6A33B99-5E6C-4E9A-8AC7-A843F48385B5} = {83EE6ACF-95BA-49C8-B031-EA741F34CE52}
 		{80DB071B-C838-46A0-B41E-C4EE138B308A} = {DB946926-9BA7-424B-B24C-3315E9D38020}
 		{832F9BF4-0BC8-4CB8-8822-57212561E631} = {F58E4DF6-60B2-4A26-A5ED-2431A9682F67}
+		{B83F8C5D-F068-4674-9A33-F802A8ADAB2F} = {F58E4DF6-60B2-4A26-A5ED-2431A9682F67}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {B255225E-75F2-419B-AC97-B1BFBBABBDFD}
 		RESX_Rules = {"EnabledRules":["StringFormat"]}
+		SolutionGuid = {B255225E-75F2-419B-AC97-B1BFBBABBDFD}
 	EndGlobalSection
 EndGlobal

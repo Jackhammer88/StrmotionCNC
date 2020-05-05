@@ -29,7 +29,7 @@ namespace ControllerService.Gcode
         {
             {new int[] { 0, 1, 2, 30, 60 }, 0 },
             {new int[] { 6 }, 1 },
-            {new int[] { 3, 4, 5 }, 2 },
+            {new int[] { 3, 4, 5, 77, 78 }, 2 },
             {new int[] { 7, 8, 9 }, 3 },
             {new int[] { 48, 49 }, 4 }
         };

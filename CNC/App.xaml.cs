@@ -4,6 +4,7 @@ using CNC.Views;
 using CNCDialogService.ViewModels;
 using CNCDialogService.Views;
 using ControllerService;
+using Diag;
 using GeneralComponents;
 using Infrastructure;
 using LaserSettings;
@@ -37,7 +38,7 @@ namespace CNC
     {
         private Splash _tempWindow;
         private bool _noLaserExtendedModules;
-
+        private bool _bufferDiagMode;
 
         public App()
         {
@@ -57,6 +58,8 @@ namespace CNC
         {
             if (e.Args.Length > 0 && e.Args.Contains("-nolaser-extended"))
                 _noLaserExtendedModules = true;
+            if (e.Args.Length > 0 && e.Args.Contains("-diag"))
+                _bufferDiagMode = true;
             base.OnStartup(e);
         }
         protected override void InitializeModules()
@@ -187,6 +190,17 @@ namespace CNC
                     ModuleType = modbusLaserService.AssemblyQualifiedName,
                     InitializationMode = InitializationMode.WhenAvailable,
                     DependsOn = new Collection<string> { ModuleNames.LoggerServiceModule }
+                });
+            }
+            if(_bufferDiagMode)
+            {
+                var diagModule = typeof(DiagModule);
+                moduleCatalog.AddModule(new ModuleInfo
+                {
+                    ModuleName = diagModule.Name,
+                    ModuleType = diagModule.AssemblyQualifiedName,
+                    InitializationMode = InitializationMode.WhenAvailable,
+                    DependsOn = new Collection<string> { ModuleNames.ControllerServiceModule }
                 });
             }
         }

@@ -62,12 +62,15 @@ namespace GeneralComponents.ViewModels
             {
                 case "X+":
                 case "X-":
-                    return seq.Skip(1).First().Equals("-", StringComparison.Ordinal) ? PVariables.PBJogMinusFirstMotor : PVariables.PBJogPlusFirstMotor;
+                    return seq.Skip(1).First()
+                        .Equals("-", StringComparison.Ordinal) ? PVariables.PBJogMinusFirstMotor : PVariables.PBJogPlusFirstMotor;
                 case "Y+":
                 case "Y-":
-                    return seq.Skip(1).First().Equals("-", StringComparison.Ordinal) ? PVariables.PBJogMinusSecondMotor : PVariables.PBJogPlusSecondMotor;
+                    return seq.Skip(1).First()
+                        .Equals("-", StringComparison.Ordinal) ? PVariables.PBJogMinusSecondMotor : PVariables.PBJogPlusSecondMotor;
                 default:
-                    return seq.Skip(1).First().Equals("-", StringComparison.Ordinal) ? PVariables.PBJogMinusFirstMotor : PVariables.PBJogPlusFirstMotor;
+                    return seq.Skip(1).First()
+                        .Equals("-", StringComparison.Ordinal) ? PVariables.PBJogMinusFirstMotor : PVariables.PBJogPlusFirstMotor;
             }
         }
 

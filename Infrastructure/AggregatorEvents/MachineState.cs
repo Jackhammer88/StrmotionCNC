@@ -13,6 +13,7 @@ namespace Infrastructure.AggregatorEvents
         Auto = 1,
         Manual = 2,
         MDI = 3,
+        Homing = 4,
         Test = 6
     }
     /*

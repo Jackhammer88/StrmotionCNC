@@ -26,6 +26,7 @@
     <ProjectReference Include="..\Libraries\GcodeParser\GcodeParser.csproj" />
     <ProjectReference Include="..\Modules\ActualCodes\ActualCodes.csproj" />
     <ProjectReference Include="..\Modules\BottomButtons\BottomButtons.csproj" />
+    <ProjectReference Include="..\Modules\Diag\Diag.csproj" />
     <ProjectReference Include="..\Modules\GeneralComponents\GeneralComponents.csproj" />
     <ProjectReference Include="..\Modules\LaserSettings\LaserSettings.csproj" />
     <ProjectReference Include="..\Modules\Messages\Messages.csproj" />

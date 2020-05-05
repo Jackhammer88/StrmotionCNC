@@ -128,7 +128,7 @@ namespace ControllerService.Modules
                 _controller.GetResponse("DELETE ROT", out result);
                 _controller.RotBufRemove(0);
                 _controller.GetResponse("&1 DEFINE ROT 4096", out result);
-                _controller.GetResponse("&1 DEFINE LOOKAHEAD 500,5", out result);
+                _controller.GetResponse("&1 DEFINE LOOKAHEAD 1000,100", out result);
                 _controller.RotBufClear(0);
                 Task.Delay(100).Wait();
                 _controller.RotBufSet(false);
