@@ -5,7 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:res="http://www.infrastructure.cnc.com/resources"
         xmlns:local="clr-namespace:CNC.Views"
-        xmlns:ig="http://schemas.infragistics.com/xaml" 
         xmlns:converters="http://www.infrastructure.cnc.com/converters"
         mc:Ignorable="d" AllowsTransparency="True" Background="Transparent"
         Title="STRmotion CNC" Height="223" Topmost="True" Width="765" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">

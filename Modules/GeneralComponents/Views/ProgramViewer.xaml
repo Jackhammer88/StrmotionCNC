@@ -7,7 +7,6 @@
         xmlns:lb="clr-namespace:CNCCenteredListBox"
         x:Class="GeneralComponents.Views.ProgramViewer"
         prism:ViewModelLocator.AutoWireViewModel="True"
-        xmlns:ig="http://schemas.infragistics.com/xaml"
     xmlns:models="clr-namespace:GeneralComponents.Models"
     xmlns:converters="http://www.infrastructure.cnc.com/converters"
     mc:Ignorable="d" 
