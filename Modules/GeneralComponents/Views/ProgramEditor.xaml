@@ -62,7 +62,7 @@
             </Style.Triggers>
         </Style>
     </UserControl.Resources>
-    <ig:XamBusyIndicator IsBusy="{Binding IsBusy}">
+    <!--<ig:XamBusyIndicator IsBusy="{Binding IsBusy}">-->
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -84,5 +84,5 @@
                 <Button Grid.Row="3" Command="{Binding ExitEditorCommand}" Content="EXIT" MaxHeight="75" MaxWidth="75" Style="{DynamicResource ButtonStyle1}" Template="{DynamicResource ButtonBaseControlTemplate1}" Padding="3"/>
             </Grid>
         </Grid>
-    </ig:XamBusyIndicator>
+    <!--</ig:XamBusyIndicator>-->
 </UserControl>

@@ -29,7 +29,7 @@
         </Style>
     </UserControl.Resources>
     <Grid IsEnabled="{Binding IsAvailable}">
-        <ig:XamDialogWindow WindowState="{Binding ChildState}" StartupPosition="Center" CloseButtonVisibility="Collapsed" MaximizeButtonVisibility="Collapsed" MinimizeButtonVisibility="Collapsed" MinWidth="280" MinHeight="220">
+        <!--<ig:XamDialogWindow WindowState="{Binding ChildState}" StartupPosition="Center" CloseButtonVisibility="Collapsed" MaximizeButtonVisibility="Collapsed" MinimizeButtonVisibility="Collapsed" MinWidth="280" MinHeight="220">-->
             <Grid>
                 <Grid.Resources>
                     <Style TargetType="Button">
@@ -76,7 +76,7 @@
                 <Button Command="{Binding ChangingCancelCommand}" Template="{DynamicResource ButtonBaseControlTemplate1}" Style="{DynamicResource ButtonStyle1}" Grid.Row="6" Grid.Column="1" Content="Отмена" MinWidth="135" HorizontalContentAlignment="Center" />
                 <Button Command="{Binding AddNumberCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"  Template="{DynamicResource ButtonBaseControlTemplate1}" Style="{DynamicResource ButtonStyle1}" Grid.Row="6" Grid.Column="2" Content="Сброс" MinWidth="135" HorizontalContentAlignment="Center"/>
             </Grid>
-        </ig:XamDialogWindow>
+        <!--</ig:XamDialogWindow>-->
         <DataGrid ItemsSource="{Binding Offsets}" commands:DataGridCommands.DataGridDoubleClickCommand="{Binding ChangeOffsetCommand}" CurrentCell="{Binding CurrentCell, Mode=OneWayToSource}" SelectedItem="{Binding CurrentItem}" SelectionMode="Single" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" RowHeight="40">
             <DataGrid.Columns>
                 <DataGridTextColumn IsReadOnly="True" FontSize="20" Header="{x:Static res:GeneralComponentsStrings.ToolNumber}" Binding="{Binding ToolNumber, Mode=OneWay}"/>

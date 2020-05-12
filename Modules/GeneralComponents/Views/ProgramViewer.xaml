@@ -15,7 +15,7 @@
     <UserControl.Resources>
         <converters:VisibilityMultiValueConverter x:Key="VisibilityMultiValueConverter"/>
     </UserControl.Resources>
-    <ig:XamBusyIndicator IsBusy="{Binding IsBusy}">
+    <!--<ig:XamBusyIndicator IsBusy="{Binding IsBusy}">-->
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="10*"/>
@@ -48,5 +48,5 @@
                 <TextBlock Background="{DynamicResource MainBackgroundColor}" Visibility="{Binding FileNameVisibility}" FontSize="17" VerticalAlignment="Bottom" Style="{DynamicResource lbTextBlockStyle2}" Text="{Binding FileName}"/>
             </Border>
         </Grid>
-    </ig:XamBusyIndicator>
+    <!--</ig:XamBusyIndicator>-->
 </UserControl>

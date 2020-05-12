@@ -1,5 +1,5 @@
 ﻿using GeneralComponents.ViewModels.BaseViewModel;
-using Infragistics.Controls.Interactions;
+using HelixToolkit.SharpDX.Core.Model.Scene2D;
 using Infrastructure.DialogService;
 using Infrastructure.Interfaces.CNCControllerService;
 using Infrastructure.Interfaces.UserSettingService;
@@ -11,9 +11,11 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Reflection;
+using System.Windows;
 
 namespace GeneralComponents.ViewModels
 {
+    using Visibility = System.Windows.Visibility;
     public class OffsetViewModel : CalculatorBaseViewModel
     {
         private IUserSettingsService _userSettings;
@@ -27,7 +29,7 @@ namespace GeneralComponents.ViewModels
             _controllerInformation = controllerInformation;
             _dialogService = dialogService;
             Title = GeneralComponentsStrings.Offsets;
-            ChildState = WindowState.Hidden;
+            ChildState = Visibility.Collapsed;
 
             ResetAllCommand = new DelegateCommand(ResetAllExecute, ResetAllCanExecute);
             SetAllCommand = new DelegateCommand(SetAllExecute, SetAllCanExecute);
@@ -122,7 +124,7 @@ namespace GeneralComponents.ViewModels
                 var property = GetCurrentItemPropertyByNumber(_currentCollumn);
                 var value = (double)property.GetValue(CurrentItem);
                 ChildText = value.ToString(format, CultureInfo.InvariantCulture);
-                ChildState = WindowState.Normal;
+                ChildState = Visibility.Visible;
             }
         }
         private void ExecuteChangingDone()
@@ -132,7 +134,7 @@ namespace GeneralComponents.ViewModels
                 var property = GetCurrentItemPropertyByNumber(_currentCollumn);
                 property.SetValue(CurrentItem, Convert.ToDouble(CalculateChildString(), CultureInfo.InvariantCulture));
             }
-            ChildState = WindowState.Hidden;
+            ChildState = Visibility.Collapsed;
         }
         private PropertyInfo GetCurrentItemPropertyByNumber(int currentCollumn)
         {

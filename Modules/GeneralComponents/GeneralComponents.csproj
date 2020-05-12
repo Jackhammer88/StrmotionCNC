@@ -19,8 +19,7 @@
     <PackageReference Include="HelixToolkit.SharpDX.Assimp" Version="2.11.0" />
     <PackageReference Include="HelixToolkit.SharpDX.Core" Version="2.11.0" />
     <PackageReference Include="HelixToolkit.SharpDX.Core.Wpf" Version="2.11.0" />
-    <PackageReference Include="Infragistics.WPF" Version="19.1.392" />
-    <PackageReference Include="Infragistics.WPF.DialogWindow" Version="19.1.392" />
+    <PackageReference Include="InternalDialog" Version="1.0.8" />
     <PackageReference Include="Prism.Wpf" Version="7.2.0.1422" />
   </ItemGroup>
 

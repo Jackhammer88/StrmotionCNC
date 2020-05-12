@@ -1,5 +1,4 @@
 ﻿using GeneralComponents.ViewModels.BaseViewModel;
-using Infragistics.Controls.Interactions;
 using Infrastructure.Interfaces.CNCControllerService;
 using Infrastructure.Interfaces.UserSettingService;
 using Infrastructure.Resources.Strings;
@@ -18,7 +17,7 @@ namespace GeneralComponents.ViewModels
         {
             Title = GeneralComponentsStrings.ToolOffsets;
             _userSettings = userSettings;
-            ChildState = WindowState.Hidden;
+            ChildState = System.Windows.Visibility.Collapsed;
 
             ChangeOffsetCommand = new DelegateCommand(ExecuteChangeOffset);
             ChangingDoneCommand = new DelegateCommand(ExecuteChangingDone, CanExecuteChangingDone);
@@ -48,7 +47,7 @@ namespace GeneralComponents.ViewModels
                         return;
                 }
                 ChildText = message;
-                ChildState = WindowState.Normal;
+                ChildState = System.Windows.Visibility.Visible;
             }
         }
         private void ExecuteChangingDone()
@@ -60,7 +59,7 @@ namespace GeneralComponents.ViewModels
                 else if (_currentCollumn == 2)
                     CurrentItem.ToolDiameter = Convert.ToDouble(CalculateChildString(), CultureInfo.InvariantCulture);
             }
-            ChildState = WindowState.Hidden;
+            ChildState = System.Windows.Visibility.Collapsed;
         }
         private double GetValueByColumnNumber(int num)
         {

@@ -1,5 +1,4 @@
-﻿using Infragistics.Controls.Interactions;
-using Infrastructure.Abstract;
+﻿using Infrastructure.Abstract;
 using Infrastructure.Interfaces.CNCControllerService;
 using Prism.Commands;
 using System;
@@ -7,6 +6,7 @@ using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace GeneralComponents.ViewModels.BaseViewModel
@@ -15,7 +15,7 @@ namespace GeneralComponents.ViewModels.BaseViewModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1051:Не объявляйте видимые поля экземпляров", Justification = "<Ожидание>")]
         protected int _currentCollumn;
-        private WindowState _childState;
+        private Visibility _childState;
         private string _childText;
         private bool _isAvailable = true;
         readonly IProgramLoader _programLoader;
@@ -33,7 +33,7 @@ namespace GeneralComponents.ViewModels.BaseViewModel
 
         private void ExecuteChangingCancel()
         {
-            ChildState = WindowState.Hidden;
+            ChildState = Visibility.Collapsed;
         }
         protected virtual void ExecuteAddNumber(string addableString, Func<int, double> getValueByColumnNumber, int currentColumnNumber)
         {
@@ -110,7 +110,7 @@ namespace GeneralComponents.ViewModels.BaseViewModel
             return true;
         }
 
-        public WindowState ChildState
+        public Visibility ChildState
         {
             get => _childState;
             set => SetProperty(ref _childState, value);

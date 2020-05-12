@@ -8,8 +8,8 @@
              xmlns:res="http://www.infrastructure.cnc.com/resources"
              mc:Ignorable="d" 
              xmlns:prism="http://prismlibrary.com/"
-             xmlns:ig="http://schemas.infragistics.com/xaml"
-             prism:ViewModelLocator.AutoWireViewModel="True"
+             xmlns:ig="http://schemas.infragistics.com/xaml" xmlns:ind="http://madfisht3.com/InternalDialog"
+			 prism:ViewModelLocator.AutoWireViewModel="True"
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
         <Style TargetType="{x:Type DataGridCell}">
@@ -34,7 +34,8 @@
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <ig:XamDialogWindow WindowState="{Binding ChildState}" StartupPosition="Center" CloseButtonVisibility="Collapsed" MaximizeButtonVisibility="Collapsed" MinimizeButtonVisibility="Collapsed" MinWidth="280" MinHeight="220">
+		<ind:InternalWindow Visibility="{Binding ChildState}" Left="150" Top="130" Panel.ZIndex="1">
+        <!--<ig:XamDialogWindow WindowState="{Binding ChildState}" StartupPosition="Center" CloseButtonVisibility="Collapsed" MaximizeButtonVisibility="Collapsed" MinimizeButtonVisibility="Collapsed" MinWidth="280" MinHeight="220">-->
             <Grid>
                 <Grid.Resources>
                     <Style TargetType="Button">
@@ -83,7 +84,8 @@
                 <Button Grid.Row="7" Grid.Column="1" Command="{Binding ChangingCancelCommand}" Template="{DynamicResource ButtonBaseControlTemplate1}" Style="{DynamicResource ButtonStyle1}" Content="Отмена" MinWidth="135"/>
                 <Button Grid.Row="7" Grid.Column="2" Command="{Binding AddNumberCommand}" CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=Content}"  Template="{DynamicResource ButtonBaseControlTemplate1}" Style="{DynamicResource ButtonStyle1}" Content="Сброс" MinWidth="135"/>
             </Grid>
-        </ig:XamDialogWindow>
+		</ind:InternalWindow>
+		<!--</ig:XamDialogWindow>-->
         <DataGrid ItemsSource="{Binding Offsets}" commands:DataGridCommands.DataGridDoubleClickCommand="{Binding ChangeOffsetCommand}" CurrentCell="{Binding CurrentCell, Mode=OneWayToSource}" SelectedItem="{Binding CurrentItem}" SelectionMode="Single" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" RowHeight="60">
             <DataGrid.Columns>
                 <DataGridTextColumn IsReadOnly="True" FontSize="25" Header="{x:Static res:GeneralComponentsStrings.GCode}" Binding="{Binding Offset, Mode=OneWay}"/>
