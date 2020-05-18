@@ -17,6 +17,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace ControllerService.Modules
 {
@@ -35,7 +36,8 @@ namespace ControllerService.Modules
         private int _programStringNumber;
         private CancellationTokenSource _rotaryBufferCancellationToken;
         readonly IUserSettingsService _settings;
-        private const int COUNT_OF_LINES_TO_LOAD = 600;
+        private const int CountOfLinesToLoad = 600;
+        private const int CountOfLineToLoadSecondary = 300;
 
         public PmacProgramLoader(IController controller, IUserSettingsService settings, ILoggerFacade logger, IControllerConfigurator controllerConfigurator, ICodeCalculator codeCalculator, IEventAggregator eventAggregator)
         {
@@ -126,7 +128,9 @@ namespace ControllerService.Modules
                 _controller.GetResponse("DELETE ROT", out result);
                 _controller.RotBufRemove(0);
                 _controller.GetResponse("&1 DEFINE ROT 4096", out result);
-                _controller.GetResponse("&1 DEFINE LOOKAHEAD 500,5", out result);
+                var pTuple = ReadFromFile();
+                _controller.GetResponse($"&1 DEFINE LOOKAHEAD 500,20", out result);
+                //_controller.GetResponse("&1 DEFINE LOOKAHEAD 500,20", out result);
                 _controller.RotBufClear(0);
                 Task.Delay(100).Wait();
                 _controller.RotBufSet(false);
@@ -145,6 +149,15 @@ namespace ControllerService.Modules
 
             }).ConfigureAwait(false);
             _eventAggregator.GetEvent<MachineLockedState>().Publish(false);
+        }
+
+        private Tuple<int, int> ReadFromFile()
+        {
+            using (var reader = new StreamReader("lookahead.txt"))
+            {
+                var vars = reader.ReadToEnd().Split('|');
+                return new Tuple<int, int>(int.Parse(vars[0]), int.Parse(vars[1]));
+            }
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Reliability", "CA2008:Не создавайте задачи без передачи TaskScheduler", Justification = "<Ожидание>")]
@@ -167,7 +180,7 @@ namespace ControllerService.Modules
             int currentToolNumber = 0;
             _programFile.MustNotBeNullReference(nameof(_programFile));
             _programFile.StringCount.MustNotBe(0, nameof(_programFile.StringCount));
-            PrimaryLoadNStrings(ref loadedStringNumber, ref currentToolNumber, loadedStringCount: loadedStringNumber + COUNT_OF_LINES_TO_LOAD);
+            PrimaryLoadNStrings(ref loadedStringNumber, ref currentToolNumber, loadedStringCount: loadedStringNumber + CountOfLinesToLoad);
             ReadyToRun = true;
             _eventAggregator.GetEvent<ProgramDoneToRunEvent>().Publish();
             while (loadedStringNumber < _programFile.StringCount)
@@ -216,7 +229,7 @@ namespace ControllerService.Modules
         }
         private void SecondaryLoadNStrings(ref int loadedStringNumber, int currentStringNumber, int currentToolNumber)
         {
-            while ((loadedStringNumber - currentStringNumber) < 30)
+            while ((loadedStringNumber - currentStringNumber) < CountOfLineToLoadSecondary)
             {
                 _controllerConfigurator.GetVariable(MVariables.ProgramLineNumberFirst, out currentStringNumber);
                 if (loadedStringNumber == _programFile.StringCount) //Программа закончилась

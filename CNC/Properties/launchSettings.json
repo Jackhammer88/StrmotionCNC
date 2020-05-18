@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CNC": {
+      "commandName": "Project",
+      "commandLineArgs": "-nolaser-extended"
+    }
+  }
+}

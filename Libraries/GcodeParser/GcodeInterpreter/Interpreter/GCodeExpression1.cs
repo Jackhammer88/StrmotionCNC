@@ -17,7 +17,7 @@ namespace GcodeParser.GcodeInterpreter.Interpreter
         private static readonly string[] AdditionalValues = new string[] { "I", "J", "K", "R" };
         public static readonly float[][] MutuallyExclusiveCodes = new float[][]
         {
-            new float[] { 0, 1, 2, 3, 80, 81, 82, 84, 85, 86, 87, 88, 89 }, new float[] { 17, 18 , 19 }, //motion
+            new float[] { 0, 1, 2, 3, 77, 78, 80, 81, 82, 84, 85, 86, 87, 88, 89 }, new float[] { 17, 18 , 19 }, //motion
             new float[] { 17, 18, 19 }, //plane selection – XY, YZ, ZX
             new float[] { 90, 91 }, //absolute/incremental mode
             new float[] { 93, 94 }, //feed rate mode
