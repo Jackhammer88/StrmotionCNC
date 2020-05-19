@@ -20,12 +20,15 @@ namespace GeneralComponents.ViewModels
         private IOffsetData _currentItem;
         private readonly IControllerInformation _controllerInformation;
         private readonly IDialogService _dialogService;
+        private readonly IProgramLoader _programLoader;
 
-        public OffsetViewModel(IUserSettingsService userSettings, IProgramLoader programLoader, IControllerInformation controllerInformation, IDialogService dialogService) : base(programLoader)
+        public OffsetViewModel(IUserSettingsService userSettings, IProgramLoader programLoader,
+	        IControllerInformation controllerInformation, IDialogService dialogService) : base(programLoader)
         {
             _userSettings = userSettings;
             _controllerInformation = controllerInformation;
             _dialogService = dialogService;
+            _programLoader = programLoader;
             Title = GeneralComponentsStrings.Offsets;
             ChildState = WindowState.Hidden;
 
@@ -125,7 +128,7 @@ namespace GeneralComponents.ViewModels
                 ChildState = WindowState.Normal;
             }
         }
-        private void ExecuteChangingDone()
+        private async void ExecuteChangingDone()
         {
             if (CurrentItem != null)
             {
@@ -133,6 +136,8 @@ namespace GeneralComponents.ViewModels
                 property.SetValue(CurrentItem, Convert.ToDouble(CalculateChildString(), CultureInfo.InvariantCulture));
             }
             ChildState = WindowState.Hidden;
+
+            if(_programLoader.IsProgramOpened) await _programLoader.PrepareProgramAsync();
         }
         private PropertyInfo GetCurrentItemPropertyByNumber(int currentCollumn)
         {

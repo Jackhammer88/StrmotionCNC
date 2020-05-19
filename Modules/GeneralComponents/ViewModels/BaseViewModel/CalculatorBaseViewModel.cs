@@ -18,7 +18,7 @@ namespace GeneralComponents.ViewModels.BaseViewModel
         private WindowState _childState;
         private string _childText;
         private bool _isAvailable = true;
-        readonly IProgramLoader _programLoader;
+        protected readonly IProgramLoader _programLoader;
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1051:Не объявляйте видимые поля экземпляров", Justification = "<Ожидание>")]
         protected readonly string DecimalSeparator = CultureInfo.InvariantCulture.NumberFormat.NumberDecimalSeparator;
 

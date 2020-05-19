@@ -210,7 +210,9 @@ namespace GeneralComponents.ViewModels
                     Machine.Rewind(0);
                 }
                 else
-                    Machine.SetFrame(_programLoader.ProgramStringNumber);
+                {
+	                Machine.SetFrame(_programLoader.ProgramStringNumber);
+                }
             }
             //if (_programLoader.CurrentState == ProgramLoaderState.Auto && e.PropertyName.Equals(nameof(_programLoader.ProgramStringNumber), StringComparison.Ordinal) && _programLoader.ProgramStringNumber > 2)
             //{

@@ -203,7 +203,7 @@ namespace CncMachine.Machines
         }
         public virtual void SetFrame(int number)
         {
-            if (Program.Count >= number)
+            if (Program.Count >= --number)
             {
                 for (int i = FrameNumber; i < number; i++)
                 {

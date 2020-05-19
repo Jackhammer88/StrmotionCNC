@@ -140,14 +140,16 @@ namespace GeneralComponents.ViewModels
         private async Task OpenFileCommon(string path, int selectedLine = 0)
         {
             IsBusy = true;
-            string[] programText;
-            if (selectedLine != 0)
-                programText = await _programLoader.OpenProgramFileAsync(path, selectedLine, CancellationToken.None).ConfigureAwait(false);
-            else
-                programText = await _programLoader.OpenProgramFileAsync(path, CancellationToken.None).ConfigureAwait(false);
+            IEnumerable<string> programText = await _programLoader.OpenProgramFileNextAsync(path, CancellationToken.None).ConfigureAwait(false);
+            //if (selectedLine != 0)
+            //    programText = await _programLoader.OpenProgramFileAsync(path, selectedLine, CancellationToken.None).ConfigureAwait(false);
+            //else
+            //    programText = await _programLoader.OpenProgramFileAsync(path, CancellationToken.None)
+	           //     .ConfigureAwait(false);
             IsBusy = false;
             int pos = 0;
-            var dict = programText.Where(s => !string.IsNullOrWhiteSpace(s)).ToDictionary(s => pos++, s => $"N{pos} {s}");
+            var dict = programText.Where(s => !string.IsNullOrWhiteSpace(s))
+	            .ToDictionary(s => pos++, s => $"N{pos} {s}");
             ProgramListing = dict;
             FileName = path;
 
@@ -192,7 +194,7 @@ namespace GeneralComponents.ViewModels
         }
         public override void OnNavigatedTo(NavigationContext navigationContext)
         {
-            if (navigationContext == null || navigationContext.Parameters == null || !navigationContext.Parameters.ContainsKey("file-changed"))
+            if (navigationContext?.Parameters == null || !navigationContext.Parameters.ContainsKey("file-changed"))
             {
                 return;
             }

@@ -17,6 +17,7 @@ namespace Infrastructure.Interfaces.CNCControllerService
         ConcurrentDictionary<int, string> LoadedProgram { get; }
         int MachineType { get; set; }
         int ProgramStringNumber { get; }
+        int ProgramLinesCount { get; }
         int StartLine { get; set; }
         ProgramLoaderState CurrentState { get; }
 
@@ -27,6 +28,7 @@ namespace Infrastructure.Interfaces.CNCControllerService
         Task InitNewRotaryBuffer(bool mdi = false);
         void AbortProgram();
         Task AbortProgramAsync();
+        Task<IEnumerable<string>> OpenProgramFileNextAsync(string programPath, CancellationToken cancellationToken);
         Task<string[]> OpenProgramFileAsync(string programPath, CancellationToken cancellationToken);
         Task<string[]> OpenProgramFileAsync(string programPath, int selectedLine, CancellationToken cancellationToken);
         void LoadMDIProgram(IEnumerable<string> programStrings);

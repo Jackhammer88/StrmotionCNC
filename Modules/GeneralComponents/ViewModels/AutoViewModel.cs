@@ -12,7 +12,7 @@ namespace GeneralComponents.ViewModels
         readonly IRegionManager _regionManager;
         public AutoViewModel(IRegionManager regionManager)
         {
-            _regionManager = regionManager == null ? throw new NullReferenceException() : regionManager;
+            _regionManager = regionManager ?? throw new NullReferenceException();
             Title = GeneralComponentsStrings.Auto;
 
             regionManager.RequestNavigate(RegionNames.AutoChildRegion, ViewNames.ProgramViewer);

@@ -142,7 +142,7 @@ namespace BottomButtons.ViewModels
             if (state == MachineStateType.Auto)
             {
                 //TODO: загрузить программу и приготовить её к запуску
-                _programLoader.PrepareProgramAsync();
+                //_programLoader.PrepareProgramAsync();
 
             }
             if (_programLoader.IsProgramRunning)
